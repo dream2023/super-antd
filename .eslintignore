@@ -1,0 +1,20 @@
+﻿# dependencies
+node_modules
+# production
+dist
+docs-dist
+/.vscode
+lib
+es
+.umi
+.github
+scripts
+webpack.config.js
+tests
+replaceLib.js
+package.json
+.umirc.ts
+.eslintrc.js
+docs
+scripts
+jest.config.js

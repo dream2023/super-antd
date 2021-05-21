@@ -1,0 +1,15 @@
+import { ProFormText } from '@ant-design/pro-form';
+import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
+import type { PasswordProps } from 'antd/lib/input/Password';
+
+import type { CreateSuperFormItemProps } from '../createSuperFormItem';
+import { createSuperFormItem } from '../createSuperFormItem';
+
+export type SuperPasswordProps = CreateSuperFormItemProps<ProFormItemProps<PasswordProps>>;
+export const SuperPassword = createSuperFormItem<ProFormItemProps<PasswordProps>>(ProFormText.Password, {
+  placeholderPrefix: '请输入',
+  defaultMockRule: '@string',
+});
+SuperPassword.displayName = 'SuperPassword';
+
+export default SuperPassword;

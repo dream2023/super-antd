@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".", // 与 paths 配置一起使用，例如 baseUrl 为 `.` paths 为 `["@/*": ["src/*"]]` 则表示 './src/*'
+    "rootDir": ".", //
+    "jsx": "react", // 如果是 preserve 则无 react 引入，编辑器也不报错，如果为 react 则必须在文件顶部引入 React
+    "strict": true, // 严格模式
+    "allowJs": false, // 当为 false 时，不允许引入 .js 文件
+    "target": "esnext", // 用于指定编译之后的版本
+    "module": "esnext", // 用来指定要使用的模板标准
+    "noUnusedLocals": true, // 检查未使用的局部变量
+    "removeComments": true, // 是否移除注释
+    "declaration": true, // 生成声明文件
+    "skipLibCheck": true, // 跳过 node_modules 中的声明文件检查
+    "importHelpers": true, // 通过 tslib 引入 helper 函数，而不是内置到文件中，有利于减少代码体积
+    "esModuleInterop": true, // 通过导入内容创建命名空间，实现 CommonJS 和 ES 模块之间的互操作性
+    // "isolatedModules": true, // 指定是否将每个文件作为单独的模块，默认为 true，他不可以和 declaration 同时设定
+    "resolveJsonModule": true, // 解析 json
+    "moduleResolution": "node", // 按照 node 的规则去找文件
+    "noImplicitReturns": true, // 函数内每个分支都要有返回值，不能 `return`,而必须 `return undefined`
+    "experimentalDecorators": false, // 装饰器，不需要
+    "importsNotUsedAsValues": "error", // 可以显示的使用 import type 用法
+    "allowSyntheticDefaultImports": true, // 自动引入所有内容到定义
+    "suppressImplicitAnyIndexErrors": true, // 对象类型不能直接使用 obj['foo']，'foo' 必须在 obj 上定义过
+    "forceConsistentCasingInFileNames": true, // 文件名是否区分大小写，引入 foo.ts 和 引入 Foo.ts 不一样
+    "paths": {
+      // 路径映射
+      "super-antd": ["src/index.ts"],
+      "@/*": ["src/*"],
+      "@@/*": ["src/.umi/*"]
+    }
+  },
+  "exclude": ["node_modules", "lib", "es", "dist", "docs-dist"]
+}
