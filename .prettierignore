@@ -1,0 +1,15 @@
+**/*.svg
+**/*.ejs
+**/*.html
+.umi
+.umi-production
+.umi-test
+**/dist
+**/docs-dist
+**/lib
+**/es
+**\__snapshots__\**
+**/node_modules
+.eslintcache
+replaceLib.js
+package.json
