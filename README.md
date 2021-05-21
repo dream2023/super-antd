@@ -46,4 +46,4 @@
 
 如果你觉得项目对自己和公司有用，请跳转到 [gitee](https://gitee.com/dream2023/super-antd#Support) 底部进行打赏，并且可以多留言鼓励作者一下，你的支持就是我更新的动力！
 
-[![reward](./reward.png)](https://gitee.com/dream2023/super-antd#Support)
+[![reward](./reward.png)](https://gitee.com/dream2023/super-antd#support)
