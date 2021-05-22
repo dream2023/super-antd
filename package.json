@@ -102,7 +102,7 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.2",
     "@umijs/fabric": "^2.5.10",
-    "@umijs/test": "^3.0.5",
+    "@umijs/test": "^3.4.22",
     "antd": "^4.14.0",
     "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
