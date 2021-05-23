@@ -102,8 +102,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
   } = props;
 
   // 全局上下文
-  const { mockjs } = useContext(SuperAntdContext)
-
+  const { mockjs, component$ } = useContext(SuperAntdContext)
   // 表单引用
   const [formInstance] = Form.useForm<Values>(form);
 
@@ -169,6 +168,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
 
   // 组件之间通信
   const { refreshTarget, updateTargetData } = useCommunication({
+    component$,
     myName: name,
     updateTargetName: updateName,
     refreshTargetName: refreshName,
