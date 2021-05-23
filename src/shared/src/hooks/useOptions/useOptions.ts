@@ -6,7 +6,7 @@ import { __DOCS_URL__ } from '../../constants';
 import { isArray } from '../../utils';
 import type { ApiType } from '../useAxios';
 import { useAxios } from '../useAxios';
-import { getOptions } from './getOptions';
+import { getOptions } from './util';
 import type { IUseOptions, OptionList } from './types';
 
 export const useOptions = ({
@@ -42,12 +42,12 @@ export const useOptions = ({
   const hasRequested = useRef(false);
   useEffect(() => {
     if (api && !loading && !hidden) {
-      if (hasRequested) {
+      if (!hasRequested.current) {
         run();
+        hasRequested.current = true;
       } else {
         refresh();
       }
-      hasRequested.current = true;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [api, data, hidden]);
