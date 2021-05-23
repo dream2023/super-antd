@@ -4,7 +4,8 @@ import ProForm from '@ant-design/pro-form';
 import type { ProFormProps } from '@ant-design/pro-form';
 import { useCreation, useLocalStorageState, usePersistFn, useThrottleFn } from 'ahooks';
 import { Form, Spin } from 'antd';
-import type { Key } from 'react';
+import type { Key} from 'react';
+import { useContext } from 'react';
 import React, { useState } from 'react';
 import warning from 'tiny-warning';
 
@@ -16,6 +17,8 @@ import { useJump } from '@/shared/src/hooks/useJump';
 import type { SuperFormContextProps } from './context';
 import { SuperFormContext } from './context';
 import { SuperFormDebugger } from './FormDebugger';
+import { SuperAntdContext } from '@/provider';
+
 import type {
   ActionProps,
   FormCommunicationProps,
@@ -97,6 +100,9 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
     // 剩余的表单属性
     ...resetProps
   } = props;
+
+  // 全局上下文
+  const { mockjs } = useContext(SuperAntdContext)
 
   // 表单引用
   const [formInstance] = Form.useForm<Values>(form);
@@ -231,9 +237,14 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
   const initMockRules = useCreation(() => {
     return isPlainObject(mock) ? mock : {};
   }, [mock]);
-  const { hasMockRules, setMock, mockRules } = useMock<Values>(initMockRules, (mockData: Values) => {
-    const data: any = { ...(formInstance.getFieldsValue() || {}), ...mockData };
-    formInstance.setFieldsValue(data);
+
+  const { hasMockRules, setMock, mockRules } = useMock<Values>({
+    Mock: mockjs,
+    initMockRules,
+    onMockCallback: (mockData: Values) => {
+      const data: any = { ...(formInstance.getFieldsValue() || {}), ...mockData };
+      formInstance.setFieldsValue(data);
+    }
   });
 
   // form context 相关

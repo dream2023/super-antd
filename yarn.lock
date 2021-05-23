@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ahooksjs/use-request@^2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npm.taobao.org/@ahooksjs/use-request/download/@ahooksjs/use-request-2.8.4.tgz?cache=0&sync_timestamp=1616144076543&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ahooksjs%2Fuse-request%2Fdownload%2F%40ahooksjs%2Fuse-request-2.8.4.tgz#c404dce2c984f1ce8573e6577582cc9656a71e37"
-  integrity sha1-xATc4smE8c6Fc+ZXdYLMllanHjc=
+"@ahooksjs/use-request@^2.8.6":
+  version "2.8.6"
+  resolved "https://registry.nlark.com/@ahooksjs/use-request/download/@ahooksjs/use-request-2.8.6.tgz?cache=0&sync_timestamp=1620461371963&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40ahooksjs%2Fuse-request%2Fdownload%2F%40ahooksjs%2Fuse-request-2.8.6.tgz#974d4e19c5f8f08c5d0bcfb03bb00a05d0de920b"
+  integrity sha1-l01OGcX48IxdC8+wO7AKBdDekgs=
   dependencies:
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
@@ -4174,12 +4174,12 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ahooks@^2.10.0:
-  version "2.10.0"
-  resolved "https://registry.npm.taobao.org/ahooks/download/ahooks-2.10.0.tgz?cache=0&sync_timestamp=1616154039376&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fahooks%2Fdownload%2Fahooks-2.10.0.tgz#bec2c0b928115afd6d268e67770146988347675c"
-  integrity sha1-vsLAuSgRWv1tJo5ndwFGmINHZ1w=
+ahooks@^2.10.4:
+  version "2.10.4"
+  resolved "https://registry.nlark.com/ahooks/download/ahooks-2.10.4.tgz?cache=0&sync_timestamp=1621224457572&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fahooks%2Fdownload%2Fahooks-2.10.4.tgz#50a71c37c72544997d55686c73cc601adcefe30f"
+  integrity sha1-UKccN8clRJl9VWhsc8xgGtzv4w8=
   dependencies:
-    "@ahooksjs/use-request" "^2.8.4"
+    "@ahooksjs/use-request" "^2.8.6"
     "@types/js-cookie" "^2.2.6"
     dayjs "^1.9.1"
     intersection-observer "^0.7.0"

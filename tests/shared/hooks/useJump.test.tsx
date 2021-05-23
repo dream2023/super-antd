@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import { act, renderHook } from '@testing-library/react-hooks';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter, HashRouter, Route, Switch, useHistory, useLocation } from 'react-router-dom';
 
 import { useJump } from 'super-antd'

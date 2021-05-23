@@ -1,12 +1,10 @@
-import { useCreation, usePersistFn, useReactive } from 'ahooks';
-import { useContext } from 'react';
+import { useCreation, usePersistFn, useReactive, useUpdateLayoutEffect } from 'ahooks';
 import warning from 'tiny-warning';
-
-import { SuperAntdContext } from '@/provider';
 
 import { __DOCS_URL__ } from '../../constants';
 import type { MockRules } from './types';
 import { getMockValues } from './util';
+import type { Mockjs } from 'mockjs';
 
 /**
  * Mock 数据
@@ -14,23 +12,28 @@ import { getMockValues } from './util';
  * @param initMockRules Mock 初始规则，当为 boolean，可以理解为 {}，主要为支持外部的
  * @param onMockCallback 当 mock 时的回调函数
  */
-export function useMock<T = any>(initMockRules: MockRules, onMockCallback?: (data: T) => void) {
-  const context = useContext(SuperAntdContext);
+interface IUseMockOptions<T> {
+  initMockRules: MockRules;
+  onMockCallback: (data: T) => void;
+  Mock?: Mockjs
+}
+
+export function useMock<T = any>(options: IUseMockOptions<T>) {
+  const { Mock, initMockRules, onMockCallback } = options
   const mockRules = useReactive<MockRules>(initMockRules);
 
-  // // 当 initMockRules 发生变化时，需要更新 mockRules
-  // useEffect(() => {
-  //   Object.assign(mockRules, initMockRules);
-  // }, [initMockRules]);
+  // 当 initMockRules 发生变化时，需要更新 mockRules
+  useUpdateLayoutEffect(() => {
+    Object.assign(mockRules, initMockRules)
+  }, [initMockRules, mockRules]);
 
   // 是否有 MockRules
   const hasMockRules = useCreation(() => {
-    return Object.keys(mockRules).length > 0;
-  }, [Object.keys(mockRules)]);
+    return Object.keys(mockRules).length > 0
+  }, [Object.keys(mockRules)])
 
   // 回调函数
   const setMock = usePersistFn(() => {
-    const Mock = context.mockjs;
     // 参数校检
     if (!Mock) {
       warning(
@@ -40,10 +43,7 @@ export function useMock<T = any>(initMockRules: MockRules, onMockCallback?: (dat
       return;
     }
 
-    // 如果有回调函数，就执行
-    if (onMockCallback) {
-      onMockCallback(getMockValues(Mock, mockRules));
-    }
+    onMockCallback(getMockValues<T>(Mock, mockRules));
   });
 
   return {
