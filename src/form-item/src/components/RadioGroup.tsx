@@ -9,8 +9,8 @@ import { createSuperFormItemWithOptions } from '../createSuperFormItem';
 
 export type SuperRadioGroupProps = CreateSuperFormItemProps<ProFormRadioGroupProps>;
 export const SuperRadioGroup = createSuperFormItemWithOptions<ProFormRadioGroupProps>(ProFormRadio.Group, {
-  defaultMockRule: (props: ProFormRadioGroupProps) => {
-    return (Mock: Mockjs) => mockRadio(Mock, props.options || []);
+  defaultMockRule: (props: Omit<ProFormRadioGroupProps, 'options'> & { options?: {label: string, value: any}[] }) => {
+    return (Mock: Mockjs) => mockRadio(Mock, props.options);
   },
 });
 SuperRadioGroup.displayName = 'SuperRadioGroup';

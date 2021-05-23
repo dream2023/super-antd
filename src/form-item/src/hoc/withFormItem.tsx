@@ -8,14 +8,11 @@ import { SuperFormContext } from '@/form';
 import { SuperAntdContext } from '@/provider';
 import { castToArray, get, getCol, isString, isUndefined, omit, set } from '@/shared';
 
-import { useFormMock } from '../hooks/useFormMock';
 import { getColon, getLabel, getLinkageValue, getName, getOppositionValue, getPlaceholder } from '../utils';
 import type { WithFormItemProps } from './withFormItemTypes';
 import { omitWithFormItemKeys } from './withFormItemTypes';
 
 export interface WithFormItemConfigType {
-  /** Mock 规则 */
-  defaultMockRule?: any;
   /**
    * 如果有 placeholder 属性时，前缀
    *
@@ -28,13 +25,12 @@ export interface WithFormItemConfigType {
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function withFormItem<P extends object>(FormItemComponent: ComponentType<P>, config: WithFormItemConfigType) {
-  const { defaultMockRule, placeholderPrefix, needData } = config;
+  const { placeholderPrefix, needData } = config;
   const EnhancedFormComponent: FC<WithFormItemProps<P>> = (props) => {
     const {
       name,
       form,
       data,
-      mock,
       help,
       colon,
       label,
@@ -187,16 +183,6 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
       linkageReadonly,
       nameStr,
     ]);
-
-    // mock 数据相关
-    useFormMock({
-      mock,
-      formContext,
-      disabledMock: !!(linkageReadonly || linkageHidden || linkageDisabled),
-      name: nameStr,
-      defaultMockRule,
-      props,
-    });
 
     // 远程错误信息展示
     const errorProps = useCreation(() => {

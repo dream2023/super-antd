@@ -38,19 +38,23 @@ export function useFormMock({ name, mock, disabledMock, defaultMockRule, formCon
   // 自身规则
   const selfMockRule = useCreation(() => {
     return mock && !isBoolean(mock) ? mock : undefined;
-  }, []);
+  }, [mock]);
 
   // 获取 mockRule
   const mockRule = useCreation(() => {
     // 如果自身规则存在，则返回自身规则
-    if (selfMockRule) return getMockRule(selfMockRule, props);
-    // form 级别的
-    if (formContext.mockRules && name && formContext.mockRules[name]) return formContext.mockRules[name];
-    // 否则返回默认规则
-    if (defaultMockRule) return getMockRule(defaultMockRule, props);
+    if (selfMockRule) {
+      // 自身
+      return getMockRule(selfMockRule, props)
+    }
 
-    return undefined;
-  }, [props, mock, defaultMockRule, formContext]);
+    if (defaultMockRule) {
+      // 否则返回默认规则
+      return getMockRule(defaultMockRule, props)
+    }
+
+    return undefined
+  }, [Object.values(props), mock, defaultMockRule, formContext]);
 
   useEffect(() => {
     if (isMock) {

@@ -10,11 +10,12 @@ import { createSuperFormItemWithOptions } from '../createSuperFormItem';
 export type SuperSelectProps = CreateSuperFormItemWithOptionsProps<ProFormSelectProps>;
 export const SuperSelect = createSuperFormItemWithOptions<ProFormSelectProps>(ProFormSelect, {
   placeholderPrefix: '请选择',
-  defaultMockRule: (props: ProFormSelectProps) => {
-    return (Mock: Mockjs) =>
-      props.fieldProps?.mode === 'multiple' || props.fieldProps?.mode === 'tags'
-        ? mockCheckbox(Mock, props.options || [])
-        : mockRadio(Mock, props.options || []);
+  defaultMockRule: (props: Omit<ProFormSelectProps, 'options'> & { options?: {label: string, value: any}[] }) => {
+    return (Mock: Mockjs) => {
+      return props.fieldProps?.mode === 'multiple' || props.fieldProps?.mode === 'tags'
+        ? mockCheckbox(Mock, props.options)
+        : mockRadio(Mock, props.options);
+    }
   },
 });
 

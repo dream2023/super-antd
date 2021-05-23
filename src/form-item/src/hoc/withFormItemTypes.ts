@@ -38,8 +38,6 @@ export interface NewWithFormItemProps {
   clearValueAfterDisabled?: boolean;
   /** 当表单项只读以后，是否清除其值。 */
   clearValueAfterReadonly?: boolean;
-  /** Mock 数据 */
-  mock?: any;
   /** 是否隐藏 label。当我们想要保留 label 作为校检的名称，又不想显示 label 时，可以将其设置为 true。 */
   hideLabel?: boolean;
 }
@@ -67,7 +65,6 @@ export type OmitWithFormItemProps = InjectedWithFormItemProps & OverwriteWithFor
 export const omitWithFormItemKeys: Record<keyof OmitWithFormItemProps, any> = {
   data: '',
   form: '',
-  mock: '',
   active: '',
   visible: '',
   activeOn: '',
