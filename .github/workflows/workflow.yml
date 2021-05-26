@@ -11,15 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn
-      # - run: yarn test:coverage
-      # - name: Upload coverage to Codecov
-      #   uses: codecov/codecov-action@v1
-      #   with:
-      #     files: ./coverage/clover.xml
-      #     directory: ./coverage/lcov-report/
-      #     name: codecov-umbrella
-      #     fail_ci_if_error: true
-      #     verbose: true
+      - run: yarn test:coverage
+      - name: Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
       - run: yarn docs:build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
