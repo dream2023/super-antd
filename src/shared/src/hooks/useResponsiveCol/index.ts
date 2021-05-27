@@ -77,8 +77,8 @@ export const useResponsiveCol = ({
 
   // 获取响应式的 LabelCol
   const responsiveLabelCol = useCreation(() => {
+    if (hideLabel) return { span: 0 };
     if (labelCol) return getCol(labelCol);
-    if (hideLabel && labelCol === undefined) return { span: 0 };
     return point ? { span: labelAndWrapperCol[point].labelCol } : undefined;
   }, [point, labelCol, hideLabel]);
 
