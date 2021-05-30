@@ -44,7 +44,7 @@ export function nextTick(fn: () => void) {
 
 // 空函数
 export type NoopType = () => void;
-export const NOOP: NoopType = () => { };
+export const noop: NoopType = () => { };
 
 export const toPathArr = (path: Key | Key[]) =>
   isArray(path)

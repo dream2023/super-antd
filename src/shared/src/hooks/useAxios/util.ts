@@ -17,21 +17,21 @@ import type {
  * 将任意类型转为对象
  *
  * @example
- *   castToObj(null); //=> {}
- *   castToObj({ name: '123' }, 'data', true); // => {data: {name: '123'}}
- *   castToObj({ name: '123' }, 'data'); // { name: '123' }
+ *   castToObj('foo', null); //=> {}
+ *   castToObj('foo', 123); // { foo: 123 }
+ *   castToObj('foo', { name: 'a' }); // { name: 'a' }
  *
  * @param val 要转化的值
  * @param key 要转化值的 key
- * @param forceSetKey 当为对象时，是否强制设置 key
  */
-export function castToObj(val?: any, key?: string, forceSetKey?: boolean) {
+export function castToObj(key: string, val?: any): Record<any, any> {
   if (isNil(val)) return {};
-  if (val instanceof Object) return key && forceSetKey ? { [key]: val } : val;
-  return { [key || val]: val };
+  if (typeof val === 'object') return val;
+  return { [key]: val };
 }
 
-export function changeObjToUndefined(obj?: Record<Key, any>) {
+// 将对象的值转为 undefined
+export function changeObjValueToUndefined(obj?: Record<Key, any>) {
   if (!obj) return {};
   return Object.keys(obj).reduce((acc: Record<Key, any>, key) => {
     acc[key] = undefined;
@@ -46,17 +46,26 @@ interface FormatResultOptions {
   currentData?: Record<Key, any>;
 }
 export function processFormatResult<T = any>({ api, currentData = {}, delimiters }: FormatResultOptions) {
-  return (response: T) => {
+  return (response?: T) => {
+    // 当 api 为函数类型时，则确定没有 responseSchema，则直接返回
     if (isFunction(api)) return response;
-    const { response: responseSchema, replaceData } = castToObj(api, 'url');
+
+    // 当 api 为其他类型，转为对象
+    const { response: responseSchema, replaceData } = castToObj('url', api);
     let data = response;
+
+    // 如果 response 为对象，则需要替换数据
     if (isPlainObject(response) && replaceData) {
-      const changedCurrentData =
-        replaceData && isPlainObject(response) ? changeObjToUndefined(currentData) : currentData;
+      // 当原来对象的值都要转为 undefined
+      const changedCurrentData = changeObjValueToUndefined(currentData)
+      // 融合两者
       data = { ...changedCurrentData, ...response };
     }
 
-    return responseSchema ? getSchemaData({ schema: responseSchema, data, delimiters, defaultValue: 'data' }) : data;
+    if (responseSchema) {
+      return getSchemaData({ schema: responseSchema, data: isNil(data) ? {} : data, delimiters, defaultValue: 'data' })
+    }
+    return data;
   };
 }
 
@@ -103,14 +112,14 @@ export function processSuccess({ onSuccessNotify, message, onSuccess }: SuccessO
 /** 获取 axios 配置 主要功能是转化 data 和 params */
 interface GetAxiosOptions {
   api?: ApiType;
-  contextData: Record<Key, any>;
-  data: Record<Key, any>;
-  params: Record<Key, any>;
+  contextData?: Record<Key, any>;
+  data?: Record<Key, any>;
+  params?: Record<Key, any>;
   delimiters?: [string, string];
 }
 
-export function getAxiosOptions({ api, contextData, data, params, delimiters }: GetAxiosOptions) {
-  const axiosApi = castToObj(api, 'url');
+export function getAxiosOptions({ api, contextData = {}, data = {}, params = {}, delimiters }: GetAxiosOptions) {
+  const axiosApi = castToObj('url', api);
   const {
     url,
     data: dataSchema,
@@ -149,20 +158,25 @@ interface ServiceFnOptions {
 
 export function serviceFn({
   api,
-  contextData = {},
-  defaultData = {},
-  defaultParams = {},
+  contextData,
+  defaultData,
+  defaultParams,
   delimiters,
 }: ServiceFnOptions) {
-  return (data: Record<Key, any> = {}, params: Record<Key, any> = {}, others: Record<Key, any> = {}) => {
+  return (data?: Record<Key, any>, params?: Record<Key, any>, others?: Record<Key, any>) => {
+    // 因为 data 和 defaultData 可能为空，所以使用 Object.assign，用解构需要判空
+    const dataOption = Object.assign({}, defaultData, data)
+    const paramOption = Object.assign({}, defaultParams, params)
+    const contextOption = Object.assign({}, contextData, others)
+
     if (isFunction(api)) {
-      return api(data, params, { contextData, ...others });
+      return Promise.resolve(api(dataOption, paramOption, contextOption));
     }
     return getAxiosOptions({
       api,
-      contextData: { ...contextData, ...others },
-      data: { ...defaultData, ...data },
-      params: { ...defaultParams, ...params },
+      data: dataOption,
+      params: Object.assign({}, defaultParams, params),
+      contextData: paramOption,
       delimiters,
     });
   };

@@ -21,7 +21,7 @@ export type ApiFunction = (
   data: Record<Key, any>,
   params: Record<Key, any>,
   contextData: Record<Key, any>,
-) => Promise<any>;
+) => any;
 export type ApiType = string | SuperAxiosRequestConfig | ApiFunction;
 
 // 请求信息
