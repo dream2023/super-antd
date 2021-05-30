@@ -170,7 +170,15 @@ export function serviceFn({
     const contextOption = Object.assign({}, contextData, others)
 
     if (isFunction(api)) {
-      return Promise.resolve(api(dataOption, paramOption, contextOption));
+      const res = api(dataOption, paramOption, contextOption)
+      if (res instanceof Promise) return res
+
+      // 符合 useRequest 返回值
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(res)
+        });
+      })
     }
     return getAxiosOptions({
       api,
