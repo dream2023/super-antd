@@ -53,7 +53,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
 
     // 持久化
     persistData,
-    clearPersistDataAfterSubmit = true,
+    clearPersistDataAfterSubmit,
 
     // 提交后的行为
     redirect,
@@ -242,7 +242,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
     Mock: mockjs,
     initMockRules,
     onMockCallback: (mockData: Values) => {
-      const data: any = { ...(formInstance.getFieldsValue() || {}), ...mockData };
+      const data: any = { ...formInstance.getFieldsValue(), ...mockData };
       formInstance.setFieldsValue(data);
     }
   });
@@ -279,7 +279,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
 
   // 提交数据
   const handleFinish = usePersistFn(async (values: any) => {
-    const data = preserveRemoteData ? { ...(remoteInitData || {}), ...values } : values;
+    const data = preserveRemoteData && isPlainObject(remoteInitData) ? { ...remoteInitData, ...values } : values;
 
     if (onFinish) {
       onFinish(data);
@@ -323,7 +323,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
       ) : undefined;
 
     if (btns?.render) {
-      return btns.render(formInstance.getFieldsValue(), doms);
+      return btns.render({ ...initialValuesWithStorage, ...formInstance.getFieldsValue() }, doms);
     }
     return doms;
   }, [hasMockRules, disabled, readonly, btns]);

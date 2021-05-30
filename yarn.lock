@@ -2617,10 +2617,10 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
 
-"@testing-library/user-event@^13.0.16":
-  version "13.0.16"
-  resolved "https://registry.npm.taobao.org/@testing-library/user-event/download/@testing-library/user-event-13.0.16.tgz#c027a9656f1984cf05f9c94c8f7168c06e85792c"
-  integrity sha1-wCepZW8ZhM8F+clMj3FowG6FeSw=
+"@testing-library/user-event@^13.1.9":
+  version "13.1.9"
+  resolved "https://registry.nlark.com/@testing-library/user-event/download/@testing-library/user-event-13.1.9.tgz#29e49a42659ac3c1023565ff56819e0153a82e99"
+  integrity sha1-KeSaQmWaw8ECNWX/VoGeAVOoLpk=
   dependencies:
     "@babel/runtime" "^7.12.5"
 

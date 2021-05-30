@@ -4,7 +4,6 @@ import type { ComponentType, FC} from 'react';
 import { useContext } from 'react';
 import React from 'react';
 
-import type { OptionsType } from '@/shared';
 import { castToArray } from '@/shared';
 import { useFormMock } from '../hooks/useFormMock';
 import type { SuperFormContextProps } from '@/form';

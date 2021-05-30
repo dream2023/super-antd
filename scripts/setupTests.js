@@ -2,10 +2,6 @@ import '@testing-library/jest-dom';
 
 import { cleanup } from '@testing-library/react';
 
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useLayoutEffect: jest.requireActual('react').useEffect,
-}));
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
     global.window.innerWidth = width || global.window.innerWidth;

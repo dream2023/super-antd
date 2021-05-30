@@ -19,8 +19,8 @@ export function createSuperFormItem<T extends Record<Key, any>>(
   config: WithFormItemConfigType & WithMockConfigType,
 ) {
   const ComponentWithMock = withMock<T>(Component, config);
-  const ComponentWithFormItem = withFormItem<T>(ComponentWithMock, config);
-  const ComponentWithDependency = withDependency<WithFormItemProps<T>>(ComponentWithFormItem);
+  const ComponentWithFormItem = withFormItem<WithMockProps<T>>(ComponentWithMock, config);
+  const ComponentWithDependency = withDependency<WithFormItemProps<WithMockProps<T>>>(ComponentWithFormItem);
 
   return ComponentWithDependency;
 }
@@ -34,15 +34,15 @@ export function createSuperFormItemWithOptions<T extends Record<Key, any>>(
   config: WithFormItemConfigType & WithOptionsConfigType & WithMockConfigType = {},
 ) {
   const ComponentWithMock = withMock<T>(Component, config);
-  const ComponentWithOptions = withOptions<T>(ComponentWithMock, {
+  const ComponentWithOptions = withOptions<WithMockProps<T>>(ComponentWithMock, {
     hasLoadingProp: config.hasLoadingProp,
     needData: config.needData,
   });
-  const ComponentWithFormItem = withFormItem<WithOptionsProps<T>>(ComponentWithOptions, {
+  const ComponentWithFormItem = withFormItem<WithOptionsProps<WithMockProps<T>>>(ComponentWithOptions, {
     ...config,
     needData: true,
   });
-  const ComponentWithDependency = withDependency<WithFormItemProps<WithOptionsProps<T>>>(ComponentWithFormItem);
+  const ComponentWithDependency = withDependency<WithFormItemProps<WithOptionsProps<WithMockProps<T>>>>(ComponentWithFormItem);
 
   return ComponentWithDependency;
 }
