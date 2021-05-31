@@ -1,18 +1,9 @@
-
 <h1 align="center">super-antd</h1>
 <div align="center">
 
-[![Codecov](https://img.shields.io/codecov/c/github/dream2023/super-antd?token=BKaeenZ4wi)](https://codecov.io/gh/dream2023/super-antd)
-[![GitHub Discussions](https://img.shields.io/github/discussions/dream2023/super-antd?label=吐槽/讨论)](https://github.com/dream2023/super-antd/discussions)
-[![文档](https://img.shields.io/static/v1?label=Docs&message=文档&color=blue)](https://dream2023.github.io/super-antd)
-[![GitHub Repo stars](https://img.shields.io/github/stars/dream2023/super-antd)](https://github.com/dream2023/super-antd)
-[![star](https://gitee.com/dream2023/super-antd/badge/star.svg?theme=dark)](https://gitee.com/dream2023/super-antd)
+[![Codecov](https://img.shields.io/codecov/c/github/dream2023/super-antd?token=BKaeenZ4wi)](https://codecov.io/gh/dream2023/super-antd) [![GitHub Discussions](https://img.shields.io/github/discussions/dream2023/super-antd?label=吐槽/讨论)](https://github.com/dream2023/super-antd/discussions) [![文档](https://img.shields.io/static/v1?label=Docs&message=文档&color=blue)](https://dream2023.github.io/super-antd) [![GitHub Repo stars](https://img.shields.io/github/stars/dream2023/super-antd)](https://github.com/dream2023/super-antd) [![star](https://gitee.com/dream2023/super-antd/badge/star.svg?theme=dark)](https://gitee.com/dream2023/super-antd)
 
-[![npm](https://img.shields.io/npm/v/super-antd)](https://www.npmjs.com/package/super-antd)
-[![npm](https://img.shields.io/npm/dt/super-antd)](https://www.npmjs.com/package/super-antd)
-[![David](https://img.shields.io/david/dream2023/super-antd)](https://github.com/dream2023/super-antd)
-[![GitHub top language](https://img.shields.io/github/languages/top/dream2023/super-antd)](https://github.com/dream2023/super-antd)
-[![github pages](https://github.com/dream2023/super-antd/actions/workflows/workflow.yml/badge.svg)](https://github.com/dream2023/super-antd/actions/workflows/workflow.yml)
+[![npm](https://img.shields.io/npm/v/super-antd)](https://www.npmjs.com/package/super-antd) [![npm](https://img.shields.io/npm/dt/super-antd)](https://www.npmjs.com/package/super-antd) [![David](https://img.shields.io/david/dream2023/super-antd)](https://github.com/dream2023/super-antd) [![GitHub top language](https://img.shields.io/github/languages/top/dream2023/super-antd)](https://github.com/dream2023/super-antd) [![github pages](https://github.com/dream2023/super-antd/actions/workflows/workflow.yml/badge.svg)](https://github.com/dream2023/super-antd/actions/workflows/workflow.yml)
 
 </div>
 
@@ -44,7 +35,7 @@
 
 ## 🎯 Roadmap
 
-- [x] 0.1 alpha 版
+- [x] 1.0 alpha 版
   - [x] [数据模板](https://dream2023.github.io/super-antd/guide/concept/template)
   - [x] [数据联动](https://dream2023.github.io/super-antd/guide/concept/linkage)
   - [x] [数据请求](https://dream2023.github.io/super-antd/guide/concept/api)
@@ -52,13 +43,17 @@
   - [x] [表单组件](https://dream2023.github.io/super-antd/components/form)
   - [x] [表单项组件](https://dream2023.github.io/super-antd/components/form/form-item)
   - [x] [内置表单组件](https://dream2023.github.io/super-antd/components/form/form-components)
-- [ ] 0.1 正式版：测试覆盖率 80% 以上、完成 100% 文档、0️⃣ issue
-- [ ] 0.2 版：增加各种扩展的表单组件（富文本组件、地图组件、上传组件、代码编辑器组件...），覆盖 95% 表单组件场景
-- [ ] 0.3 版：增加各种与表单关联的组件（Dialog 弹窗组件、Tabs 选项卡组件...）
-- [ ] 0.4 版：Table 表格组件、Table + Form 组件
-- [ ] 0.5 版：Page 组件
-- [ ] 0.6 版：图标类组件
-- [ ] ...
+- [ ] 1.0 正式版
+  - [ ] 测试覆盖率 80% 以上
+  - [ ] 完成 100% 文档
+  - [ ] 0️⃣ issue
+- [ ] 2.0 版
+  - [ ] 模板组件
+  - [ ] 富文本组件
+  - [ ] 上传图片组件
+  - [ ] 上传视频组件
+  - [ ] 代码编辑器组件
+  - [ ] ...
 
 更详细规划请见 [https://github.com/dream2023/super-antd/projects](https://github.com/dream2023/super-antd/projects)。
 

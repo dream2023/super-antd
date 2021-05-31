@@ -85,7 +85,7 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
 
     // 获取 colon
     const computedColon = useCreation(() => {
-      return getColon(layout, label, colon, hideLabel, formHideLabel);
+      return getColon({ layout, label, colon, hideLabel, formHideLabel });
     }, [label, colon, hideLabel, formHideLabel]);
 
     // 名称，从 'info.name' => ['info', 'name']
@@ -95,34 +95,34 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
 
     // 获取 label
     const componentLabel = useCreation(() => {
-      const res = getLabel(layout, label, colon, hideLabel, formHideLabel);
+      const res = getLabel({ layout, label, colon, hideLabel, formHideLabel });
       return isString(res) ? compilerStr(res, { data }, delimiters) : res;
     }, [layout, label, colon, hideLabel, formHideLabel, delimiters, data]);
 
     // 联动必填
     const linkageRequired = useCreation(() => {
       // data, required, requiredOn, delimiters
-      return getLinkageValue({ data, defaultValue: required, linkageFn: requiredOn, delimiters }); // 是否必填
+      return getLinkageValue({ data, value: required, linkageFn: requiredOn, delimiters }); // 是否必填
     }, [data, required, requiredOn, delimiters]);
 
     // 联动只读
     const linkageReadonly = useCreation(() => {
-      const isReadonly = getLinkageValue({ data, defaultValue: readonly, linkageFn: readonlyOn, delimiters }); // 是否只读
+      const isReadonly = getLinkageValue({ data, value: readonly, linkageFn: readonlyOn, delimiters }); // 是否只读
       // 本身只读或者全局只读都是返回 true
       return isReadonly || formContext.readonly;
     }, [data, readonly, readonlyOn, delimiters, formContext.readonly]);
 
     // 联动隐藏
     const linkageHidden = useCreation(() => {
-      const isVisible = getLinkageValue({ data, defaultValue: visible, linkageFn: visibleOn, delimiters }); // 是否显示
+      const isVisible = getLinkageValue({ data, value: visible, linkageFn: visibleOn, delimiters }); // 是否显示
       const isHidden = getLinkageValue({ data, linkageFn: hiddenOn, delimiters }); // 是否隐藏
       return getOppositionValue(isHidden, isVisible);
     }, [data, visible, visibleOn, hiddenOn, delimiters]);
 
     // 联动禁用
     const linkageDisabled = useCreation(() => {
-      const isActive = getLinkageValue({ data, defaultValue: active, linkageFn: activeOn, delimiters }); // 是否启用
-      const isDisabled = getLinkageValue({ data, defaultValue: disabled, linkageFn: disabledOn, delimiters }); // 是否禁用
+      const isActive = getLinkageValue({ data, value: active, linkageFn: activeOn, delimiters }); // 是否启用
+      const isDisabled = getLinkageValue({ data, value: disabled, linkageFn: disabledOn, delimiters }); // 是否禁用
       return getOppositionValue(isDisabled, isActive) || formContext.disabled;
     }, [data, active, activeOn, disabled, disabledOn, delimiters]);
 

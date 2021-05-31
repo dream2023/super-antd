@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { isArray, isBoolean, isDate, isNumber, isString } from './utils/is';
+import { isArray, isBoolean, isNumber, isString } from './utils/is';
 
 // 转为 json 字符串
 export const json = (data: any, tabSize?: number) => {
