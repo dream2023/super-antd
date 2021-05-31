@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "super-antd",
-  "description": "super-antd 是一个基于 ant design 和 pro-components 的数据驱动友好、易用且强大的 UI 库。",
+  "description": "super-antd 是一个简单且数据驱动友好的 React 组件库。",
   "license": "MIT",
   "version": "0.0.1-alpha",
   "author": {

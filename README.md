@@ -7,7 +7,9 @@
 
 </div>
 
-`super-antd` 是一个基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 的数据驱动友好、易用且强大的 UI 库。
+`super-antd` 是一个简单且数据驱动友好的 React 组件库。
+
+它基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 。
 
 ## 📖 Document
 
@@ -15,8 +17,8 @@
 
 ## ✨ Feature
 
-- 数据驱动友好：通过在组件层级解决动态渲染、通信、联动等难题；
-- 简单、易用：通过对业务场景的提炼，进行大量业务场景的封装；
+- 简单：通过对大量业务场景的提炼和抽象，使得其十分简单；
+- 数据驱动友好：在组件层级解决了动态渲染、通信、联动等难题；
 - 稳定：Typescript 编写 + 高测试覆盖率；
 
 ## 🤔 Why？
@@ -65,7 +67,7 @@
 | --- | --- | --- |
 | react-schema-render | ![react-schema-render](https://img.shields.io/npm/v/react-schema-render?style=flat-square) | 通用型 schema 转 React 组件的工具组件 |
 | @dream2023/data-mapping | ![@dream2023/data-mapping](https://img.shields.io/npm/v/@dream2023/data-mapping?style=flat-square) | 数据模板映射方案 |
-| super-antd | ![super-antd](https://img.shields.io/npm/v/super-antd?style=flat-square) | 数据驱动友好、易用且强大的 UI 库 |
+| super-antd | ![super-antd](https://img.shields.io/npm/v/super-antd?style=flat-square) | 简单且数据驱动友好的 React 组件库 |
 
 此外至少还有以下系统待开发：
 

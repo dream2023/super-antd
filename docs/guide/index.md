@@ -13,7 +13,9 @@ nav:
 
 ## 什么 super-antd？
 
-`super-antd` 是一个基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 的数据驱动友好、易用且强大的 UI 库。
+`super-antd` 是一个简单且数据驱动友好的 React 组件库。
+
+它基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 。
 
 ## 如何做到简单、易用且强大？
 

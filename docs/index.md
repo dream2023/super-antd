@@ -2,7 +2,7 @@
 title: super-antd | 一个简单、易用且强大的 ant design 增强库。
 hero:
   title: super-antd
-  desc: super-antd 是一个数据驱动友好、易用且强大的 UI 库。
+  desc: super-antd 是一个简单且数据驱动友好的 React 组件库。
   actions:
     - text: (*^▽^*) 快速开始
       link: /guide/getting-started
