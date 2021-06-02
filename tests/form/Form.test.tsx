@@ -554,7 +554,6 @@ describe('SuperForm 表单', () => {
             cancelBtn: true,
             extraBtns: [<Button key="test">测试</Button>]
           }}
-          mock={{ username: '@string' }}
         >
           <SuperInput name="username" label="姓名"></SuperInput>
           <SuperInput name="password" label="密码"></SuperInput>
@@ -572,9 +571,6 @@ describe('SuperForm 表单', () => {
         'disabled'
       );
       expect(
-        screen.getByRole('button', { name: /Mock 数据/i })
-      ).toHaveAttribute('disabled');
-      expect(
         screen.getByRole('button', { name: /取 消/i })
       ).not.toHaveAttribute('disabled');
       expect(
@@ -591,7 +587,6 @@ describe('SuperForm 表单', () => {
             cancelBtn: true,
             extraBtns: [<Button key="test">测试</Button>]
           }}
-          mock={{ username: '@string' }}
         >
           <SuperInput name="username" label="姓名"></SuperInput>
           <SuperInput name="password" label="密码"></SuperInput>
@@ -607,9 +602,6 @@ describe('SuperForm 表单', () => {
       expect(screen.getByRole('button', { name: /重 置/i })).toHaveAttribute(
         'disabled'
       );
-      expect(
-        screen.getByRole('button', { name: /Mock 数据/i })
-      ).toHaveAttribute('disabled');
       expect(
         screen.getByRole('button', { name: /取 消/i })
       ).not.toHaveAttribute('disabled');

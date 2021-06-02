@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { useCreation, useUnmount } from 'ahooks';
 import type { Key } from 'react';
 import { useEffect } from 'react';
@@ -5,11 +6,11 @@ import { useEffect } from 'react';
 import type { SuperFormContextProps } from '@/form';
 import { isBoolean, isFunction } from '@/shared';
 
-const getMockRule = (mockRule: any, props: Record<Key, any>) => {
+export const getMockRule = (mockRule: any, props: Record<Key, any>) => {
   return isFunction(mockRule) ? mockRule(props) : mockRule;
 };
 
-interface FormMockOptions {
+export interface FormMockOptions {
   name?: string;
   mock?: any;
   disabledMock?: boolean;
@@ -19,21 +20,12 @@ interface FormMockOptions {
 }
 
 export function useFormMock({ name, mock, disabledMock, defaultMockRule, formContext, props }: FormMockOptions) {
-  // 自身是否开启 mock
-  const selfIsMock = useCreation(() => {
-    // 存在
-    return !!mock && !disabledMock;
-  }, [mock]);
-
-  // 表单是否开启 mock
-  const formIsMock = useCreation(() => {
-    return formContext.isMock === true;
-  }, [formContext.isMock]);
-
   // 是否开启 mock
   const isMock = useCreation(() => {
-    return name && (selfIsMock || formIsMock);
-  }, [selfIsMock, formIsMock]);
+    if (!name || disabledMock) return false // 如果 name 不存在，则无 key，所以返回 false
+    if (formContext.isMock) return true // 代表整个表单都开启 Mock
+    return !!mock // 自身 mock 有值，且无 disabled
+  }, [name, mock, disabledMock, formContext.isMock]);
 
   // 自身规则
   const selfMockRule = useCreation(() => {
@@ -57,20 +49,18 @@ export function useFormMock({ name, mock, disabledMock, defaultMockRule, formCon
   }, [Object.values(props), mock, defaultMockRule, formContext]);
 
   useEffect(() => {
+    if (!name) return
     if (isMock) {
-      // eslint-disable-next-line no-param-reassign
-      formContext.mockRules[name!] = mockRule;
+      formContext.mockRules[name] = mockRule;
     } else {
-      // eslint-disable-next-line no-param-reassign
-      delete formContext.mockRules[name!];
+      delete formContext.mockRules[name];
     }
   }, [formContext.mockRules, isMock, mockRule, name]);
 
   // 卸载组件时，需要删除 mock
   useUnmount(() => {
-    if (isMock) {
-      // eslint-disable-next-line no-param-reassign
-      delete formContext.mockRules[name!];
+    if (isMock && name) {
+      delete formContext.mockRules[name];
     }
   });
 }

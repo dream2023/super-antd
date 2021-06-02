@@ -9,7 +9,7 @@ import { useFormMock } from '../hooks/useFormMock';
 import type { SuperFormContextProps } from '@/form';
 import { SuperFormContext } from '@/form';
 
-export type WithMockProps<T> = T & {
+export type WithMockProps<T = any> = T & {
   // 表单项 name
   name?: NamePath;
   // 是否隐藏

@@ -30,7 +30,7 @@ import type {
 } from './types';
 import { getBtns } from './utils';
 
-export interface SuperFormProps<T>
+export interface SuperFormProps<T = any>
   extends Omit<ProFormProps<T>, 'labelCol' | 'wrapperCol' | 'submitter'>,
     ActionProps,
     PersistDataProps,
