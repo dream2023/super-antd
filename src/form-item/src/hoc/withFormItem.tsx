@@ -6,11 +6,13 @@ import React, { useContext, useEffect } from 'react';
 import type { SuperFormContextProps } from '@/form';
 import { SuperFormContext } from '@/form';
 import { SuperAntdContext } from '@/provider';
-import { castToArray, get, getCol, isString, isUndefined, omit, set } from '@/shared';
+import { castToArray, get, getCol, isString, isUndefined, omit } from '@/shared';
 
 import { getColon, getLabel, getLinkageValue, getName, getOppositionValue, getPlaceholder } from '../utils';
 import type { WithFormItemProps } from './withFormItemTypes';
 import { omitWithFormItemKeys } from './withFormItemTypes';
+
+import set from 'lodash.set';
 
 export interface WithFormItemConfigType {
   /**
@@ -24,7 +26,7 @@ export interface WithFormItemConfigType {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export function withFormItem<P extends object>(FormItemComponent: ComponentType<P>, config: WithFormItemConfigType) {
+export function withFormItem<P extends object = any>(FormItemComponent: ComponentType<P>, config: WithFormItemConfigType) {
   const { placeholderPrefix, needData } = config;
   const EnhancedFormComponent: FC<WithFormItemProps<P>> = (props) => {
     const {

@@ -6,10 +6,10 @@ import { useLayoutEffect } from 'react';
 import React from 'react';
 
 import type { OptionsProp, OptionsType } from '@/shared';
-import { set } from '@/shared';
 import { useOptions } from '@/shared';
+import set from 'lodash.set';
 
-export type WithOptionsProps<T> = Omit<T, 'options'> & {
+export type WithOptionsProps<T = any> = Omit<T, 'options'> & {
   form?: FormInstance<any>;
   // 表单属性
   data?: Record<string, any>;
@@ -34,7 +34,7 @@ export interface WithOptionsConfigType {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export function withOptions<P extends object>(Component: ComponentType<P>, config: WithOptionsConfigType) {
+export function withOptions<P extends object = any>(Component: ComponentType<P>, config: WithOptionsConfigType) {
   const ComponentWithOptions: FC<WithOptionsProps<P>> = (props) => {
     const { options, hidden, name, form, optionsProp, data, clearValueAfterOptionsChange, ...resetOptions } = props;
     // 获取到 options

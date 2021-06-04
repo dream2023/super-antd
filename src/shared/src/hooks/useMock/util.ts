@@ -2,9 +2,9 @@ import mapObject from 'map-obj';
 import type { Mockjs } from 'mockjs';
 
 import { isFunction, isString } from '../../utils/is';
-import { set } from '../../utils/set';
 import { toPathArr } from '../../utils/util';
 import type { MockRules } from './types';
+import set from 'lodash.set';
 
 // 获取 Mock 的值
 export function getMockValues<T = any>(Mock: Mockjs, mockRules: MockRules): T {
