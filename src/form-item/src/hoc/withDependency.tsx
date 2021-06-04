@@ -22,25 +22,10 @@ export interface NewDependencyProps {
 }
 
 // 联动所需要的属性
-export type WithDependencyProps<T> = Omit<T, keyof InjectedDependencyProps> & NewDependencyProps;
+export type WithDependencyProps<T = any> = Omit<T, keyof InjectedDependencyProps> & NewDependencyProps;
 
 /**
  * 用于表单项联动的高阶组件
- *
- * @example
- *   // 原始类型
- *   interface FooProps {
- *     test: string;
- *   }
- *
- *   // 原始组件
- *   const Foo: FC<FooProps> = () => <div></div>;
- *
- *   // 增强组件
- *   const SuperFoo = withDependency<FooProps>(Foo);
- *
- *   // 使用
- *   <SuperFoo test="ss"></SuperFoo>;
  *
  * @param FormItemComponent 表单项组件
  */
