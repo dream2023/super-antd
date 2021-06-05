@@ -12,7 +12,7 @@ import type { Mockjs } from 'mockjs';
  * @param initMockRules Mock 初始规则，当为 boolean，可以理解为 {}，主要为支持外部的
  * @param onMockCallback 当 mock 时的回调函数
  */
-interface IUseMockOptions<T> {
+interface IUseMockOptions<T = any> {
   initMockRules: MockRules;
   onMockCallback: (data: T) => void;
   Mock?: Mockjs

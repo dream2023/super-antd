@@ -11,10 +11,10 @@ import { withMock } from './hoc/withMock'
 import type { WithMockProps, WithMockConfigType } from './hoc/withMock'
 
 // 方便别人导出 Props
-export type CreateSuperFormItemProps<T> = WithDependencyProps<WithFormItemProps<WithMockProps<T>>>;
+export type CreateSuperFormItemProps<T = any> = WithDependencyProps<WithFormItemProps<WithMockProps<T>>>;
 
 // 创建 form-item 组件
-export function createSuperFormItem<T extends Record<Key, any>>(
+export function createSuperFormItem<T extends Record<Key, any> = any>(
   Component: ComponentType<T>,
   config: WithFormItemConfigType & WithMockConfigType,
 ) {
@@ -26,10 +26,10 @@ export function createSuperFormItem<T extends Record<Key, any>>(
 }
 
 // 方便别人导出 props
-export type CreateSuperFormItemWithOptionsProps<T> = WithDependencyProps<WithFormItemProps<WithOptionsProps<WithMockProps<T>>>>;
+export type CreateSuperFormItemWithOptionsProps<T = any> = WithDependencyProps<WithFormItemProps<WithOptionsProps<WithMockProps<T>>>>;
 
 // 创建带 options 功能的 form-item
-export function createSuperFormItemWithOptions<T extends Record<Key, any>>(
+export function createSuperFormItemWithOptions<T extends Record<Key, any> = any>(
   Component: ComponentType<T>,
   config: WithFormItemConfigType & WithOptionsConfigType & WithMockConfigType = {},
 ) {

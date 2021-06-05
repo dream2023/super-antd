@@ -56,7 +56,7 @@ export type DefaultFormItemProps<T = any> = Omit<ProFormItemProps<T>, keyof Over
   OverwriteWithFormItemProps & { readonly?: boolean };
 
 // 表单项属性等于 = 默认属性 props + 联动 props + 新 props
-export type WithFormItemProps<P> = P & DefaultFormItemProps<P> & InjectedWithFormItemProps & NewWithFormItemProps;
+export type WithFormItemProps<P = any> = P & DefaultFormItemProps<P> & InjectedWithFormItemProps & NewWithFormItemProps;
 
 // 不能直接传递给 Component 的属性
 export type OmitWithFormItemProps = InjectedWithFormItemProps & OverwriteWithFormItemProps & NewWithFormItemProps;

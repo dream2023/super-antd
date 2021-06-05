@@ -29,7 +29,7 @@ export type WithDependencyProps<T = any> = Omit<T, keyof InjectedDependencyProps
  *
  * @param FormItemComponent 表单项组件
  */
-export function withDependency<P extends InjectedDependencyProps>(FormItemComponent: React.ComponentType<P>) {
+export function withDependency<P extends InjectedDependencyProps = any>(FormItemComponent: React.ComponentType<P>) {
   // 类型中，需要去除内部注入的属性
   const WithDependencyFormItem: FC<WithDependencyProps<P>> = (props) => {
     const { linkageFields } = props;
