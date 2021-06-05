@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`all form-item components 1`] = `
+exports[`all form-item components show all 1`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -2760,7 +2760,7 @@ exports[`all form-item components 1`] = `
 </div>
 `;
 
-exports[`all form-item components 2`] = `
+exports[`all form-item components show all 2`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -5518,7 +5518,7 @@ exports[`all form-item components 2`] = `
 </div>
 `;
 
-exports[`all form-item components 3`] = `
+exports[`all form-item components show all 3`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -7958,7 +7958,7 @@ exports[`all form-item components 3`] = `
 </div>
 `;
 
-exports[`all form-item components 4`] = `
+exports[`all form-item components show all 4`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -10414,7 +10414,7 @@ exports[`all form-item components 4`] = `
 </div>
 `;
 
-exports[`all form-item components 5`] = `
+exports[`all form-item components show all 5`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
