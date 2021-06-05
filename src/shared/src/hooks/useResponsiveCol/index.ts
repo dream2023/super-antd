@@ -1,6 +1,6 @@
 import { useCreation, useSize } from 'ahooks';
 import type { FormLayout } from 'antd/lib/form/Form';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import type { Col } from '../../utils';
 import { getCol } from '../../utils';
@@ -62,7 +62,29 @@ export const useResponsiveCol = ({
 }: ResponsiveColOptions = {}) => {
   const ref = useRef(null);
   const size = useSize(ref);
-  const [point, setPoint] = useState<BreakpointType>();
+
+  // 获取 DOM 的 width
+  const width = useCreation(() => {
+    const { width: domWidth } = size;
+    return domWidth;
+  }, [size]);
+
+  // 跟踪 width 变化，并根据变化计算出当前节点
+  const point = useCreation<BreakpointType | undefined>(() => {
+    if (width) {
+      if (width <= BreakpointWidth.sm) {
+        return (BreakpointName.sm);
+      } if (width <= BreakpointWidth.md) {
+        return (BreakpointName.md);
+      } if (width <= BreakpointWidth.lg) {
+        return (BreakpointName.lg);
+      } if (width <= BreakpointWidth.xl) {
+        return (BreakpointName.xl);
+      }
+      return (BreakpointName.xxl);
+    }
+    return undefined
+  }, [width])
 
   // 判断是否已经开启响应式
   const shouldResponsive = useCreation(() => {
@@ -87,29 +109,6 @@ export const useResponsiveCol = ({
     if (wrapperCol) return getCol(wrapperCol);
     return point ? { span: labelAndWrapperCol[point].wrapperCol } : undefined;
   }, [point, wrapperCol]);
-
-  // 获取 DOM 的 width
-  const width = useCreation(() => {
-    const { width: domWidth } = size;
-    return domWidth;
-  }, [size]);
-
-  // 跟踪 width 变化，并根据变化计算出当前节点
-  useEffect(() => {
-    if (width) {
-      if (width <= BreakpointWidth.sm) {
-        setPoint(BreakpointName.sm);
-      } else if (width <= BreakpointWidth.md) {
-        setPoint(BreakpointName.md);
-      } else if (width <= BreakpointWidth.lg) {
-        setPoint(BreakpointName.lg);
-      } else if (width <= BreakpointWidth.xl) {
-        setPoint(BreakpointName.xl);
-      } else {
-        setPoint(BreakpointName.xxl);
-      }
-    }
-  }, [width]);
 
   return {
     responsiveRef,

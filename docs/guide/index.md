@@ -60,44 +60,24 @@ nav:
 
 ## Roadmap 开发规划
 
-#### 预览版
+- [x] 0.1 alpha 版
+  - [x] [数据模板](https://dream2023.github.io/super-antd/guide/concept/template)
+  - [x] [数据联动](https://dream2023.github.io/super-antd/guide/concept/linkage)
+  - [x] [数据请求](https://dream2023.github.io/super-antd/guide/concept/api)
+  - [x] [schema 动态渲染](https://dream2023.github.io/super-antd/guide/concept/schema)
+  - [x] [表单组件](https://dream2023.github.io/super-antd/components/form)
+  - [x] [表单项组件](https://dream2023.github.io/super-antd/components/form/form-item)
+  - [x] [内置表单组件](https://dream2023.github.io/super-antd/components/form/form-components)
+- [ ] 0.1 正式版
+  - [ ] 测试覆盖率 80% 以上
+  - [ ] 完成 100% 文档
+  - [ ] 0️⃣ issue
+- [ ] 1.0 版
+  - [ ] 模板组件
+  - [ ] 富文本组件
+  - [ ] 上传图片组件
+  - [ ] 上传视频组件
+  - [ ] 代码编辑器组件
+  - [ ] ...
 
-**任务**：
-
-- 1、框架基础；
-- 2、表单和表单项组件；
-
-**目标**：打下框架基础，并且确定开发流程、文档书写规范、测试用例等基础。
-
-**实时任务**：[https://github.com/dream2023/super-antd/projects/1](https://github.com/dream2023/super-antd/projects/1)
-
-#### 0.1 版本（表单基础版）
-
-**任务**：
-
-- 1、框架基础；
-- 2、表单和表单项组件；
-- 3、antd 内置表单组件（select/checkbox/date/radio/number/slider/….）；
-
-**目标**：能够将其已有能力应用到生产环境。
-
-#### 0.2 版(表单增强版)
-
-**任务**：增加各种扩展的表单组件。
-
-**例如**：富文本组件、地图组件、上传组件、代码编辑器组件…
-
-**目标**：覆盖 95% 表单组件场景。
-
-#### 0.3 版(表单关联版)
-
-**任务**：增加各种与表单关联的组件。
-
-**例如**： Dialog 弹窗组件、Tabs 选项卡组件等。
-
-**长远规划**
-
-- 0.4 版：Table 表格组件、Table + Form 组件；
-- 0.5 版：Page 组件；
-- 0.6 版：图标类组件；
-- …
+更详细规划请见 [https://github.com/dream2023/super-antd/projects](https://github.com/dream2023/super-antd/projects)。

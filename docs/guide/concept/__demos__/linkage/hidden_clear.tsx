@@ -4,7 +4,7 @@ import { SuperForm, SuperInput, SuperSelect } from 'super-antd';
 
 const Demo = () => {
   return (
-    <SuperForm>
+    <SuperForm debug>
       <SuperSelect
         name="animation"
         label="动漫"
