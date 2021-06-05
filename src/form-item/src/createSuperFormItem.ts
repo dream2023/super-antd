@@ -16,7 +16,7 @@ export type CreateSuperFormItemProps<T = any> = WithDependencyProps<WithFormItem
 // 创建 form-item 组件
 export function createSuperFormItem<T extends Record<Key, any> = any>(
   Component: ComponentType<T>,
-  config: WithFormItemConfigType & WithMockConfigType,
+  config: WithFormItemConfigType & WithMockConfigType = {},
 ) {
   const ComponentWithMock = withMock<T>(Component, config);
   const ComponentWithFormItem = withFormItem<WithMockProps<T>>(ComponentWithMock, config);
