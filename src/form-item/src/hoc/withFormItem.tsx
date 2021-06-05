@@ -6,7 +6,7 @@ import React, { useContext, useEffect } from 'react';
 import type { SuperFormContextProps } from '@/form';
 import { SuperFormContext } from '@/form';
 import { SuperAntdContext } from '@/provider';
-import { castToArray, get, getCol, isString, isUndefined, omit } from '@/shared';
+import { get, getCol, isString, isUndefined, omit } from '@/shared';
 
 import { getColon, getLabel, getLinkageValue, getName, getOppositionValue, getPlaceholder } from '../utils';
 import type { WithFormItemProps } from './withFormItemTypes';
@@ -38,6 +38,7 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
       label,
       rules,
       active,
+      hidden,
       visible,
       labelCol,
       disabled,
@@ -80,16 +81,6 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
       return getCol(wrapperCol);
     }, [labelCol]);
 
-    // 将 name 转为字符串， ['info', 'name'] => 'info.name'
-    const nameStr = useCreation<string>(() => {
-      return castToArray(name).join('.');
-    }, [name]);
-
-    // 获取 colon
-    const computedColon = useCreation(() => {
-      return getColon({ layout, label, colon, hideLabel, formHideLabel });
-    }, [label, colon, hideLabel, formHideLabel]);
-
     // 名称，从 'info.name' => ['info', 'name']
     const computedName = useCreation(() => {
       return getName(name);
@@ -101,31 +92,35 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
       return isString(res) ? compilerStr(res, { data }, delimiters) : res;
     }, [layout, label, colon, hideLabel, formHideLabel, delimiters, data]);
 
+    // 获取 colon
+    const computedColon = useCreation(() => {
+      return getColon({ layout, label, colon, hideLabel, formHideLabel });
+    }, [label, colon, hideLabel, formHideLabel]);
     // 联动必填
     const linkageRequired = useCreation(() => {
-      // data, required, requiredOn, delimiters
       return getLinkageValue({ data, value: required, linkageFn: requiredOn, delimiters }); // 是否必填
     }, [data, required, requiredOn, delimiters]);
 
     // 联动只读
     const linkageReadonly = useCreation(() => {
-      const isReadonly = getLinkageValue({ data, value: readonly, linkageFn: readonlyOn, delimiters }); // 是否只读
       // 本身只读或者全局只读都是返回 true
-      return isReadonly || formContext.readonly;
+      if (formContext.readonly) return true
+      return getLinkageValue({ data, value: readonly, linkageFn: readonlyOn, delimiters }); // 是否只读
     }, [data, readonly, readonlyOn, delimiters, formContext.readonly]);
 
     // 联动隐藏
     const linkageHidden = useCreation(() => {
       const isVisible = getLinkageValue({ data, value: visible, linkageFn: visibleOn, delimiters }); // 是否显示
-      const isHidden = getLinkageValue({ data, linkageFn: hiddenOn, delimiters }); // 是否隐藏
+      const isHidden = getLinkageValue({ data, value: hidden, linkageFn: hiddenOn, delimiters }); // 是否隐藏
       return getOppositionValue(isHidden, isVisible);
     }, [data, visible, visibleOn, hiddenOn, delimiters]);
 
     // 联动禁用
     const linkageDisabled = useCreation(() => {
+      if (formContext.disabled) return true
       const isActive = getLinkageValue({ data, value: active, linkageFn: activeOn, delimiters }); // 是否启用
       const isDisabled = getLinkageValue({ data, value: disabled, linkageFn: disabledOn, delimiters }); // 是否禁用
-      return getOppositionValue(isDisabled, isActive) || formContext.disabled;
+      return getOppositionValue(isDisabled, isActive);
     }, [data, active, activeOn, disabled, disabledOn, delimiters]);
 
     // 计算后的 placeholder
@@ -149,6 +144,7 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
 
     // 校检（融合必填）
     const computedRules = useCreation(() => {
+      if (isUndefined(linkageRequired)) return rules
       return [...(rules || []), { required: linkageRequired }];
     }, [rules, linkageRequired]);
 
@@ -164,15 +160,16 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
       }
     }, [computedName, form, linkageRequired]);
 
-    // 设置校检
+    // 联动对值的影响
     useEffect(() => {
+      if (!name || isUndefined(get(data, name))) return
       if (
         (linkageReadonly && clearValueAfterReadonly) ||
         (linkageHidden && clearValueAfterHidden) ||
         (linkageDisabled && clearValueAfterDisabled)
       ) {
-        // 如果 nameStr = 'foo.bar' 则 obj = {foo: { bar: undefined }}
-        const obj = set({}, nameStr, undefined);
+        // 如果 name = 'foo.bar' 或者 ['info', 'bar'] => {foo: { bar: undefined }}
+        const obj = set({}, name, undefined);
         form.setFieldsValue(obj);
       }
     }, [
@@ -180,10 +177,11 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
       clearValueAfterHidden,
       clearValueAfterReadonly,
       form,
+      data,
       linkageDisabled,
       linkageHidden,
       linkageReadonly,
-      nameStr,
+      name,
     ]);
 
     // 远程错误信息展示
