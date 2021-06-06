@@ -14,33 +14,33 @@ import {
   withOptions,
 } from 'super-antd';
 
-const Demo: FC<{ options?: OptionsType; loading?: boolean; optionsProp?: object; data?: any }> = (props) => {
-  return <div data-testid="data">{JSON.stringify(props)}</div>;
-};
-
-const App: FC<WithOptionsConfigType & WithOptionsProps> = ({ hasLoadingProp, needData, ...resetProps }) => {
-  const DemoWithOptions = withOptions(Demo, { hasLoadingProp, needData });
-  return (
-    <SuperForm isResponsive={false}>
-      <SuperInput name="a" label="a"></SuperInput>
-      <ProFormDependency name={['a']}>
-        {(data, form) => (
-          // 注入 data 和 form 属性
-          <DemoWithOptions form={form} data={data} {...resetProps}></DemoWithOptions>
-        )}
-      </ProFormDependency>
-    </SuperForm>
-  );
-};
-
-const toBe = (data: any) => expect(screen.getByTestId('data')).toHaveTextContent(JSON.stringify(data));
-
-const resOptions = [
-  { label: 'a', value: 1 },
-  { label: 'b', value: 2 },
-];
-
 describe('withOptions', () => {
+  const Demo: FC<{ options?: OptionsType; loading?: boolean; optionsProp?: object; data?: any }> = (props) => {
+    return <div data-testid="data">{JSON.stringify(props)}</div>;
+  };
+
+  const App: FC<WithOptionsConfigType & WithOptionsProps> = ({ hasLoadingProp, needData, ...resetProps }) => {
+    const DemoWithOptions = withOptions(Demo, { hasLoadingProp, needData });
+    return (
+      <SuperForm isResponsive={false}>
+        <SuperInput name="a" label="a"></SuperInput>
+        <ProFormDependency name={['a']}>
+          {(data, form) => (
+            // 注入 data 和 form 属性
+            <DemoWithOptions form={form} data={data} {...resetProps}></DemoWithOptions>
+          )}
+        </ProFormDependency>
+      </SuperForm>
+    );
+  };
+
+  const toBe = (data: any) => expect(screen.getByTestId('data')).toHaveTextContent(JSON.stringify(data));
+
+  const resOptions = [
+    { label: 'a', value: 1 },
+    { label: 'b', value: 2 },
+  ];
+
   test('正常数组，正常渲染', () => {
     render(<App options={resOptions} />);
     toBe({ options: resOptions });

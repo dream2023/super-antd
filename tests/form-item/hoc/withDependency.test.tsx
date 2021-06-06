@@ -4,23 +4,23 @@ import React, { FC } from 'react';
 
 import { InjectedDependencyProps, SuperForm, SuperInput, WithDependencyProps, withDependency } from 'super-antd';
 
-const Demo: FC<InjectedDependencyProps> = ({ data }) => {
-  return <div data-testid="data">{JSON.stringify(data)}</div>;
-};
-
-const DemoWithDependency = withDependency(Demo);
-
-const App: FC<WithDependencyProps> = ({ linkageFields }) => {
-  return (
-    <SuperForm isResponsive={false}>
-      <SuperInput name="a" label="a"></SuperInput>
-      <SuperInput name="b" label="b"></SuperInput>
-      <DemoWithDependency linkageFields={linkageFields}></DemoWithDependency>
-    </SuperForm>
-  );
-};
-
 describe('withDependency', () => {
+  const Demo: FC<InjectedDependencyProps> = ({ data }) => {
+    return <div data-testid="data">{JSON.stringify(data)}</div>;
+  };
+
+  const DemoWithDependency = withDependency(Demo);
+
+  const App: FC<WithDependencyProps> = ({ linkageFields }) => {
+    return (
+      <SuperForm isResponsive={false}>
+        <SuperInput name="a" label="a"></SuperInput>
+        <SuperInput name="b" label="b"></SuperInput>
+        <DemoWithDependency linkageFields={linkageFields}></DemoWithDependency>
+      </SuperForm>
+    );
+  };
+
   test('linkageFields 存在时，当发生变化时，则应该重新渲染', () => {
     render(<App linkageFields="a" />);
     expect(screen.getByTestId('data')).toHaveTextContent(JSON.stringify({}));

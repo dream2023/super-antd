@@ -4,23 +4,27 @@ import type { FC } from 'react';
 
 import { SuperForm, createSuperFormItem, createSuperFormItemWithOptions } from 'super-antd';
 
-const BaseDemo: FC<any> = (props) => {
-  return <div>{JSON.stringify(props)}</div>;
-};
 
-const Demo1 = createSuperFormItem(BaseDemo);
-const Demo2 = createSuperFormItemWithOptions(BaseDemo);
+describe('createSuperFormItem', () => {
+  const BaseDemo: FC<any> = (props) => {
+    return <div>{JSON.stringify(props)}</div>;
+  };
 
-const App = () => {
-  return (
-    <SuperForm isResponsive={false}>
-      <Demo1 />
-      <Demo2 />
-    </SuperForm>
-  );
-};
+  const Demo1 = createSuperFormItem(BaseDemo);
+  const Demo2 = createSuperFormItemWithOptions(BaseDemo);
 
-test('createSuperFormItem', () => {
-  const warpper = render(<App />);
-  expect(warpper.container).toMatchSnapshot();
-});
+  const App = () => {
+    return (
+      <SuperForm isResponsive={false}>
+        <Demo1 />
+        <Demo2 />
+      </SuperForm>
+    );
+  };
+  test('createSuperFormItem', () => {
+    const warpper = render(<App />);
+    expect(warpper.container).toMatchSnapshot();
+  });
+})
+
+

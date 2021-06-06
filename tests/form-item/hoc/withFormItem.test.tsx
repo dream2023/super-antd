@@ -5,34 +5,33 @@ import React, { FC } from 'react';
 
 import { SuperForm, SuperInput, WithFormItemConfigType, WithFormItemProps, withFormItem } from 'super-antd';
 
-const Demo: FC<any> = (props) => {
-  return <div data-testid="data">{JSON.stringify(props)}</div>;
-};
-
-const App: FC<WithFormItemConfigType & WithFormItemProps> = ({
-  placeholderPrefix,
-  needData,
-  form = {},
-  ...resetProps
-}) => {
-  const DemoWithFormItem = withFormItem(Demo, { placeholderPrefix, needData });
-  return (
-    <SuperForm {...form} initialValues={{ a: '1' }} isResponsive={false}>
-      <SuperInput name="a" label="a"></SuperInput>
-      <ProFormDependency name={['a']}>
-        {(data, form) => <DemoWithFormItem data={data} form={form} {...resetProps} />}
-      </ProFormDependency>
-    </SuperForm>
-  );
-};
-const setUp = (options: WithFormItemConfigType & WithFormItemProps, form?: any) =>
-  render(<App form={form} {...options} />);
-const toBe = (data: any) => {
-  const text = screen.getByTestId('data').textContent;
-  expect(JSON.parse(text || '{}')).toEqual({ label: ' ', colon: false, ...data });
-};
-
 describe('withFormItem', () => {
+  const Demo: FC<any> = (props) => {
+    return <div data-testid="data">{JSON.stringify(props)}</div>;
+  };
+
+  const App: FC<WithFormItemConfigType & WithFormItemProps> = ({
+    placeholderPrefix,
+    needData,
+    form = {},
+    ...resetProps
+  }) => {
+    const DemoWithFormItem = withFormItem(Demo, { placeholderPrefix, needData });
+    return (
+      <SuperForm {...form} initialValues={{ a: '1' }} isResponsive={false}>
+        <SuperInput name="a" label="a"></SuperInput>
+        <ProFormDependency name={['a']}>
+          {(data, form) => <DemoWithFormItem data={data} form={form} {...resetProps} />}
+        </ProFormDependency>
+      </SuperForm>
+    );
+  };
+  const setUp = (options: WithFormItemConfigType & WithFormItemProps, form?: any) =>
+    render(<App form={form} {...options} />);
+  const toBe = (data: any) => {
+    const text = screen.getByTestId('data').textContent;
+    expect(JSON.parse(text || '{}')).toEqual({ label: ' ', colon: false, ...data });
+  };
   test('组件自身的属性需要透传', () => {
     setUp({ foo: 'bar' });
     toBe({ foo: 'bar' });

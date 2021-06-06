@@ -5,14 +5,15 @@ import React, { FC } from 'react';
 
 import { AxiosHooksOptions, SuperProvider, useAxios } from 'super-antd';
 
-const Demo: FC<AxiosHooksOptions> = (props) => {
-  const { loading, data } = useAxios(props);
-  if (loading) return <div data-testid="loading">loading</div>;
-  if (!data) return <div data-testid="empty">empty</div>;
-  return <div data-testid="data">{JSON.stringify(data)}</div>;
-};
 
 describe('useAxios', () => {
+  const Demo: FC<AxiosHooksOptions> = (props) => {
+    const { loading, data } = useAxios(props);
+    if (loading) return <div data-testid="loading">loading</div>;
+    if (!data) return <div data-testid="empty">empty</div>;
+    return <div data-testid="data">{JSON.stringify(data)}</div>;
+  };
+
   test('当 api 存在，且 axios 不存在时，应报警告', () => {
     const warn = jest.fn();
     const originWarn = console.warn;
