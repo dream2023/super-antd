@@ -31,8 +31,6 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
   const EnhancedFormComponent: FC<WithFormItemProps<P>> = (props) => {
     const {
       name,
-      form,
-      data,
       help,
       colon,
       label,
@@ -64,6 +62,8 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
     const { delimiters } = useContext(SuperAntdContext);
     // 表单 context
     const formContext = useContext<SuperFormContextProps>(SuperFormContext);
+    const { form } = formContext
+    const data = form?.getFieldsValue()
     const { layout, autoPlaceholder, hideLabel: formHideLabel, remoteErrors } = formContext;
 
     // 去除掉 SuperFormItem 相关属性，保留原始 FormItemComponent 属性并传递过去
@@ -156,7 +156,7 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
     // 动态必填，参考：https://ant.design/components/form-cn/#components-form-demo-dynamic-rule
     useEffect(() => {
       if (computedName) {
-        form.validateFields([computedName]);
+        form?.validateFields([computedName]);
       }
     }, [computedName, form, linkageRequired]);
 
@@ -170,7 +170,7 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
       ) {
         // 如果 name = 'foo.bar' 或者 ['info', 'bar'] => {foo: { bar: undefined }}
         const obj = set({}, name, undefined);
-        form.setFieldsValue(obj);
+        form?.setFieldsValue(obj);
       }
     }, [
       clearValueAfterDisabled,

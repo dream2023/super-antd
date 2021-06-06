@@ -39,14 +39,16 @@ export function withDependency<P extends InjectedDependencyProps = any>(FormItem
       return castToArray(linkageFields).map((name) => getName(name)!);
     }, [linkageFields]);
 
-    return (
+    return compuntedLinkageFields.length
+      ? (
       <ProFormDependency name={compuntedLinkageFields}>
-        {(data, form) => (
+          {() => (
           // 注入 data 和 form 属性
-          <FormItemComponent {...(props as P)} data={data} form={form} linkageFields={compuntedLinkageFields} />
+            <FormItemComponent {...(props as P)} />
         )}
-      </ProFormDependency>
-    );
+        </ProFormDependency>)
+      : <FormItemComponent {...(props as P)} />
+      ;
   };
 
   return WithDependencyFormItem;

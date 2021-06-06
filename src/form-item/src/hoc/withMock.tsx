@@ -29,7 +29,7 @@ export interface WithMockConfigType {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export function withMock<P extends object = any>(Component: ComponentType<P>, config: WithMockConfigType) {
+export function withMock<P extends object = any>(Component: ComponentType<P>, config: WithMockConfigType = {}) {
   const { defaultMockRule } = config
   const ComponentWithMock: FC<WithMockProps<P>> = (props) => {
     const { hidden, readonly, disabled, mock, name, ...resetOptions } = props;
