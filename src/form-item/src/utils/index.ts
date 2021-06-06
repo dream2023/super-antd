@@ -138,7 +138,7 @@ export function getColon({
   colon?: boolean;
   hideLabel?: boolean;
   formHideLabel?: boolean;
-  }): boolean | undefined {
+}): boolean | undefined {
   return formHideLabel || hideLabel || (label === undefined && colon === undefined && layout !== 'vertical')
     ? false
     : colon;

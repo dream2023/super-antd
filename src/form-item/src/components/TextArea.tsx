@@ -8,7 +8,6 @@ import { createSuperFormItem } from '../createSuperFormItem';
 export type SuperTextAreaProps = CreateSuperFormItemProps<ProFormItemProps<TextAreaProps>>;
 export const SuperTextArea = createSuperFormItem<ProFormItemProps<TextAreaProps>>(ProFormTextArea, {
   placeholderPrefix: '请输入',
-  defaultMockRule: '@sentence',
 });
 SuperTextArea.displayName = 'SuperTextArea';
 

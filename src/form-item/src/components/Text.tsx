@@ -7,27 +7,22 @@ import { createSuperFormItem } from '../createSuperFormItem';
 
 export type SuperTextProps = CreateSuperFormItemProps<ProFormItemProps<InputProps>>;
 
-export const createInput = ({ defaultMockRule }: { defaultMockRule?: any }) =>
+export const createInput = () =>
   createSuperFormItem<ProFormItemProps<InputProps>>(ProFormText, {
-    defaultMockRule,
     placeholderPrefix: '请输入',
   });
 
-const SuperInput = createInput({ defaultMockRule: '@string' });
+const SuperInput = createInput();
 SuperInput.displayName = 'SuperInput';
 
-const SuperEmail = createInput({
-  defaultMockRule: '@email',
-});
+const SuperEmail = createInput();
 
 SuperEmail.displayName = 'SuperEmail';
 SuperEmail.defaultProps = {
   rules: [{ type: 'email' }],
 };
 
-const SuperUrl = createInput({
-  defaultMockRule: '@url',
-});
+const SuperUrl = createInput();
 SuperUrl.displayName = 'SuperUrl';
 SuperUrl.defaultProps = {
   rules: [{ type: 'url' }],

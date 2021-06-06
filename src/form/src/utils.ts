@@ -43,29 +43,14 @@ export function getBtn({ btn, onClick, key, type, htmlType, disabled, defaultTex
   };
 }
 
-interface MockBtnOptions {
-  mockBtn?: string | boolean | SuperButtonProps;
-  onMock?: NoopType;
-}
-
-interface GetBtnsOptions extends BtnsProps, MockBtnOptions {
+interface GetBtnsOptions extends BtnsProps {
   disabled?: boolean;
 }
 
 // 获取按钮列表
 export function getBtns(options: GetBtnsOptions): BtnsType {
   // TODO 取消 cancel，等到和弹窗结合的时候再做决定
-  const {
-    disabled,
-    onReset,
-    onMock,
-    onCancel,
-    mockBtn = false,
-    resetBtn = true,
-    submitBtn = true,
-    cancelBtn = false,
-    extraBtns = [],
-  } = options;
+  const { disabled, onReset, onCancel, resetBtn = true, submitBtn = true, cancelBtn = false, extraBtns = [] } = options;
   const builtInBtns: SuperButtonProps[] = [
     getBtn({
       btn: submitBtn,
@@ -80,13 +65,6 @@ export function getBtns(options: GetBtnsOptions): BtnsType {
       onClick: onReset,
       htmlType: 'reset',
       defaultText: '重置',
-    }),
-    getBtn({
-      disabled,
-      btn: mockBtn,
-      onClick: onMock,
-      key: 'mock',
-      defaultText: 'Mock 数据',
     }),
     getBtn({
       btn: cancelBtn,

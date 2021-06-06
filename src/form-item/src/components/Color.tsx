@@ -11,9 +11,7 @@ type ProFormColorProps = ProFormItemProps<InputNumberProps> & {
 };
 
 export type SuperColorProps = CreateSuperFormItemProps<ProFormColorProps>;
-export const SuperColor = createSuperFormItem<ProFormColorProps>(ProFormColorPicker, {
-  defaultMockRule: '@color',
-});
+export const SuperColor = createSuperFormItem<ProFormColorProps>(ProFormColorPicker);
 SuperColor.displayName = 'SuperColor';
 
 export default SuperColor;

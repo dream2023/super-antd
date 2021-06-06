@@ -20,9 +20,7 @@ const BasicSuperCheckbox: FC<BasicSuperCheckboxProps> = ({ text, label, children
 };
 
 export type SuperCheckboxProps = CreateSuperFormItemProps<BasicSuperCheckboxProps>;
-export const SuperCheckbox = createSuperFormItem<BasicSuperCheckboxProps>(BasicSuperCheckbox, {
-  defaultMockRule: '@boolean',
-});
+export const SuperCheckbox = createSuperFormItem<BasicSuperCheckboxProps>(BasicSuperCheckbox);
 
 SuperCheckbox.displayName = 'SuperCheckbox';
 

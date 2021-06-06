@@ -8,7 +8,6 @@ import { createSuperFormItem } from '../createSuperFormItem';
 export type SuperDateTimeProps = CreateSuperFormItemProps<ProFormItemProps<DatePickerProps>>;
 export const SuperDateTime = createSuperFormItem<ProFormItemProps<DatePickerProps>>(ProFormDateTimePicker, {
   placeholderPrefix: '请选择',
-  defaultMockRule: '@datetime',
 });
 SuperDateTime.displayName = 'SuperDateTime';
 

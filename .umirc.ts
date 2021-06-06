@@ -40,5 +40,5 @@ export default defineConfig({
       title: 'GitHub',
       path: 'https://github.com/dream2023/super-antd',
     },
-  ]
+  ],
 });

@@ -1,4 +1,4 @@
-import { getTypeString, getTag } from 'super-antd'
+import { getTag, getTypeString } from 'super-antd';
 
 test('getTypeString', () => {
   expect(getTypeString(undefined)).toBe('[object Undefined]');
@@ -7,7 +7,7 @@ test('getTypeString', () => {
   expect(getTypeString('str')).toBe('[object String]');
   expect(getTypeString(false)).toBe('[object Boolean]');
   expect(getTypeString(getTag)).toBe('[object Function]');
-})
+});
 
 test('getTag', () => {
   expect(getTag(undefined)).toBe('Undefined');

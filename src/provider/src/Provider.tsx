@@ -17,9 +17,6 @@ export const SuperProvider: FC<SuperAntdContextProps> = ({
   errorNotify,
   successNotify,
 
-  // mockjs
-  mockjs,
-
   // 数据映射
   filters,
   delimiters,
@@ -39,7 +36,7 @@ export const SuperProvider: FC<SuperAntdContextProps> = ({
   const component$ = useEventEmitter<CommunicationEventEmitterOptions>();
 
   return (
-    <SuperAntdContext.Provider value={{ component$, mockjs, delimiters, axios, successNotify, errorNotify }}>
+    <SuperAntdContext.Provider value={{ component$, delimiters, axios, successNotify, errorNotify }}>
       <SchemaProvider
         {...resetProps}
         parsers={parsers}

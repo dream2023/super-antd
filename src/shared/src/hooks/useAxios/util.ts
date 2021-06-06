@@ -57,13 +57,13 @@ export function processFormatResult<T = any>({ api, currentData = {}, delimiters
     // 如果 response 为对象，则需要替换数据
     if (isPlainObject(response) && replaceData) {
       // 当原来对象的值都要转为 undefined
-      const changedCurrentData = changeObjValueToUndefined(currentData)
+      const changedCurrentData = changeObjValueToUndefined(currentData);
       // 融合两者
       data = { ...changedCurrentData, ...response };
     }
 
     if (responseSchema) {
-      return getSchemaData({ schema: responseSchema, data: isNil(data) ? {} : data, delimiters, defaultValue: 'data' })
+      return getSchemaData({ schema: responseSchema, data: isNil(data) ? {} : data, delimiters, defaultValue: 'data' });
     }
     return data;
   };
@@ -156,29 +156,23 @@ interface ServiceFnOptions {
   delimiters?: [string, string];
 }
 
-export function serviceFn({
-  api,
-  contextData,
-  defaultData,
-  defaultParams,
-  delimiters,
-}: ServiceFnOptions) {
+export function serviceFn({ api, contextData, defaultData, defaultParams, delimiters }: ServiceFnOptions) {
   return (data?: Record<Key, any>, params?: Record<Key, any>, others?: Record<Key, any>) => {
     // 因为 data 和 defaultData 可能为空，所以使用 Object.assign，用解构需要判空
-    const dataOption = Object.assign({}, defaultData, data)
-    const paramOption = Object.assign({}, defaultParams, params)
-    const contextOption = Object.assign({}, contextData, others)
+    const dataOption = Object.assign({}, defaultData, data);
+    const paramOption = Object.assign({}, defaultParams, params);
+    const contextOption = Object.assign({}, contextData, others);
 
     if (isFunction(api)) {
-      const res = api(dataOption, paramOption, contextOption)
-      if (res instanceof Promise) return res
+      const res = api(dataOption, paramOption, contextOption);
+      if (res instanceof Promise) return res;
 
       // 符合 useRequest 返回值
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve(res)
+          resolve(res);
         });
-      })
+      });
     }
     return getAxiosOptions({
       api,

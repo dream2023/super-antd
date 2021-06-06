@@ -6,8 +6,6 @@ module.exports = {
     '^@/(.*)': '<rootDir>/src/$1',
     'super-antd': join(__dirname, './src/index.ts'),
   },
-  roots: [
-    '<rootDir>/tests/'
-  ],
-  verbose: true
+  roots: ['<rootDir>/tests/'],
+  verbose: true,
 };

@@ -3,24 +3,23 @@ import {
   isArray,
   isBoolean,
   isDate,
+  isFunction,
   isNil,
   isNull,
   isNumber,
+  isObject,
   isPlainObject,
   isString,
-  isObject,
-  isFunction,
   isUndefined,
-} from 'super-antd'
-
+} from 'super-antd';
 
 describe('is', () => {
   test('isObject', () => {
-    expect(isObject(new Date())).toBe(true)
-    expect(isObject({})).toBe(true)
-    expect(isObject(123)).toBe(false)
-    expect(isObject(true)).toBe(false)
-  })
+    expect(isObject(new Date())).toBe(true);
+    expect(isObject({})).toBe(true);
+    expect(isObject(123)).toBe(false);
+    expect(isObject(true)).toBe(false);
+  });
 
   test('isNil', () => {
     // true
@@ -106,15 +105,15 @@ describe('is', () => {
 
     // false
     expect(isPlainObject(null)).toBeFalsy();
-    expect(isPlainObject(() => { })).toBeFalsy();
+    expect(isPlainObject(() => {})).toBeFalsy();
     expect(isPlainObject(new Date())).toBeFalsy();
   });
 
   test('isFunction', () => {
-    expect(isFunction(() => { })).toBeTruthy();
+    expect(isFunction(() => {})).toBeTruthy();
     expect(isFunction(Math.random)).toBeTruthy();
 
     expect(isFunction({})).toBeFalsy();
     expect(isFunction(123)).toBeFalsy();
-  })
+  });
 });

@@ -5,9 +5,7 @@ import type { CreateSuperFormItemProps } from '../createSuperFormItem';
 import { createSuperFormItem } from '../createSuperFormItem';
 
 export type SuperSwitchProps = CreateSuperFormItemProps<ProFormSwitchProps>;
-export const SuperSwitch = createSuperFormItem<ProFormSwitchProps>(ProFormSwitch, {
-  defaultMockRule: '@boolean',
-});
+export const SuperSwitch = createSuperFormItem<ProFormSwitchProps>(ProFormSwitch);
 SuperSwitch.displayName = 'SuperSwitch';
 
 export default SuperSwitch;

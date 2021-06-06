@@ -50,12 +50,14 @@ describe('useCommunication', () => {
 
   const App = () => {
     const component$ = useEventEmitter<CommunicationEventEmitterOptions>();
-    return <>
-      <Demo component$={component$} myName="a" targetName="b" />
-      <Demo component$={component$} myName="b" />
-      <Demo component$={component$} myName="c" />
-     </>
-  }
+    return (
+      <>
+        <Demo component$={component$} myName="a" targetName="b" />
+        <Demo component$={component$} myName="b" />
+        <Demo component$={component$} myName="c" />
+      </>
+    );
+  };
 
   test('基础使用', async () => {
     render(<App />);
@@ -103,7 +105,7 @@ describe('useCommunication', () => {
     expect(screen.getByTestId('a-data').childElementCount).toBe(0);
     expect(screen.getByTestId('b-data').childElementCount).toBe(1);
     expect(screen.getByTestId('c-data').childElementCount).toBe(0);
-  })
+  });
 
   test('当未设置 component$ 应该报警告', async () => {
     render(

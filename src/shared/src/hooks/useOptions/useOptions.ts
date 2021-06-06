@@ -6,8 +6,8 @@ import { __DOCS_URL__ } from '../../constants';
 import { isArray } from '../../utils';
 import type { ApiType } from '../useAxios';
 import { useAxios } from '../useAxios';
-import { getOptions } from './util';
 import type { IUseOptions, OptionList } from './types';
+import { getOptions } from './util';
 
 export const useOptions = ({
   options,

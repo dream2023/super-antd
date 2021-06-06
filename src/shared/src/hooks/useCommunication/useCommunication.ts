@@ -17,8 +17,13 @@ interface BasicCommunicationOptions extends CommunicationProps {
   actionName: ActionType;
 }
 /** 用于任意组件的通信 总体思路就是广播事件通信的方式，自己既是订阅者，又是发起者 当收到信息时，需要判断是否为自身的消息，如果是，则执行相应的回调函数 自己也可以通过暴露出去的函数，手动发起事件 */
-export const useBasicCommunication = ({ component$, myName, targetName, doMySelf, actionName }: BasicCommunicationOptions) => {
-
+export const useBasicCommunication = ({
+  component$,
+  myName,
+  targetName,
+  doMySelf,
+  actionName,
+}: BasicCommunicationOptions) => {
   // 订阅事件，处理函数
   component$?.useSubscription(({ name: doName, action, data }) => {
     // 判断是否为自己，如果是自己，则进行相应的操作

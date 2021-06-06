@@ -1,6 +1,5 @@
 import { message } from 'antd';
 import axios from 'axios';
-import Mock from 'mockjs';
 import React, { useState } from 'react';
 
 import {
@@ -51,9 +50,8 @@ const App = () => {
   const [hideLabel, toggleHideLabel] = useState(false);
   const [autoPlaceholder, toggleAutoPlaceholder] = useState(true);
   return (
-    <SuperProvider axios={axios} mockjs={Mock}>
+    <SuperProvider axios={axios}>
       <SuperForm
-        mock
         layout="vertical"
         readonly={readonly}
         disabled={disabled}
@@ -157,18 +155,18 @@ const App = () => {
             label="支持搜索查询的 Select"
             request={async ({ keyWords = '' }) => {
               await waitTime(1000);
-              const list = Mock.mock({
-                'data|1-10': [
-                  {
-                    value: '@id',
-                    label: '@name',
-                  },
-                ],
-              }).data.concat({
-                value: keyWords,
-                label: '目标_target',
-              });
-              return list;
+              const list = Array.from({ length: 10 })
+                .map((item, index) => {
+                  return {
+                    value: index,
+                    label: '模板-' + index,
+                  };
+                })
+                .concat({
+                  value: keyWords,
+                  label: '目标_target',
+                });
+              return { data: list };
             }}
           />
         </SuperGroup>

@@ -11,9 +11,7 @@ type ProFormDigitProps = ProFormItemProps<InputNumberProps> & {
 };
 
 export type SuperNumberProps = CreateSuperFormItemProps<ProFormDigitProps>;
-export const SuperNumber = createSuperFormItem<ProFormDigitProps>(ProFormDigit, {
-  defaultMockRule: '@integer(0, 100)',
-});
+export const SuperNumber = createSuperFormItem<ProFormDigitProps>(ProFormDigit);
 SuperNumber.displayName = 'SuperNumber';
 
 export default SuperNumber;

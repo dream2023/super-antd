@@ -4,21 +4,20 @@ import ProForm from '@ant-design/pro-form';
 import type { ProFormProps } from '@ant-design/pro-form';
 import { useCreation, useLocalStorageState, usePersistFn, useThrottleFn } from 'ahooks';
 import { Form, Spin } from 'antd';
-import type { Key} from 'react';
+import type { Key } from 'react';
 import { useContext } from 'react';
 import React, { useState } from 'react';
 import warning from 'tiny-warning';
 
 import { SuperBtns } from '@/btns';
+import { SuperAntdContext } from '@/provider';
 import type { ErrorData } from '@/shared';
-import { isPlainObject, useAxios, useCommunication, useMock, useResponsiveCol } from '@/shared';
+import { isPlainObject, useAxios, useCommunication, useResponsiveCol } from '@/shared';
 import { useJump } from '@/shared/src/hooks/useJump';
 
 import type { SuperFormContextProps } from './context';
 import { SuperFormContext } from './context';
 import { SuperFormDebugger } from './FormDebugger';
-import { SuperAntdContext } from '@/provider';
-
 import type {
   ActionProps,
   FormCommunicationProps,
@@ -70,9 +69,6 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
     // debug 模式
     debug,
 
-    // mock 数据
-    mock,
-
     // form item 需要用到的属性
     readonly,
     disabled,
@@ -102,7 +98,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
   } = props;
 
   // 全局上下文
-  const { mockjs, component$ } = useContext(SuperAntdContext)
+  const { component$ } = useContext(SuperAntdContext);
   // 表单引用
   const [formInstance] = Form.useForm<Values>(form);
 
@@ -233,34 +229,18 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
     },
   });
 
-  // mock 数据相关
-  const initMockRules = useCreation(() => {
-    return isPlainObject(mock) ? mock : {};
-  }, [mock]);
-
-  const { hasMockRules, setMock, mockRules } = useMock<Values>({
-    Mock: mockjs,
-    initMockRules,
-    onMockCallback: (mockData: Values) => {
-      const data: any = { ...formInstance.getFieldsValue(), ...mockData };
-      formInstance.setFieldsValue(data);
-    }
-  });
-
   // form context 相关
   const formContextValue = useCreation<SuperFormContextProps<Values>>(() => {
     return {
       layout,
       readonly,
       disabled,
-      mockRules,
       hideLabel,
       form: formInstance,
-      isMock: !!mock,
       autoPlaceholder,
       remoteErrors,
     };
-  }, [mock, remoteErrors, layout, formInstance, readonly, disabled, hideLabel, mockRules, autoPlaceholder]);
+  }, [remoteErrors, layout, formInstance, readonly, disabled, hideLabel, autoPlaceholder]);
 
   // loading 效果（初始化和提交数据时）
   const loading = useCreation(() => {
@@ -312,8 +292,6 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
   const btnDoms = useCreation(() => {
     const computedBtns = getBtns({
       ...btns,
-      mockBtn: hasMockRules,
-      onMock: setMock,
       disabled: disabled || readonly,
     });
 
@@ -326,7 +304,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
       return btns.render({ ...initialValuesWithStorage, ...formInstance.getFieldsValue() }, doms);
     }
     return doms;
-  }, [hasMockRules, disabled, readonly, btns]);
+  }, [disabled, readonly, btns]);
 
   return (
     <Spin spinning={loading} delay={500}>

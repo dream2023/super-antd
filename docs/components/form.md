@@ -47,26 +47,6 @@ nav:
 
 <code src="./__demos__/form/communication.tsx" />
 
-## 数据 Mock
-
-### 基础使用
-
-`SuperForm` 组件提供了数据模拟的功能，只需要通过 `mock` 属性传入约定的规则即可。mock 规则参见 [mockjs](http://mockjs.com/examples.html)。
-
-<code src="./__demos__/form/mock_basic.tsx" />
-
-### 内置规则
-
-当 `SuperForm` 组件，`mock` 属性传递值为 `true` 时，就会应用内置的规则，例如 `SuperInput` 组件内置的规则就是 `@string`。
-
-<code src="./__demos__/form/mock_builtin.tsx" />
-
-### 表单项 Mock
-
-我们不仅可以在 `SuperForm` 组件上使用 `mock` 属性，还可以在 `SuperInput` 等表单组件上使用 mock 属性，并且如果同时使用，表单项上的 mock 属性会 **覆盖** `SuperForm` 的规则（和 rules）的设计思路一致，同时表单项 mock 属性也是支持 `true` 属性的。
-
-<code src="./__demos__/form/mock_formitem.tsx" />
-
 ## labelCol & wrapperCol 增强
 
 ### 响应式
@@ -121,7 +101,7 @@ SuperForm 增加 `debug` 功能，通过 `debug` 属性即可开启。
 
 ## 按钮
 
-`SuperForm` 默认显示 `提交` 和 `重置` 两个按钮，如果开启 Mock 数据，则会显示 `Mock 数据` 按钮，那我们看继续关注以下几点：
+`SuperForm` 默认显示 `提交` 和 `重置` 两个按钮，我们可以通过属性控制更多按钮行为和样式：
 
 ### 更改按钮文本或者样式
 

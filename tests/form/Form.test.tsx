@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
-
-import { SuperForm, SuperInput, SuperCheckbox, SuperProvider } from 'super-antd'
 import axios from 'axios';
-import mockjs from 'mockjs';
+import React, { useState } from 'react';
+
+import { SuperCheckbox, SuperForm, SuperInput, SuperProvider } from 'super-antd';
 
 describe('SuperForm 表单', () => {
   describe('渲染', () => {
     test('正常渲染', () => {
       const wrapper = render(<SuperForm isResponsive={false}></SuperForm>);
       expect(wrapper.container.querySelector('.ant-form')).toBeInTheDocument();
-      expect(wrapper.queryAllByRole('button', { hidden: false })).toHaveLength(2)
+      expect(wrapper.queryAllByRole('button', { hidden: false })).toHaveLength(2);
     });
 
     test('渲染表单项', () => {
@@ -20,34 +19,23 @@ describe('SuperForm 表单', () => {
         <SuperForm isResponsive={false}>
           <SuperInput name="name" label="姓名"></SuperInput>
           <SuperCheckbox name="remember" text="Remember me"></SuperCheckbox>
-        </SuperForm>
+        </SuperForm>,
       );
       expect(wrapper.container).toBeInTheDocument();
-      expect(wrapper.container.querySelectorAll('.ant-form-item').length).toBe(
-        3
-      );
-      expect(
-        wrapper.container.querySelector('.ant-form-item-control-input')
-      ).not.toBeNull();
+      expect(wrapper.container.querySelectorAll('.ant-form-item').length).toBe(3);
+      expect(wrapper.container.querySelector('.ant-form-item-control-input')).not.toBeNull();
       expect(wrapper.container.querySelector('.ant-checkbox')).not.toBeNull();
     });
 
     test('原属性正确渲染', () => {
       const fn = jest.fn();
       const wrapper = render(
-        <SuperForm
-          isResponsive={false}
-          initialValues={{ username: 'jack' }}
-          onValuesChange={fn}
-          layout="vertical"
-        >
+        <SuperForm isResponsive={false} initialValues={{ username: 'jack' }} onValuesChange={fn} layout="vertical">
           <SuperInput name="username" label="姓名"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
       expect(screen.getByLabelText('姓名')).toHaveValue('jack');
-      expect(
-        wrapper.container.querySelector('.ant-form-vertical')
-      ).not.toBeNull();
+      expect(wrapper.container.querySelector('.ant-form-vertical')).not.toBeNull();
       userEvent.type(screen.getByRole('textbox'), 'a');
       expect(fn).toBeCalled();
     });
@@ -67,7 +55,7 @@ describe('SuperForm 表单', () => {
     });
 
     test('设置空字符串去掉提交按钮', () => {
-      render(<SuperForm isResponsive={false} btns={{ submitBtn: "" }}></SuperForm>);
+      render(<SuperForm isResponsive={false} btns={{ submitBtn: '' }}></SuperForm>);
       expect(screen.queryByText(/提 交/i)).toBeNull();
     });
 
@@ -88,33 +76,7 @@ describe('SuperForm 表单', () => {
 
     test('设置 字符串 显示取消按钮', async () => {
       render(<SuperForm isResponsive={false} btns={{ cancelBtn: 'cancel' }}></SuperForm>);
-      expect(
-        screen.getByRole('button', { name: 'cancel' })
-      ).toBeInTheDocument();
-    });
-
-    test('设置对象 显示 mock 按钮', () => {
-      render(
-        <SuperProvider mockjs={mockjs}>
-          <SuperForm isResponsive={false} mock={{ name: '@string' }}></SuperForm>
-        </SuperProvider>
-      );
-      expect(
-        screen.getByRole('button', { name: 'Mock 数据' })
-      ).toBeInTheDocument();
-    });
-
-    test('表单项设置 mock 从而显示 mock 按钮', () => {
-      render(
-        <SuperProvider mockjs={mockjs}>
-          <SuperForm isResponsive={false}>
-            <SuperInput name="username" label="姓名" mock="@string"></SuperInput>
-          </SuperForm>
-        </SuperProvider>
-      );
-      expect(
-        screen.getByRole('button', { name: 'Mock 数据' })
-      ).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'cancel' })).toBeInTheDocument();
     });
 
     test('extraBtns 更多按钮', () => {
@@ -123,9 +85,13 @@ describe('SuperForm 表单', () => {
         <SuperForm
           isResponsive={false}
           btns={{
-            extraBtns: [<Button key="more" onClick={moreFn}>更多</Button>]
+            extraBtns: [
+              <Button key="more" onClick={moreFn}>
+                更多
+              </Button>,
+            ],
           }}
-        ></SuperForm>
+        ></SuperForm>,
       );
 
       userEvent.click(screen.getByRole('button', { name: '更 多' }));
@@ -133,31 +99,31 @@ describe('SuperForm 表单', () => {
     });
 
     test('仅显示自定义按钮 btns', async () => {
-      const fn = jest.fn()
+      const fn = jest.fn();
       const warpper = render(
         <SuperForm
           isResponsive={false}
           initialValues={{ name: 'foo' }}
           btns={{
             render: (data, btns) => {
-              fn(data, btns)
-              return <Button key="custom">custom</Button>
-            }
+              fn(data, btns);
+              return <Button key="custom">custom</Button>;
+            },
           }}
         >
           <SuperInput name="name"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
 
       expect(warpper.container.querySelectorAll('.ant-btn').length).toBe(1);
       expect(screen.getByText(/custom/i)).not.toBeNull();
       await waitFor(() => {
-        expect(fn).toBeCalledWith({ name: 'foo' }, expect.any(Object))
-      })
+        expect(fn).toBeCalledWith({ name: 'foo' }, expect.any(Object));
+      });
     });
 
     test('当内置 btns 不显示时，返回 render 函数接受为 null', () => {
-      const fn = jest.fn()
+      const fn = jest.fn();
       render(
         <SuperForm
           isResponsive={false}
@@ -165,14 +131,14 @@ describe('SuperForm 表单', () => {
             submitBtn: false,
             resetBtn: false,
             render: (data, btns) => {
-              fn(btns)
-              return null
-            }
+              fn(btns);
+              return null;
+            },
           }}
-        ></SuperForm>
+        ></SuperForm>,
       );
 
-      expect(fn).toBeCalledWith(undefined)
+      expect(fn).toBeCalledWith(undefined);
     });
   });
 
@@ -189,9 +155,7 @@ describe('SuperForm 表单', () => {
 
     test('修改取消按钮文本', async () => {
       render(<SuperForm isResponsive={false} btns={{ cancelBtn: 'cancel' }}></SuperForm>);
-      expect(
-        screen.getByRole('button', { name: 'cancel' })
-      ).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'cancel' })).toBeInTheDocument();
     });
   });
 
@@ -199,13 +163,9 @@ describe('SuperForm 表单', () => {
     test('触发 onFinish 函数', async () => {
       const onFinish = jest.fn();
       render(
-        <SuperForm
-          isResponsive={false}
-          initialValues={{ name: 'jack' }}
-          onFinish={onFinish}
-        >
+        <SuperForm isResponsive={false} initialValues={{ name: 'jack' }} onFinish={onFinish}>
           <SuperInput name="name" label="姓名"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
       userEvent.click(screen.getByText(/提 交/i));
       await waitFor(() => expect(onFinish).toBeCalledWith({ name: 'jack' }));
@@ -216,33 +176,25 @@ describe('SuperForm 表单', () => {
 
       const wrapper = render(
         <SuperProvider axios={axios}>
-          <SuperForm
-            isResponsive={false}
-            api={fn}
-            initialValues={{ name: 'jack' }}
-          >
+          <SuperForm isResponsive={false} api={fn} initialValues={{ name: 'jack' }}>
             <SuperInput name="name" label="姓名"></SuperInput>
           </SuperForm>
-        </SuperProvider>
+        </SuperProvider>,
       );
 
       // 未请求时
-      expect(
-        wrapper.container.querySelector('.ant-spin-spinning')
-      ).toBeNull();
+      expect(wrapper.container.querySelector('.ant-spin-spinning')).toBeNull();
       userEvent.click(screen.getByText(/提 交/i));
 
       await waitFor(() => {
         expect(fn).toBeCalled();
-        expect(screen.queryByText('保存成功')).toBeInTheDocument()
+        expect(screen.queryByText('保存成功')).toBeInTheDocument();
       });
 
       await waitFor(() => {
         // 请求结束
-        expect(
-          wrapper.container.querySelector('.ant-spin-spinning')
-        ).toBeNull();
-      })
+        expect(wrapper.container.querySelector('.ant-spin-spinning')).toBeNull();
+      });
     });
 
     // test('提交数据后，有报错', async () => {
@@ -268,7 +220,7 @@ describe('SuperForm 表单', () => {
       render(
         <SuperForm isResponsive={false} resetAfterSubmit>
           <SuperInput name="name" label="姓名"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
       userEvent.type(screen.getByRole('textbox'), 'a');
       expect(screen.getByRole('textbox')).toHaveValue('a');
@@ -280,97 +232,40 @@ describe('SuperForm 表单', () => {
     });
 
     test('提交后跳转', async () => {
-      const open = jest.fn()
-      const originOpen = window.open
-      window.open = open
+      const open = jest.fn();
+      const originOpen = window.open;
+      window.open = open;
 
-      render(
-        <SuperForm isResponsive={false} redirect="https://www.baidu.com">
-        </SuperForm>
-      );
+      render(<SuperForm isResponsive={false} redirect="https://www.baidu.com"></SuperForm>);
       userEvent.click(screen.getByText(/提 交/i));
       await waitFor(() => {
-        expect(open).toBeCalled()
-      })
-      window.open = originOpen
-    })
+        expect(open).toBeCalled();
+      });
+      window.open = originOpen;
+    });
 
     test('提交数据包含远程数据', async () => {
-      const onFinish = jest.fn()
+      const onFinish = jest.fn();
       const wrapper = render(
         <SuperProvider axios={axios}>
-          <SuperForm isResponsive={false} initialValues={{ name: 'a' }} onFinish={onFinish} preserveRemoteData initApi={() => ({ id: 1 })}>
+          <SuperForm
+            isResponsive={false}
+            initialValues={{ name: 'a' }}
+            onFinish={onFinish}
+            preserveRemoteData
+            initApi={() => ({ id: 1 })}
+          >
             <SuperInput name="name"></SuperInput>
           </SuperForm>
-        </SuperProvider>
+        </SuperProvider>,
       );
       await waitFor(() => {
-        expect(
-          wrapper.container.querySelector('.ant-spin-nested-loading')
-        ).not.toBeNull();
-      })
+        expect(wrapper.container.querySelector('.ant-spin-nested-loading')).not.toBeNull();
+      });
       userEvent.click(screen.getByText(/提 交/i));
       await waitFor(() => {
-        expect(onFinish).toBeCalledWith({ name: 'a', id: 1 })
-      })
-    })
-  });
-
-  describe('mock 数据', () => {
-    test('mock 功能正常', () => {
-      render(
-        <SuperProvider mockjs={mockjs}>
-          <SuperForm isResponsive={false} mock={{ name: '@string' }}>
-            <SuperInput name="name" label="姓名"></SuperInput>
-          </SuperForm>
-        </SuperProvider>
-      );
-      userEvent.click(screen.getByText(/Mock 数据/i));
-      expect(screen.getByRole('textbox')).toHaveValue();
-    });
-
-    test('表单项 mock 为 true', () => {
-      render(
-        <SuperProvider mockjs={mockjs}>
-          <SuperForm isResponsive={false}>
-            <SuperInput name="name" label="姓名" mock></SuperInput>
-          </SuperForm>
-        </SuperProvider>
-      );
-      userEvent.click(screen.getByText(/Mock 数据/i));
-      expect(screen.getByRole('textbox')).toHaveValue();
-    });
-
-    test('表单项 mock 为字符串', () => {
-      render(
-        <SuperProvider mockjs={mockjs}>
-          <SuperForm isResponsive={false}>
-            <SuperInput
-              name="name"
-              label="姓名"
-              mock='@string("lower", 5)'
-            ></SuperInput>
-          </SuperForm>
-        </SuperProvider>
-      );
-      userEvent.click(screen.getByText(/Mock 数据/i));
-      expect(
-        (screen.getByRole('textbox') as HTMLInputElement).value.length
-      ).toBe(5);
-    });
-
-    test('表单项 和 表单都存在', () => {
-      render(
-        <SuperProvider mockjs={mockjs}>
-          <SuperForm isResponsive={false} mock={{ name: '@string' }}>
-            <SuperInput name="name" label="name"></SuperInput>
-            <SuperInput name="age" label="age" mock="@number"></SuperInput>
-          </SuperForm>
-        </SuperProvider>
-      );
-      userEvent.click(screen.getByText(/Mock 数据/i));
-      expect(screen.getByLabelText('name')).toHaveValue();
-      expect(screen.getByLabelText('age')).toHaveValue();
+        expect(onFinish).toBeCalledWith({ name: 'a', id: 1 });
+      });
     });
   });
 
@@ -378,11 +273,14 @@ describe('SuperForm 表单', () => {
     test('点击重置按钮', async () => {
       const onReset = jest.fn();
       render(
-        <SuperForm isResponsive={false} btns={{
-          onReset
-        }}>
+        <SuperForm
+          isResponsive={false}
+          btns={{
+            onReset,
+          }}
+        >
           <SuperInput name="name" label="姓名"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
       userEvent.type(screen.getByRole('textbox'), 'a');
       expect(screen.getByRole('textbox')).toHaveValue('a');
@@ -401,9 +299,9 @@ describe('SuperForm 表单', () => {
           isResponsive={false}
           btns={{
             cancelBtn: true,
-            onCancel
+            onCancel,
           }}
-        ></SuperForm>
+        ></SuperForm>,
       );
       userEvent.click(screen.getByText(/取 消/i));
       await waitFor(() => {
@@ -420,10 +318,10 @@ describe('SuperForm 表单', () => {
             extraBtns: [
               <Button onClick={onExtraBtnClick} key="extra">
                 extraBtn
-              </Button>
-            ]
+              </Button>,
+            ],
           }}
-        ></SuperForm>
+        ></SuperForm>,
       );
       userEvent.click(screen.getByText(/extraBtn/));
       await waitFor(() => {
@@ -440,10 +338,10 @@ describe('SuperForm 表单', () => {
             render: () => [
               <Button onClick={onExtraBtnClick} key="extra">
                 extraBtn
-              </Button>
-            ]
+              </Button>,
+            ],
           }}
-        ></SuperForm>
+        ></SuperForm>,
       );
       userEvent.click(screen.getByText(/extraBtn/));
       await waitFor(() => {
@@ -457,14 +355,10 @@ describe('SuperForm 表单', () => {
       const wrapper = render(
         <SuperForm isResponsive={false} labelCol={4} wrapperCol={20}>
           <SuperInput name="username" label="姓名"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
-      expect(
-        wrapper.container.querySelector('.ant-col-4.ant-form-item-label')
-      ).toBeInTheDocument();
-      expect(
-        wrapper.container.querySelector('.ant-col-20.ant-form-item-control')
-      ).toBeInTheDocument();
+      expect(wrapper.container.querySelector('.ant-col-4.ant-form-item-label')).toBeInTheDocument();
+      expect(wrapper.container.querySelector('.ant-col-20.ant-form-item-control')).toBeInTheDocument();
     });
   });
 
@@ -477,12 +371,7 @@ describe('SuperForm 表单', () => {
           <>
             <Button onClick={() => setVisible((state) => !state)}>切换</Button>
             {visible && (
-              <SuperForm
-                isResponsive={false}
-                persistData
-                name="form"
-                onFinish={submitFn}
-              >
+              <SuperForm isResponsive={false} persistData name="form" onFinish={submitFn}>
                 <SuperInput name="username" label="姓名"></SuperInput>
               </SuperForm>
             )}
@@ -494,7 +383,7 @@ describe('SuperForm 表单', () => {
       userEvent.type(screen.getByRole('textbox'), 'a');
       await waitFor(() => {
         expect(JSON.parse(localStorage.getItem('form') || '{}')).toEqual({
-          username: 'a'
+          username: 'a',
         });
       });
 
@@ -504,7 +393,7 @@ describe('SuperForm 表单', () => {
       userEvent.click(screen.getByRole('button', { name: '切 换' }));
       await waitFor(() => {
         expect(JSON.parse(localStorage.getItem('form') || '{}')).toEqual({
-          username: 'a'
+          username: 'a',
         });
       });
     });
@@ -512,15 +401,9 @@ describe('SuperForm 表单', () => {
     test('提交后清空持久化的数据', async () => {
       const submitFn = jest.fn();
       render(
-        <SuperForm
-          name="test-form"
-          isResponsive={false}
-          persistData
-          clearPersistDataAfterSubmit
-          onFinish={submitFn}
-        >
+        <SuperForm name="test-form" isResponsive={false} persistData clearPersistDataAfterSubmit onFinish={submitFn}>
           <SuperInput name="username" label="姓名"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
 
       userEvent.type(screen.getByRole('textbox'), 'a');
@@ -528,9 +411,7 @@ describe('SuperForm 表单', () => {
 
       await waitFor(() => {
         expect(submitFn).toBeCalledWith({ username: 'a' });
-        expect(JSON.parse(localStorage.getItem('test-form') || '{}')).toEqual(
-          {}
-        );
+        expect(JSON.parse(localStorage.getItem('test-form') || '{}')).toEqual({});
       });
     });
 
@@ -552,30 +433,22 @@ describe('SuperForm 表单', () => {
           isResponsive={false}
           btns={{
             cancelBtn: true,
-            extraBtns: [<Button key="test">测试</Button>]
+            extraBtns: [<Button key="test">测试</Button>],
           }}
         >
           <SuperInput name="username" label="姓名"></SuperInput>
           <SuperInput name="password" label="密码"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
       expect(screen.getAllByRole('textbox').length).toBe(2);
       screen.getAllByRole('textbox').forEach((item) => {
         expect(item).toHaveAttribute('disabled');
       });
 
-      expect(screen.getByRole('button', { name: /提 交/i })).toHaveAttribute(
-        'disabled'
-      );
-      expect(screen.getByRole('button', { name: /重 置/i })).toHaveAttribute(
-        'disabled'
-      );
-      expect(
-        screen.getByRole('button', { name: /取 消/i })
-      ).not.toHaveAttribute('disabled');
-      expect(
-        screen.getByRole('button', { name: /测 试/i })
-      ).not.toHaveAttribute('disabled');
+      expect(screen.getByRole('button', { name: /提 交/i })).toHaveAttribute('disabled');
+      expect(screen.getByRole('button', { name: /重 置/i })).toHaveAttribute('disabled');
+      expect(screen.getByRole('button', { name: /取 消/i })).not.toHaveAttribute('disabled');
+      expect(screen.getByRole('button', { name: /测 试/i })).not.toHaveAttribute('disabled');
     });
 
     test('全表单只读', () => {
@@ -585,29 +458,21 @@ describe('SuperForm 表单', () => {
           readonly
           btns={{
             cancelBtn: true,
-            extraBtns: [<Button key="test">测试</Button>]
+            extraBtns: [<Button key="test">测试</Button>],
           }}
         >
           <SuperInput name="username" label="姓名"></SuperInput>
           <SuperInput name="password" label="密码"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
 
-      expect(screen.queryAllByRole('textbox')).toHaveLength(0)
-      expect(screen.getAllByText('-')).toHaveLength(2)
+      expect(screen.queryAllByRole('textbox')).toHaveLength(0);
+      expect(screen.getAllByText('-')).toHaveLength(2);
 
-      expect(screen.getByRole('button', { name: /提 交/i })).toHaveAttribute(
-        'disabled'
-      );
-      expect(screen.getByRole('button', { name: /重 置/i })).toHaveAttribute(
-        'disabled'
-      );
-      expect(
-        screen.getByRole('button', { name: /取 消/i })
-      ).not.toHaveAttribute('disabled');
-      expect(
-        screen.getByRole('button', { name: /测 试/i })
-      ).not.toHaveAttribute('disabled');
+      expect(screen.getByRole('button', { name: /提 交/i })).toHaveAttribute('disabled');
+      expect(screen.getByRole('button', { name: /重 置/i })).toHaveAttribute('disabled');
+      expect(screen.getByRole('button', { name: /取 消/i })).not.toHaveAttribute('disabled');
+      expect(screen.getByRole('button', { name: /测 试/i })).not.toHaveAttribute('disabled');
     });
   });
 
@@ -615,30 +480,24 @@ describe('SuperForm 表单', () => {
     test('获取成功', async () => {
       const wrapper = render(
         <SuperProvider axios={axios}>
-          <SuperForm
-            isResponsive={false}
-            initApi={() => ({ name: 'foo', age: 10 })}
-            initialValues={{ name: 'jack' }}
-          >
+          <SuperForm isResponsive={false} initApi={() => ({ name: 'foo', age: 10 })} initialValues={{ name: 'jack' }}>
             <SuperInput name="name" label="姓名"></SuperInput>
             <SuperInput name="age" label="年龄"></SuperInput>
           </SuperForm>
-        </SuperProvider>
+        </SuperProvider>,
       );
-      expect(
-        wrapper.container.querySelector('.ant-spin-nested-loading')
-      ).not.toBeNull();
+      expect(wrapper.container.querySelector('.ant-spin-nested-loading')).not.toBeNull();
 
       await waitFor(() => {
         expect(
           screen.getByRole('textbox', {
-            name: /姓名/i
-          })
+            name: /姓名/i,
+          }),
         ).toHaveValue('foo');
         expect(
           screen.getByRole('textbox', {
-            name: /年龄/i
-          })
+            name: /年龄/i,
+          }),
         ).toHaveValue('10');
       });
     });
@@ -649,15 +508,14 @@ describe('SuperForm 表单', () => {
       const originalError = console.warn;
       render(
         <SuperProvider axios={axios}>
-          <SuperForm initApi={() => ([1, 2, 3])}>
-          </SuperForm>
-        </SuperProvider>
+          <SuperForm initApi={() => [1, 2, 3]}></SuperForm>
+        </SuperProvider>,
       );
       await waitFor(() => {
         expect(warnFn).toBeCalled();
-      })
+      });
       console.error = originalError;
-    })
+    });
 
     // test.only('当获取失败，应有错误提示', async () => {
     //   render(
@@ -680,22 +538,18 @@ describe('SuperForm 表单', () => {
       const wrapper = render(
         <SuperForm isResponsive={false}>
           <SuperInput name="username" label="姓名"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
-      expect(
-        wrapper.container.querySelector('.super-form-debugger')
-      ).not.toBeInTheDocument();
+      expect(wrapper.container.querySelector('.super-form-debugger')).not.toBeInTheDocument();
     });
 
     test('debug', async () => {
       const wrapper = render(
         <SuperForm isResponsive={false} debug>
           <SuperInput name="username" label="姓名"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
-      expect(
-        wrapper.container.querySelector('.super-form-debugger')
-      ).toBeInTheDocument();
+      expect(wrapper.container.querySelector('.super-form-debugger')).toBeInTheDocument();
       userEvent.type(screen.getByRole('textbox'), 'a');
       await waitFor(() => {
         expect(screen.getByText(/"username": "a"/)).not.toBeNull();
@@ -709,12 +563,10 @@ describe('SuperForm 表单', () => {
         <SuperForm hideLabel isResponsive={false}>
           <SuperInput name="username" label="姓名"></SuperInput>
           <SuperInput name="password" label="年龄"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
 
-      expect(
-        wrapper.container.querySelector('.ant-form-item-label')
-      ).toBeNull();
+      expect(wrapper.container.querySelector('.ant-form-item-label')).toBeNull();
     });
   });
 
@@ -726,18 +578,14 @@ describe('SuperForm 表单', () => {
           <SuperForm
             name="test1"
             btns={{
-              submitBtn: "submit1"
+              submitBtn: 'submit1',
             }}
             refreshName="test2"
             isResponsive={false}
           ></SuperForm>
 
-          <SuperForm
-            name="test2"
-            initApi={fn}
-            isResponsive={false}
-          ></SuperForm>
-        </SuperProvider>
+          <SuperForm name="test2" initApi={fn} isResponsive={false}></SuperForm>
+        </SuperProvider>,
       );
 
       userEvent.click(screen.getByText(/submit1/i));
@@ -753,7 +601,7 @@ describe('SuperForm 表单', () => {
           <SuperForm
             name="test1"
             btns={{
-              submitBtn: "submit1"
+              submitBtn: 'submit1',
             }}
             updateName="test2"
             isResponsive={false}
@@ -764,7 +612,7 @@ describe('SuperForm 表单', () => {
           <SuperForm name="test2" isResponsive={false}>
             <SuperInput name="username" label="username2"></SuperInput>
           </SuperForm>
-        </SuperProvider>
+        </SuperProvider>,
       );
 
       userEvent.type(screen.getByLabelText('username1'), 'a');
@@ -781,22 +629,22 @@ describe('SuperForm 表单', () => {
         <SuperForm autoPlaceholder={false} isResponsive={false}>
           <SuperInput name="username" label="username"></SuperInput>
           <SuperInput name="password" label="password"></SuperInput>
-        </SuperForm>
+        </SuperForm>,
       );
 
-      expect(screen.getByLabelText('username')).toHaveAttribute('placeholder', '请输入')
-      expect(screen.getByLabelText('password')).toHaveAttribute('placeholder', '请输入')
+      expect(screen.getByLabelText('username')).toHaveAttribute('placeholder', '请输入');
+      expect(screen.getByLabelText('password')).toHaveAttribute('placeholder', '请输入');
     });
   });
 
   describe('对齐方式 align', () => {
     test('默认居左，无 className', () => {
       const wrapper = render(<SuperForm isResponsive={false}></SuperForm>);
-      expect(wrapper.container.querySelector('super-antd-left')).not.toBeInTheDocument()
-    })
+      expect(wrapper.container.querySelector('super-antd-left')).not.toBeInTheDocument();
+    });
     test('当设置 align 为 center 时，className 为 super-antd-center', () => {
       const wrapper = render(<SuperForm align="center" isResponsive={false}></SuperForm>);
-      expect(wrapper.container.querySelector('super-antd-center')).not.toBeInTheDocument()
-    })
+      expect(wrapper.container.querySelector('super-antd-center')).not.toBeInTheDocument();
+    });
   });
 });

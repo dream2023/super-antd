@@ -73,18 +73,21 @@ export const useResponsiveCol = ({
   const point = useCreation<BreakpointType | undefined>(() => {
     if (width) {
       if (width <= BreakpointWidth.sm) {
-        return (BreakpointName.sm);
-      } if (width <= BreakpointWidth.md) {
-        return (BreakpointName.md);
-      } if (width <= BreakpointWidth.lg) {
-        return (BreakpointName.lg);
-      } if (width <= BreakpointWidth.xl) {
-        return (BreakpointName.xl);
+        return BreakpointName.sm;
       }
-      return (BreakpointName.xxl);
+      if (width <= BreakpointWidth.md) {
+        return BreakpointName.md;
+      }
+      if (width <= BreakpointWidth.lg) {
+        return BreakpointName.lg;
+      }
+      if (width <= BreakpointWidth.xl) {
+        return BreakpointName.xl;
+      }
+      return BreakpointName.xxl;
     }
-    return undefined
-  }, [width])
+    return undefined;
+  }, [width]);
 
   // 判断是否已经开启响应式
   const shouldResponsive = useCreation(() => {

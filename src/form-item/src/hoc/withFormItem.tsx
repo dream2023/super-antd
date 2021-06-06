@@ -1,5 +1,6 @@
 import { compilerStr } from '@dream2023/data-mapping';
 import { useCreation } from 'ahooks';
+import set from 'lodash.set';
 import type { ComponentType, FC } from 'react';
 import React, { useContext, useEffect } from 'react';
 
@@ -11,8 +12,6 @@ import { get, getCol, isString, isUndefined, omit } from '@/shared';
 import { getColon, getLabel, getLinkageValue, getName, getOppositionValue, getPlaceholder } from '../utils';
 import type { WithFormItemProps } from './withFormItemTypes';
 import { omitWithFormItemKeys } from './withFormItemTypes';
-
-import set from 'lodash.set';
 
 export interface WithFormItemConfigType {
   /**
@@ -26,7 +25,10 @@ export interface WithFormItemConfigType {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export function withFormItem<P extends object = any>(FormItemComponent: ComponentType<P>, config: WithFormItemConfigType) {
+export function withFormItem<P extends object = any>(
+  FormItemComponent: ComponentType<P>,
+  config: WithFormItemConfigType,
+) {
   const { placeholderPrefix, needData } = config;
   const EnhancedFormComponent: FC<WithFormItemProps<P>> = (props) => {
     const {
@@ -62,8 +64,8 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
     const { delimiters } = useContext(SuperAntdContext);
     // 表单 context
     const formContext = useContext<SuperFormContextProps>(SuperFormContext);
-    const { form } = formContext
-    const data = form?.getFieldsValue()
+    const { form } = formContext;
+    const data = form?.getFieldsValue();
     const { layout, autoPlaceholder, hideLabel: formHideLabel, remoteErrors } = formContext;
 
     // 去除掉 SuperFormItem 相关属性，保留原始 FormItemComponent 属性并传递过去
@@ -104,7 +106,7 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
     // 联动只读
     const linkageReadonly = useCreation(() => {
       // 本身只读或者全局只读都是返回 true
-      if (formContext.readonly) return true
+      if (formContext.readonly) return true;
       return getLinkageValue({ data, value: readonly, linkageFn: readonlyOn, delimiters }); // 是否只读
     }, [data, readonly, readonlyOn, delimiters, formContext.readonly]);
 
@@ -117,7 +119,7 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
 
     // 联动禁用
     const linkageDisabled = useCreation(() => {
-      if (formContext.disabled) return true
+      if (formContext.disabled) return true;
       const isActive = getLinkageValue({ data, value: active, linkageFn: activeOn, delimiters }); // 是否启用
       const isDisabled = getLinkageValue({ data, value: disabled, linkageFn: disabledOn, delimiters }); // 是否禁用
       return getOppositionValue(isDisabled, isActive);
@@ -144,7 +146,7 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
 
     // 校检（融合必填）
     const computedRules = useCreation(() => {
-      if (isUndefined(linkageRequired)) return rules
+      if (isUndefined(linkageRequired)) return rules;
       return [...(rules || []), { required: linkageRequired }];
     }, [rules, linkageRequired]);
 
@@ -162,7 +164,7 @@ export function withFormItem<P extends object = any>(FormItemComponent: Componen
 
     // 联动对值的影响
     useEffect(() => {
-      if (!name || isUndefined(get(data, name))) return
+      if (!name || isUndefined(get(data, name))) return;
       if (
         (linkageReadonly && clearValueAfterReadonly) ||
         (linkageHidden && clearValueAfterHidden) ||

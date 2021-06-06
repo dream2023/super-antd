@@ -1,5 +1,6 @@
 import { useCreation } from 'ahooks';
 import type { FormInstance } from 'antd';
+import set from 'lodash.set';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import type { ComponentType, FC } from 'react';
 import { useLayoutEffect } from 'react';
@@ -7,7 +8,6 @@ import React from 'react';
 
 import type { OptionsProp, OptionsType } from '@/shared';
 import { useOptions } from '@/shared';
-import set from 'lodash.set';
 
 export type WithOptionsProps<T = any> = Omit<T, 'options'> & {
   form?: FormInstance<any>;

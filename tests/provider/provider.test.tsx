@@ -1,7 +1,6 @@
 import { getFilters } from '@dream2023/data-mapping';
 import { render } from '@testing-library/react';
 import axios from 'axios';
-import mockjs from 'mockjs';
 import React, { useContext } from 'react';
 
 import { SuperAntdContext, SuperProvider } from 'super-antd';
@@ -36,19 +35,5 @@ describe('SuperProvider', () => {
       </SuperProvider>,
     );
     expect(warpper.getByTestId('axios')).toHaveTextContent('have');
-  });
-
-  test('mockjs', () => {
-    const Demo = () => {
-      const { mockjs } = useContext(SuperAntdContext);
-      return <div data-testid="mockjs">{mockjs ? 'have' : 'empty'}</div>;
-    };
-
-    const warpper = render(
-      <SuperProvider mockjs={mockjs}>
-        <Demo />
-      </SuperProvider>,
-    );
-    expect(warpper.getByTestId('mockjs')).toHaveTextContent('have');
   });
 });

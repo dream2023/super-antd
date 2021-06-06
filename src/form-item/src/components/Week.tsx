@@ -8,7 +8,6 @@ import { createSuperFormItem } from '../createSuperFormItem';
 export type SuperWeekProps = CreateSuperFormItemProps<ProFormItemProps<WeekPickerProps>>;
 export const SuperWeek = createSuperFormItem<ProFormItemProps<WeekPickerProps>>(ProFormDatePicker.Week, {
   placeholderPrefix: '请选择',
-  defaultMockRule: '@date',
 });
 SuperWeek.displayName = 'SuperWeek';
 

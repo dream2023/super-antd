@@ -11,7 +11,7 @@ nav:
 
 # 全局配置
 
-对于[数据请求](/guide/concept/api)、[组件间通信](/guide/concept/linkage#%E4%BB%BB%E6%84%8F%E7%BB%84%E4%BB%B6%E9%97%B4%E8%81%94%E5%8A%A8)、[schema 渲染](/guide/concept/schema)、[Mock 数据](/components/form#%E6%95%B0%E6%8D%AE-mock) 等都需要进行相应的配置方可生效，本篇文章会简要介绍相应的配置项，具体使用说明请点击上述链接进行学习。
+对于[数据请求](/guide/concept/api)、[组件间通信](/guide/concept/linkage#%E4%BB%BB%E6%84%8F%E7%BB%84%E4%BB%B6%E9%97%B4%E8%81%94%E5%8A%A8)、[schema 渲染](/guide/concept/schema) 等都需要进行相应的配置方可生效，本篇文章会简要介绍相应的配置项，具体使用说明请点击上述链接进行学习。
 
 ## 说明
 
@@ -186,29 +186,6 @@ ReactDOM.render(
 当我们需要自定义从 schema 到组件的解析过程时，就需要使用到 `parsers` 属性，更多说明可以参考 [自定义解析器](https://dream2023.gitee.io/react-schema-render/parser)
 
 当我们需要对 schema 组件做一定包裹时，就需要用到 `componentDecorator` 属性，更多说明可以参考 [自定义装饰器](https://dream2023.gitee.io/react-schema-render/decorator)
-
-## Mock 数据
-
-Mock 数据仅涉及一个配置项：
-
-| 参数   | 说明        | 类型     | 默认值 |
-| ------ | ----------- | -------- | ------ |
-| mockjs | Mockjs 对象 | `Mockjs` | -      |
-
-`super-antd` 假设并非全部人都会使用到 `mock 数据` 功能，如果将其作为内置模块，将会使得打包体积增加，故所谓配置项，更多说明参见 [Mock 数据](/components/form#%E6%95%B0%E6%8D%AE-mock) 。
-
-```jsx | pure
-import { Super
-import mockjs from 'mockjs';
-import { SuperProvider } from 'super-antd';
-ReactDOM.render(
-  / 2.配置 mockjs
-  <SuperProvider mockjs={mockjs}>
-    <App />
-  </SuperProvider>,
-  document.getElementById('root'),
-);
-```
 
 ## 数据模板
 

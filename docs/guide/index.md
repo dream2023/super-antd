@@ -34,7 +34,7 @@ nav:
 针对上述表单操作其处理方式为：
 
 - 前期：通过指定 `initApi` 属性就可以完成数据获取，通过指定一个 `response` 对象就可以完成数据映射；
-- 中期：通过指定 `activeOn`、`disabledOn`、`hiddenOn`、`visibleOn`、`mock` 等就可以完成复杂的联动交互和数据模拟；
+- 中期：通过指定 `activeOn`、`disabledOn`、`hiddenOn`、`visibleOn` 等就可以完成复杂的联动交互；
 - 后期：通过指定 `api`、`redirect`、`resetAfterSubmit` 等就可以完成后期表单提交以及提交后的动作。
 
 通过这样的封装后，大多数复杂的操作，通过简单的属性配置即可实现，实现了真正的高效率和易用性。

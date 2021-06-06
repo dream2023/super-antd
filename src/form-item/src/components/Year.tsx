@@ -8,7 +8,6 @@ import { createSuperFormItem } from '../createSuperFormItem';
 export type SuperYearProps = CreateSuperFormItemProps<ProFormItemProps<DatePickerProps>>;
 export const SuperYear = createSuperFormItem<ProFormItemProps<DatePickerProps>>(ProFormDatePicker.Year, {
   placeholderPrefix: '请选择',
-  defaultMockRule: '@date',
 });
 SuperYear.displayName = 'SuperYear';
 

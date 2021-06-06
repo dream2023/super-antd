@@ -44,16 +44,16 @@ export function nextTick(fn: () => void) {
 
 // 空函数
 export type NoopType = () => void;
-export const noop: NoopType = () => { };
+export const noop: NoopType = () => {};
 
 export const toPathArr = (path: Key | Key[]) =>
   isArray(path)
     ? path
     : String(path)
-      .replace(/\[([^[\]]*)\]/g, '.$1.')
-      .split('.')
-      .map(t => /^\d+$/.test(t) ? Number(t) : t)
-      .filter((t) => t !== '');
+        .replace(/\[([^[\]]*)\]/g, '.$1.')
+        .split('.')
+        .map((t) => (/^\d+$/.test(t) ? Number(t) : t))
+        .filter((t) => t !== '');
 
 // lodash get
 export const get = (obj?: Record<Key, any>, path?: Key | Key[]) => {
