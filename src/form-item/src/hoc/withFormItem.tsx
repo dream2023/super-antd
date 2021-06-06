@@ -64,8 +64,8 @@ export function withFormItem<P extends object = any>(
     const { delimiters } = useContext(SuperAntdContext);
     // 表单 context
     const formContext = useContext<SuperFormContextProps>(SuperFormContext);
-    const { form } = formContext;
-    const data = form?.getFieldsValue();
+    const { form, initialValues } = formContext;
+    const data = Object.assign({}, initialValues, form?.getFieldsValue());
     const { layout, autoPlaceholder, hideLabel: formHideLabel, remoteErrors } = formContext;
 
     // 去除掉 SuperFormItem 相关属性，保留原始 FormItemComponent 属性并传递过去

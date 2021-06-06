@@ -103,7 +103,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
   const [formInstance] = Form.useForm<Values>(form);
 
   // 持久化数据
-  const [localValues, setLocalValues] = useLocalStorageState(name || '');
+  const [localValues, setLocalValues] = useLocalStorageState<Values>(name || '');
 
   // 表单初始值，需要考虑到持久化数据
   const initialValuesWithStorage = useCreation(() => {
@@ -239,6 +239,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
       form: formInstance,
       autoPlaceholder,
       remoteErrors,
+      initialValues: initialValuesWithStorage
     };
   }, [remoteErrors, layout, formInstance, readonly, disabled, hideLabel, autoPlaceholder]);
 
