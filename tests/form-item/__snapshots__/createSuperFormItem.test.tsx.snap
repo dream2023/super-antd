@@ -74,3 +74,78 @@ exports[`createSuperFormItem 1`] = `
   </div>
 </div>
 `;
+
+exports[`createSuperFormItem createSuperFormItem 1`] = `
+<div>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div>
+        <form
+          class="ant-form ant-form-horizontal"
+        >
+          <input
+            style="display: none;"
+            type="text"
+          />
+          <div>
+            {"colon":false,"label":" "}
+          </div>
+          <div>
+            {"colon":false,"label":" ","options":[]}
+          </div>
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center super-form-btns"
+                    style="justify-content: flex-start;"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <button
+                        class="ant-btn ant-btn-primary"
+                        type="submit"
+                      >
+                        <span>
+                          提 交
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <button
+                        class="ant-btn"
+                        type="reset"
+                      >
+                        <span>
+                          重 置
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

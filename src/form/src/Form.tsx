@@ -282,7 +282,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
       changeValues(allValues);
 
       // 清除远程的错误
-      if (Object.keys(remoteErrors)) {
+      if (Object.keys(remoteErrors).length) {
         setRemoteErrors({});
       }
     },
