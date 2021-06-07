@@ -89,7 +89,7 @@ export function withFormItem<P extends object = any>(
     }, [name]);
 
     // 获取 label
-    const componentLabel = useCreation(() => {
+    const computedLabel = useCreation(() => {
       const res = getLabel({ layout, label, colon, hideLabel, formHideLabel });
       return isString(res) ? compilerStr(res, { data }, delimiters) : res;
     }, [layout, label, colon, hideLabel, formHideLabel, delimiters, data]);
@@ -101,14 +101,8 @@ export function withFormItem<P extends object = any>(
 
     // 用于显示错误
     const computedMessageVariables = useCreation(() => {
-      return Object.assign(
-        label
-          ? {
-            label
-          }
-          : {},
-        messageVariables
-      )
+      if (!isString(label)) return messageVariables
+      return Object.assign({}, { label: compilerStr(label, { data }, delimiters) }, messageVariables)
     }, [label, messageVariables])
 
     // 联动必填
@@ -221,7 +215,7 @@ export function withFormItem<P extends object = any>(
         name={computedName}
         colon={computedColon}
         rules={computedRules}
-        label={componentLabel}
+        label={computedLabel}
         hidden={linkageHidden}
         disabled={linkageDisabled}
         readonly={linkageReadonly}

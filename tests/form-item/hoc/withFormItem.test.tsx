@@ -90,7 +90,7 @@ describe('withFormItem', () => {
 
     test('当 label 为字符串时，支持模板字符', () => {
       setUp({ label: '{{data.a}}' });
-      toBe({ colon: undefined, label: '1', placeholder: '1' });
+      toBe({ colon: undefined, label: '1', messageVariables: { label: '1' }, placeholder: '1' });
     });
   });
 
@@ -212,12 +212,12 @@ describe('withFormItem', () => {
 
     test('当 placeholder 为 undefined 时，应自动填充', () => {
       setUp({ label: 'b', placeholderPrefix: 'please input ' });
-      toBe({ label: 'b', colon: undefined, placeholder: 'please input b' });
+      toBe({ label: 'b', colon: undefined, messageVariables: { label: 'b' }, placeholder: 'please input b' });
     });
 
     test('当 placeholder 为 undefined 时，应自动填充', () => {
       setUp({ label: 'b', placeholderPrefix: 'please input ' });
-      toBe({ label: 'b', colon: undefined, placeholder: 'please input b' });
+      toBe({ label: 'b', colon: undefined, messageVariables: { label: 'b' }, placeholder: 'please input b' });
     });
 
     test('当 placeholder 为字符串，应编译模板字符串时', () => {

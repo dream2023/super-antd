@@ -51,7 +51,7 @@
     "dist"
   ],
   "gitHooks": {
-    "pre-commit": "npm run tsc && lint-staged",
+    "pre-commit": "npm run tsc && lint-staged && npm run umi-test",
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
