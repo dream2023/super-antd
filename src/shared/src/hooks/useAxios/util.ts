@@ -177,8 +177,8 @@ export function serviceFn({ api, contextData, defaultData, defaultParams, delimi
     return getAxiosOptions({
       api,
       data: dataOption,
-      params: Object.assign({}, defaultParams, params),
-      contextData: paramOption,
+      params: paramOption,
+      contextData: contextOption,
       delimiters,
     });
   };

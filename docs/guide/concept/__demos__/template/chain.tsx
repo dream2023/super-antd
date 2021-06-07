@@ -4,7 +4,7 @@ import { SuperForm, SuperGroup, SuperInput } from 'super-antd';
 
 const App = () => {
   return (
-    <SuperForm debug layout="vertical">
+    <SuperForm initialValues={{ address: {} }} debug layout="vertical">
       <SuperGroup>
         <SuperInput name="address.province" label="省份" />
         <SuperInput

@@ -98,6 +98,19 @@ export function withFormItem<P extends object = any>(
     const computedColon = useCreation(() => {
       return getColon({ layout, label, colon, hideLabel, formHideLabel });
     }, [label, colon, hideLabel, formHideLabel]);
+
+    // 用于显示错误
+    const computedMessageVariables = useCreation(() => {
+      return Object.assign(
+        label
+          ? {
+            label
+          }
+          : {},
+        messageVariables
+      )
+    }, [label, messageVariables])
+
     // 联动必填
     const linkageRequired = useCreation(() => {
       return getLinkageValue({ data, value: required, linkageFn: requiredOn, delimiters }); // 是否必填
@@ -216,6 +229,7 @@ export function withFormItem<P extends object = any>(
         labelCol={computedLabelCol}
         wrapperCol={computedWrapperCol}
         placeholder={computedPlaceholder}
+        messageVariables={computedMessageVariables}
       />
     );
   };

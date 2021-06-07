@@ -185,7 +185,7 @@ SuperForm 增加 `debug` 功能，通过 `debug` 属性即可开启。
 
 ## 节流函数时间
 
-为了提升性能，我们可以通过设置 `throttleTimeout` 来调节节流函数的时间。
+为了提升性能，我们可以通过设置 `throttleTimeout` 来调节 `onValuesChange` 触发频率。
 
 <code src="./__demos__/form/throttleTimeout.tsx" />
 
