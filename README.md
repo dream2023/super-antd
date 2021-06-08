@@ -7,9 +7,7 @@
 
 </div>
 
-`super-antd` 是一个简单且数据驱动友好的 React 组件库。
-
-它基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 。
+`super-antd` 是一个简单且数据驱动友好的 React 组件库。它基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 。
 
 ## 📖 Document
 
@@ -46,7 +44,7 @@
   - [x] [表单项组件](https://dream2023.github.io/super-antd/components/form/form-item)
   - [x] [内置表单组件](https://dream2023.github.io/super-antd/components/form/form-components)
 - [ ] 0.1 正式版
-  - [ ] 测试覆盖率 80% 以上
+  - [x] 测试覆盖率 80% 以上
   - [ ] 完成 100% 文档
   - [ ] 0️⃣ issue
 - [ ] 1.0 版

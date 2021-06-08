@@ -3,7 +3,7 @@
   "name": "super-antd",
   "description": "super-antd 是一个简单且数据驱动友好的 React 组件库。",
   "license": "MIT",
-  "version": "0.0.1-alpha",
+  "version": "0.1.0",
   "author": {
     "name": "dream2023",
     "email": "1098626505@qq.com"
@@ -51,7 +51,7 @@
     "dist"
   ],
   "gitHooks": {
-    "pre-commit": "npm run tsc && lint-staged && npm run umi-test",
+    "pre-commit": "npm run tsc && umi-test && lint-staged",
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {

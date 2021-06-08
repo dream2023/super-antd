@@ -1,14 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { useWhyDidYouUpdate } from 'ahooks';
 import React, { FC, useContext } from 'react';
 
-import { InjectedDependencyProps, SuperForm, SuperInput, WithDependencyProps, withDependency, SuperFormContext } from 'super-antd';
+import {
+  InjectedDependencyProps,
+  SuperForm,
+  SuperFormContext,
+  SuperInput,
+  WithDependencyProps,
+  withDependency,
+} from 'super-antd';
 
 describe('withDependency', () => {
   const Demo: FC<InjectedDependencyProps> = () => {
-    const formContext = useContext(SuperFormContext)
-    const { form } = formContext
+    const formContext = useContext(SuperFormContext);
+    const { form } = formContext;
     return <div data-testid="data">{JSON.stringify(form?.getFieldsValue())}</div>;
   };
 
