@@ -134,8 +134,6 @@ export interface BtnsProps {
 }
 
 export interface FormEnhancedProps {
-  /** 模拟数据 当为 true 时表单项应用自身内置规则 当为 Record<string, any> 表示 mock 规范 */
-  mock?: true | Record<string, any>;
   /**
    * 防抖时间(毫秒) 对值变化后的相应处理
    *

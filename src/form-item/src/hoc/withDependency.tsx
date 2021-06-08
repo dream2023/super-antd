@@ -22,29 +22,14 @@ export interface NewDependencyProps {
 }
 
 // 联动所需要的属性
-export type WithDependencyProps<T> = Omit<T, keyof InjectedDependencyProps> & NewDependencyProps;
+export type WithDependencyProps<T = any> = Omit<T, keyof InjectedDependencyProps> & NewDependencyProps;
 
 /**
  * 用于表单项联动的高阶组件
  *
- * @example
- *   // 原始类型
- *   interface FooProps {
- *     test: string;
- *   }
- *
- *   // 原始组件
- *   const Foo: FC<FooProps> = () => <div></div>;
- *
- *   // 增强组件
- *   const SuperFoo = withDependency<FooProps>(Foo);
- *
- *   // 使用
- *   <SuperFoo test="ss"></SuperFoo>;
- *
  * @param FormItemComponent 表单项组件
  */
-export function withDependency<P extends InjectedDependencyProps>(FormItemComponent: React.ComponentType<P>) {
+export function withDependency<P extends InjectedDependencyProps = any>(FormItemComponent: React.ComponentType<P>) {
   // 类型中，需要去除内部注入的属性
   const WithDependencyFormItem: FC<WithDependencyProps<P>> = (props) => {
     const { linkageFields } = props;
@@ -54,13 +39,15 @@ export function withDependency<P extends InjectedDependencyProps>(FormItemCompon
       return castToArray(linkageFields).map((name) => getName(name)!);
     }, [linkageFields]);
 
-    return (
+    return compuntedLinkageFields.length ? (
       <ProFormDependency name={compuntedLinkageFields}>
-        {(data, form) => (
+        {() => (
           // 注入 data 和 form 属性
-          <FormItemComponent {...(props as P)} data={data} form={form} linkageFields={compuntedLinkageFields} />
+          <FormItemComponent {...(props as P)} />
         )}
       </ProFormDependency>
+    ) : (
+      <FormItemComponent {...(props as P)} />
     );
   };
 

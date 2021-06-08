@@ -13,7 +13,9 @@ nav:
 
 ## 什么 super-antd？
 
-`super-antd` 是一个基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 的数据驱动友好、易用且强大的 UI 库。
+`super-antd` 是一个简单且数据驱动友好的 React 组件库。
+
+它基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 。
 
 ## 如何做到简单、易用且强大？
 
@@ -32,7 +34,7 @@ nav:
 针对上述表单操作其处理方式为：
 
 - 前期：通过指定 `initApi` 属性就可以完成数据获取，通过指定一个 `response` 对象就可以完成数据映射；
-- 中期：通过指定 `activeOn`、`disabledOn`、`hiddenOn`、`visibleOn`、`mock` 等就可以完成复杂的联动交互和数据模拟；
+- 中期：通过指定 `activeOn`、`disabledOn`、`hiddenOn`、`visibleOn` 等就可以完成复杂的联动交互；
 - 后期：通过指定 `api`、`redirect`、`resetAfterSubmit` 等就可以完成后期表单提交以及提交后的动作。
 
 通过这样的封装后，大多数复杂的操作，通过简单的属性配置即可实现，实现了真正的高效率和易用性。
@@ -58,44 +60,24 @@ nav:
 
 ## Roadmap 开发规划
 
-#### 预览版
+- [x] 0.1 alpha 版
+  - [x] [数据模板](https://dream2023.github.io/super-antd/guide/concept/template)
+  - [x] [数据联动](https://dream2023.github.io/super-antd/guide/concept/linkage)
+  - [x] [数据请求](https://dream2023.github.io/super-antd/guide/concept/api)
+  - [x] [schema 动态渲染](https://dream2023.github.io/super-antd/guide/concept/schema)
+  - [x] [表单组件](https://dream2023.github.io/super-antd/components/form)
+  - [x] [表单项组件](https://dream2023.github.io/super-antd/components/form/form-item)
+  - [x] [内置表单组件](https://dream2023.github.io/super-antd/components/form/form-components)
+- [ ] 0.1 正式版
+  - [ ] 测试覆盖率 80% 以上
+  - [ ] 完成 100% 文档
+  - [ ] 0️⃣ issue
+- [ ] 1.0 版
+  - [ ] 模板组件
+  - [ ] 富文本组件
+  - [ ] 上传图片组件
+  - [ ] 上传视频组件
+  - [ ] 代码编辑器组件
+  - [ ] ...
 
-**任务**：
-
-- 1、框架基础；
-- 2、表单和表单项组件；
-
-**目标**：打下框架基础，并且确定开发流程、文档书写规范、测试用例等基础。
-
-**实时任务**：[https://github.com/dream2023/super-antd/projects/1](https://github.com/dream2023/super-antd/projects/1)
-
-#### 0.1 版本（表单基础版）
-
-**任务**：
-
-- 1、框架基础；
-- 2、表单和表单项组件；
-- 3、antd 内置表单组件（select/checkbox/date/radio/number/slider/….）；
-
-**目标**：能够将其已有能力应用到生产环境。
-
-#### 0.2 版(表单增强版)
-
-**任务**：增加各种扩展的表单组件。
-
-**例如**：富文本组件、地图组件、上传组件、代码编辑器组件…
-
-**目标**：覆盖 95% 表单组件场景。
-
-#### 0.3 版(表单关联版)
-
-**任务**：增加各种与表单关联的组件。
-
-**例如**： Dialog 弹窗组件、Tabs 选项卡组件等。
-
-**长远规划**
-
-- 0.4 版：Table 表格组件、Table + Form 组件；
-- 0.5 版：Page 组件；
-- 0.6 版：图标类组件；
-- …
+更详细规划请见 [https://github.com/dream2023/super-antd/projects](https://github.com/dream2023/super-antd/projects)。

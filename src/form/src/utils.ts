@@ -1,14 +1,13 @@
 import type { BtnsType, SuperButtonProps } from '@/btns';
 import type { NoopType } from '@/shared';
-import { isNil } from '@/shared';
-import { isBoolean } from '@/shared';
+import { isString } from '@/shared';
 import { isPlainObject } from '@/shared';
 
 import type { BtnsProps } from './types';
 
 // 获取按钮文本
 export function getBtnText(btn: boolean | string | undefined, defaultText: string) {
-  return isNil(btn) || isBoolean(btn) ? defaultText : btn;
+  return isString(btn) ? btn : defaultText;
 }
 
 // 获取按钮
@@ -44,29 +43,14 @@ export function getBtn({ btn, onClick, key, type, htmlType, disabled, defaultTex
   };
 }
 
-interface MockBtnOptions {
-  mockBtn: string | boolean | SuperButtonProps;
-  onMock: NoopType;
-}
-
-interface GetBtnsOptions extends BtnsProps, MockBtnOptions {
+interface GetBtnsOptions extends BtnsProps {
   disabled?: boolean;
 }
 
 // 获取按钮列表
 export function getBtns(options: GetBtnsOptions): BtnsType {
   // TODO 取消 cancel，等到和弹窗结合的时候再做决定
-  const {
-    disabled,
-    onReset,
-    mockBtn,
-    onMock,
-    onCancel,
-    resetBtn = true,
-    submitBtn = true,
-    cancelBtn = false,
-    extraBtns = [],
-  } = options;
+  const { disabled, onReset, onCancel, resetBtn = true, submitBtn = true, cancelBtn = false, extraBtns = [] } = options;
   const builtInBtns: SuperButtonProps[] = [
     getBtn({
       btn: submitBtn,
@@ -83,14 +67,6 @@ export function getBtns(options: GetBtnsOptions): BtnsType {
       defaultText: '重置',
     }),
     getBtn({
-      disabled,
-      btn: mockBtn,
-      onClick: onMock,
-      key: 'mock',
-      defaultText: 'Mock 数据',
-    }),
-    getBtn({
-      disabled,
       btn: cancelBtn,
       onClick: onCancel,
       key: 'cancel',

@@ -31,11 +31,7 @@ function changeBtnsToNormal(btns?: BtnsType): ReactElement<ButtonProps>[] {
   return castToArray(btns)
     .filter((item) => item.visible !== false)
     .map(({ visible, text, ...item }) => {
-      const res = item;
-      if (res.disabled) {
-        res.disabled = 'disabled';
-      }
-      return isValidElement(res) ? res : <Button {...res}>{res.children || text}</Button>;
+      return isValidElement(item) ? item : <Button {...item}>{item.children || text}</Button>;
     });
 }
 

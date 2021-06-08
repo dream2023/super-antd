@@ -1,22 +1,14 @@
-import mockjs from 'mockjs';
 import React from 'react';
 
 import { SuperCheckboxGroup, SuperForm, SuperProvider, SuperSearchSelect } from 'super-antd';
 
 import axiosInstance from './axios-instance';
 
-// const getUsers: ApiFunction = async (data, params, { keywords }) => {
-//   const res = await axiosInstance('http://jsonplaceholder.typicode.com/users?type=' + keywords);
-//   const list = Object.values(res);
-//   return list.filter((item) => item.name.includes(keywords));
-// };
-
 const App = () => {
   return (
-    <SuperProvider mockjs={mockjs} axios={axiosInstance}>
+    <SuperProvider axios={axiosInstance}>
       <SuperForm initialValues={{ type: 1 }} debug>
         <SuperCheckboxGroup
-          mock
           label="混合类型"
           name="mixed"
           options={['123', 345, { label: 'jack', value: 1 }]}
@@ -35,7 +27,6 @@ const App = () => {
         <SuperRadioGroup
           label="类型"
           name="type"
-          mock
           options={[
             { label: '类型1', value: 1 },
             { label: '类型2', value: 2 },

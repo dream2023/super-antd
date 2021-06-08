@@ -7,7 +7,7 @@ import axiosInstance from './axios-instance';
 const App = () => {
   return (
     <SuperProvider axios={axiosInstance}>
-      <SuperForm>
+      <SuperForm debug>
         <SuperSelect
           name="province"
           label="省份"

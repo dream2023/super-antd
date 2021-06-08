@@ -11,11 +11,11 @@ const App = () => {
         initApi={{
           url: '/user/1',
           /**
-           * 我们通过 response 字段，将请求到的数据 { first_name: 'George', last_name: 'Bluth', }
+           * 我们通过 response 字段，将请求到的数据 { first_name: '林纳斯', last_name: '托瓦兹', }
            *
            * 转换成了 =>
            *
-           * { name: 'George-Bluth', }
+           * { name: '林纳斯-托瓦兹', }
            */
           response: {
             name: '{{data.first_name}}-{{data.last_name}}',

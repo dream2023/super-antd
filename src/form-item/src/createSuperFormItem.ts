@@ -9,12 +9,12 @@ import type { WithOptionsConfigType, WithOptionsProps } from './hoc/withOptions'
 import { withOptions } from './hoc/withOptions';
 
 // 方便别人导出 Props
-export type CreateSuperFormItemProps<T> = WithDependencyProps<WithFormItemProps<T>>;
+export type CreateSuperFormItemProps<T = any> = WithDependencyProps<WithFormItemProps<T>>;
 
 // 创建 form-item 组件
-export function createSuperFormItem<T extends Record<Key, any>>(
+export function createSuperFormItem<T extends Record<Key, any> = any>(
   Component: ComponentType<T>,
-  config: WithFormItemConfigType,
+  config: WithFormItemConfigType = {},
 ) {
   const ComponentWithFormItem = withFormItem<T>(Component, config);
   const ComponentWithDependency = withDependency<WithFormItemProps<T>>(ComponentWithFormItem);
@@ -23,10 +23,10 @@ export function createSuperFormItem<T extends Record<Key, any>>(
 }
 
 // 方便别人导出 props
-export type CreateSuperFormItemWithOptionsProps<T> = WithDependencyProps<WithFormItemProps<WithOptionsProps<T>>>;
+export type CreateSuperFormItemWithOptionsProps<T = any> = WithDependencyProps<WithFormItemProps<WithOptionsProps<T>>>;
 
 // 创建带 options 功能的 form-item
-export function createSuperFormItemWithOptions<T extends Record<Key, any>>(
+export function createSuperFormItemWithOptions<T extends Record<Key, any> = any>(
   Component: ComponentType<T>,
   config: WithFormItemConfigType & WithOptionsConfigType = {},
 ) {

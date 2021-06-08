@@ -8,7 +8,6 @@ import { createSuperFormItem } from '../createSuperFormItem';
 export type SuperQuarterProps = CreateSuperFormItemProps<ProFormItemProps<DatePickerProps>>;
 export const SuperQuarter = createSuperFormItem<ProFormItemProps<DatePickerProps>>(ProFormDatePicker.Quarter, {
   placeholderPrefix: '请选择',
-  defaultMockRule: '@date',
 });
 SuperQuarter.displayName = 'SuperQuarter';
 

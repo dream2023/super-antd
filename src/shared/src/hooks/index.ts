@@ -1,4 +1,3 @@
-export * from './useMock';
 export * from './useJump';
 export * from './useAxios';
 export * from './useOptions';

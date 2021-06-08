@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "super-antd",
-  "description": "super-antd 是一个基于 ant design 和 pro-components 的数据驱动友好、易用且强大的 UI 库。",
+  "description": "super-antd 是一个简单且数据驱动友好的 React 组件库。",
   "license": "MIT",
   "version": "0.0.1-alpha",
   "author": {
@@ -13,10 +13,10 @@
     "docs:build": "dumi build",
     "build": "father-build && node scripts/replaceDeclaration.js && webpack-cli",
     "release": "npm run build && npm publish",
-    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./src && npm run lint:prettier",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --fix --format=pretty ./src && npm run lint:prettier",
     "lint:prettier": "npm run prettier && git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
-    "test": "umi-test",
+    "test": "umi-test --watch",
     "test:coverage": "umi-test --coverage",
     "tsc": "tsc --noEmit",
     "update:deps": "yarn upgrade-interactive --latest"
@@ -51,7 +51,7 @@
     "dist"
   ],
   "gitHooks": {
-    "pre-commit": "npm run tsc && lint-staged",
+    "pre-commit": "npm run tsc && lint-staged && npm run umi-test",
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
@@ -76,12 +76,12 @@
     "@babel/runtime": "^7.14.0",
     "@dream2023/data-mapping": "^2.1.1",
     "@types/classnames": "^2.2.11",
-    "@types/mockjs": "^1.0.3",
-    "ahooks": "^2.10.0",
+    "@types/lodash.set": "^4.3.6",
+    "ahooks": "^2.10.4",
     "classnames": "^2.2.6",
     "dayjs": "^1.10.4",
+    "lodash.set": "^4.3.2",
     "map-obj": "^4.2.1",
-    "mockjs": "^1.1.0",
     "react-router-dom": "^5.2.0",
     "react-schema-render": "^0.0.5",
     "tiny-warning": "^1.0.3"
@@ -97,12 +97,12 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/react-hooks": "^5.1.0",
-    "@testing-library/user-event": "^13.0.16",
+    "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^26.0.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.2",
     "@umijs/fabric": "^2.5.10",
-    "@umijs/test": "^3.0.5",
+    "@umijs/test": "^3.4.22",
     "antd": "^4.14.0",
     "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",

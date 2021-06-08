@@ -17,11 +17,7 @@ export interface SuperAxiosRequestConfig extends AxiosRequestConfig {
   params?: Record<Key, any> | SchemaType;
 }
 
-export type ApiFunction = (
-  data: Record<Key, any>,
-  params: Record<Key, any>,
-  contextData: Record<Key, any>,
-) => Promise<any>;
+export type ApiFunction = (data: Record<Key, any>, params: Record<Key, any>, contextData: Record<Key, any>) => any;
 export type ApiType = string | SuperAxiosRequestConfig | ApiFunction;
 
 // 请求信息

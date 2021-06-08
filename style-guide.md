@@ -93,13 +93,17 @@ import { Btns } from '@/btns';
 
 
 
-// 不应该从 'super-antd'
+
+
+// 不应该从 'supe
 import { Btns } from 'super-antd';
+';
+;
 
 
 
 
-// 也不应该使用相对路径（为了
+/
 import { Btns } from '../btns';
 ```
 
@@ -179,10 +183,10 @@ select.md
 __demos__
   form
     hideLabel.tsx
-    mock_basic.tsx
+    api_basic.tsx
 ```
 
-每个文件名都能够表达其基本含义，例如上面 form 组件的 `hideLabel` 表示 `hideLabel` 属性对应的功能示例，而 `mock_basic` 表示 `mock` 属性的基本使用方式。
+每个文件名都能够表达其基本含义，例如上面 form 组件的 `hideLabel` 表示 `hideLabel` 属性对应的功能示例，而 `api_basic` 表示 `api` 属性的基本使用方式。
 
 而不应是：
 

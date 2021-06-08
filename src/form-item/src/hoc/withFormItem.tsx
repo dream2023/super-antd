@@ -1,21 +1,19 @@
 import { compilerStr } from '@dream2023/data-mapping';
 import { useCreation } from 'ahooks';
+import set from 'lodash.set';
 import type { ComponentType, FC } from 'react';
 import React, { useContext, useEffect } from 'react';
 
 import type { SuperFormContextProps } from '@/form';
 import { SuperFormContext } from '@/form';
 import { SuperAntdContext } from '@/provider';
-import { castToArray, get, getCol, isString, isUndefined, omit, set } from '@/shared';
+import { get, getCol, isString, isUndefined, omit } from '@/shared';
 
-import { useFormMock } from '../hooks/useFormMock';
 import { getColon, getLabel, getLinkageValue, getName, getOppositionValue, getPlaceholder } from '../utils';
 import type { WithFormItemProps } from './withFormItemTypes';
 import { omitWithFormItemKeys } from './withFormItemTypes';
 
 export interface WithFormItemConfigType {
-  /** Mock 规则 */
-  defaultMockRule?: any;
   /**
    * 如果有 placeholder 属性时，前缀
    *
@@ -27,19 +25,20 @@ export interface WithFormItemConfigType {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export function withFormItem<P extends object>(FormItemComponent: ComponentType<P>, config: WithFormItemConfigType) {
-  const { defaultMockRule, placeholderPrefix, needData } = config;
+export function withFormItem<P extends object = any>(
+  FormItemComponent: ComponentType<P>,
+  config: WithFormItemConfigType,
+) {
+  const { placeholderPrefix, needData } = config;
   const EnhancedFormComponent: FC<WithFormItemProps<P>> = (props) => {
     const {
       name,
-      form,
-      data,
-      mock,
       help,
       colon,
       label,
       rules,
       active,
+      hidden,
       visible,
       labelCol,
       disabled,
@@ -65,6 +64,8 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
     const { delimiters } = useContext(SuperAntdContext);
     // 表单 context
     const formContext = useContext<SuperFormContextProps>(SuperFormContext);
+    const { form, initialValues } = formContext;
+    const data = Object.assign({}, initialValues, form?.getFieldsValue());
     const { layout, autoPlaceholder, hideLabel: formHideLabel, remoteErrors } = formContext;
 
     // 去除掉 SuperFormItem 相关属性，保留原始 FormItemComponent 属性并传递过去
@@ -82,52 +83,53 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
       return getCol(wrapperCol);
     }, [labelCol]);
 
-    // 将 name 转为字符串， ['info', 'name'] => 'info.name'
-    const nameStr = useCreation<string>(() => {
-      return castToArray(name).join('.');
-    }, [name]);
-
-    // 获取 colon
-    const computedColon = useCreation(() => {
-      return getColon(layout, label, colon, hideLabel, formHideLabel);
-    }, [label, colon, hideLabel, formHideLabel]);
-
     // 名称，从 'info.name' => ['info', 'name']
     const computedName = useCreation(() => {
       return getName(name);
     }, [name]);
 
     // 获取 label
-    const componentLabel = useCreation(() => {
-      const res = getLabel(layout, label, colon, hideLabel, formHideLabel);
+    const computedLabel = useCreation(() => {
+      const res = getLabel({ layout, label, colon, hideLabel, formHideLabel });
       return isString(res) ? compilerStr(res, { data }, delimiters) : res;
     }, [layout, label, colon, hideLabel, formHideLabel, delimiters, data]);
 
+    // 获取 colon
+    const computedColon = useCreation(() => {
+      return getColon({ layout, label, colon, hideLabel, formHideLabel });
+    }, [label, colon, hideLabel, formHideLabel]);
+
+    // 用于显示错误
+    const computedMessageVariables = useCreation(() => {
+      if (!isString(label)) return messageVariables
+      return Object.assign({}, { label: compilerStr(label, { data }, delimiters) }, messageVariables)
+    }, [label, messageVariables])
+
     // 联动必填
     const linkageRequired = useCreation(() => {
-      // data, required, requiredOn, delimiters
-      return getLinkageValue({ data, defaultValue: required, linkageFn: requiredOn, delimiters }); // 是否必填
+      return getLinkageValue({ data, value: required, linkageFn: requiredOn, delimiters }); // 是否必填
     }, [data, required, requiredOn, delimiters]);
 
     // 联动只读
     const linkageReadonly = useCreation(() => {
-      const isReadonly = getLinkageValue({ data, defaultValue: readonly, linkageFn: readonlyOn, delimiters }); // 是否只读
       // 本身只读或者全局只读都是返回 true
-      return isReadonly || formContext.readonly;
+      if (formContext.readonly) return true;
+      return getLinkageValue({ data, value: readonly, linkageFn: readonlyOn, delimiters }); // 是否只读
     }, [data, readonly, readonlyOn, delimiters, formContext.readonly]);
 
     // 联动隐藏
     const linkageHidden = useCreation(() => {
-      const isVisible = getLinkageValue({ data, defaultValue: visible, linkageFn: visibleOn, delimiters }); // 是否显示
-      const isHidden = getLinkageValue({ data, linkageFn: hiddenOn, delimiters }); // 是否隐藏
+      const isVisible = getLinkageValue({ data, value: visible, linkageFn: visibleOn, delimiters }); // 是否显示
+      const isHidden = getLinkageValue({ data, value: hidden, linkageFn: hiddenOn, delimiters }); // 是否隐藏
       return getOppositionValue(isHidden, isVisible);
     }, [data, visible, visibleOn, hiddenOn, delimiters]);
 
     // 联动禁用
     const linkageDisabled = useCreation(() => {
-      const isActive = getLinkageValue({ data, defaultValue: active, linkageFn: activeOn, delimiters }); // 是否启用
-      const isDisabled = getLinkageValue({ data, defaultValue: disabled, linkageFn: disabledOn, delimiters }); // 是否禁用
-      return getOppositionValue(isDisabled, isActive) || formContext.disabled;
+      if (formContext.disabled) return true;
+      const isActive = getLinkageValue({ data, value: active, linkageFn: activeOn, delimiters }); // 是否启用
+      const isDisabled = getLinkageValue({ data, value: disabled, linkageFn: disabledOn, delimiters }); // 是否禁用
+      return getOppositionValue(isDisabled, isActive);
     }, [data, active, activeOn, disabled, disabledOn, delimiters]);
 
     // 计算后的 placeholder
@@ -151,6 +153,7 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
 
     // 校检（融合必填）
     const computedRules = useCreation(() => {
+      if (isUndefined(linkageRequired)) return rules;
       return [...(rules || []), { required: linkageRequired }];
     }, [rules, linkageRequired]);
 
@@ -162,41 +165,33 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
     // 动态必填，参考：https://ant.design/components/form-cn/#components-form-demo-dynamic-rule
     useEffect(() => {
       if (computedName) {
-        form.validateFields([computedName]);
+        form?.validateFields([computedName]);
       }
     }, [computedName, form, linkageRequired]);
 
-    // 设置校检
+    // 联动对值的影响
     useEffect(() => {
+      if (!name || isUndefined(get(data, name))) return;
       if (
         (linkageReadonly && clearValueAfterReadonly) ||
         (linkageHidden && clearValueAfterHidden) ||
         (linkageDisabled && clearValueAfterDisabled)
       ) {
-        // 如果 nameStr = 'foo.bar' 则 obj = {foo: { bar: undefined }}
-        const obj = set({}, nameStr, undefined);
-        form.setFieldsValue(obj);
+        // 如果 name = 'foo.bar' 或者 ['info', 'bar'] => {foo: { bar: undefined }}
+        const obj = set({}, name, undefined);
+        form?.setFieldsValue(obj);
       }
     }, [
       clearValueAfterDisabled,
       clearValueAfterHidden,
       clearValueAfterReadonly,
       form,
+      data,
       linkageDisabled,
       linkageHidden,
       linkageReadonly,
-      nameStr,
+      name,
     ]);
-
-    // mock 数据相关
-    useFormMock({
-      mock,
-      formContext,
-      disabledMock: !!(linkageReadonly || linkageHidden || linkageDisabled),
-      name: nameStr,
-      defaultMockRule,
-      props,
-    });
 
     // 远程错误信息展示
     const errorProps = useCreation(() => {
@@ -220,7 +215,7 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
         name={computedName}
         colon={computedColon}
         rules={computedRules}
-        label={componentLabel}
+        label={computedLabel}
         hidden={linkageHidden}
         disabled={linkageDisabled}
         readonly={linkageReadonly}
@@ -228,6 +223,7 @@ export function withFormItem<P extends object>(FormItemComponent: ComponentType<
         labelCol={computedLabelCol}
         wrapperCol={computedWrapperCol}
         placeholder={computedPlaceholder}
+        messageVariables={computedMessageVariables}
       />
     );
   };

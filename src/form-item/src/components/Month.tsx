@@ -8,7 +8,6 @@ import { createSuperFormItem } from '../createSuperFormItem';
 export type SuperMonthProps = CreateSuperFormItemWithOptionsProps<ProFormItemProps<MonthPickerProps>>;
 export const SuperMonth = createSuperFormItem<ProFormItemProps<MonthPickerProps>>(ProFormDatePicker.Month, {
   placeholderPrefix: '请选择',
-  defaultMockRule: '@date',
 });
 SuperMonth.displayName = 'SuperMonth';
 

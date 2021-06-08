@@ -2,7 +2,7 @@
 title: super-antd | 一个简单、易用且强大的 ant design 增强库。
 hero:
   title: super-antd
-  desc: super-antd 是一个数据驱动友好、易用且强大的 UI 库。
+  desc: super-antd 是一个简单且数据驱动友好的 React 组件库。
   actions:
     - text: (*^▽^*) 快速开始
       link: /guide/getting-started
@@ -27,12 +27,3 @@ features:
     desc: 更少的代码，更少的 Bug
 footer: Open-source MIT Licensed | Copyright © super-antd<br />Powered by [dumi](https://d.umijs.org)
 ---
-
-## 🖥 浏览器兼容性
-
-- 现代浏览器和 Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
-- [Electron](https://www.electronjs.org/)
-
-| [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
-| --- | --- | --- | --- | --- |
-| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |

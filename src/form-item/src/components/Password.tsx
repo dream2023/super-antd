@@ -8,7 +8,6 @@ import { createSuperFormItem } from '../createSuperFormItem';
 export type SuperPasswordProps = CreateSuperFormItemProps<ProFormItemProps<PasswordProps>>;
 export const SuperPassword = createSuperFormItem<ProFormItemProps<PasswordProps>>(ProFormText.Password, {
   placeholderPrefix: '请输入',
-  defaultMockRule: '@string',
 });
 SuperPassword.displayName = 'SuperPassword';
 

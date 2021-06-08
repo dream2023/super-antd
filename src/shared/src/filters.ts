@@ -1,15 +1,15 @@
 import dayjs from 'dayjs';
 
-import { isArray, isBoolean, isDate, isNumber, isString } from './utils/is';
+import { isArray, isBoolean, isNumber, isString } from './utils/is';
 
 // 转为 json 字符串
 export const json = (data: any, tabSize?: number) => {
   return JSON.stringify(data, null, tabSize);
 };
 
-// 站位数字
+// 转为数字
 export const toNumber = (val?: unknown) => {
-  if (isString(val)) return parseInt(val, 10);
+  if (isString(val)) return Number(val);
   return val;
 };
 
@@ -41,8 +41,8 @@ export const trim = (val?: unknown) => {
 };
 
 // 日期
-export const date = (val?: string | number | Date, template: string = 'YYYY-DD-MM') => {
-  if (isNumber(val) || isString(val) || isDate(val)) return dayjs(val).format(template);
+export const date = (val?: unknown, template: string = 'YYYY-MM-DD') => {
+  if (dayjs(val as any).isValid()) return dayjs(val as any).format(template);
   return val;
 };
 
@@ -65,7 +65,7 @@ export const round = (val: unknown) => {
 
 // 截取字符串
 export const truncate = (val: unknown, length: number = 200, mask: string = '...') => {
-  if (isString(val)) return val.slice(0, length) + mask;
+  if (isString(val) && val.length >= length) return val.slice(0, length) + mask;
   return val;
 };
 
@@ -84,7 +84,7 @@ export const join = (val: unknown, glue = ',') => {
 // 求和
 export const sum = (val: unknown) => {
   if (isArray(val)) {
-    return val.reduce((acc, cur) => acc + cur, 0);
+    return val.reduce((acc, cur) => acc + Number(cur), 0);
   }
   return val;
 };

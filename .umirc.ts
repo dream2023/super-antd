@@ -21,4 +21,24 @@ export default defineConfig({
       'antd',
     ],
   ],
+  navs: [
+    {
+      title: '生态',
+      children: [
+        {
+          title: 'react-schema-render 动态渲染',
+          path: 'https://gitee.com/dream2023/react-schema-render',
+        },
+        {
+          title: '@dream2023/data-mapping 数据映射',
+          path: 'https://gitee.com/dream2023/data-mapping',
+        },
+      ],
+    },
+    null,
+    {
+      title: 'GitHub',
+      path: 'https://github.com/dream2023/super-antd',
+    },
+  ],
 });

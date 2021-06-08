@@ -12,7 +12,7 @@ export const isPlainObject = (val: unknown): val is Record<Key, any> => checkTyp
 
 // 是否为对象
 // eslint-disable-next-line @typescript-eslint/ban-types
-export const isObject = (val: unknown): val is object => typeof val === 'object';
+export const isObject = (val: unknown): val is object => val instanceof Object;
 
 // 是否为 undefined
 export const isUndefined = (val: unknown): val is undefined => {

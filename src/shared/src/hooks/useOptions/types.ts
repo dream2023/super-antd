@@ -22,4 +22,4 @@ export interface IUseOptions extends WithOptions {
   hidden?: boolean;
 }
 
-export type CreateWidthOptionsComponent<T> = Omit<T, 'options' | 'optionsProp'> & WithOptions;
+export type CreateWidthOptionsComponent<T = any> = Omit<T, 'options' | 'optionsProp'> & WithOptions;

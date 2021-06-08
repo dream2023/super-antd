@@ -10,10 +10,8 @@ export type LinkageFunctionType = ((data: Record<any, any>) => any) | string;
 interface GetLinkageValueOptions {
   // 数据
   data: Record<any, any>;
-  // 返回值是否为布尔值
-  isBoolean?: boolean;
-  // 默认值
-  defaultValue?: any;
+  // 用户传递的值
+  value?: any;
   // 联动函数
   linkageFn?: LinkageFunctionType;
   // 分隔符
@@ -21,20 +19,14 @@ interface GetLinkageValueOptions {
 }
 
 // 转换联动函数
-export function getLinkageValue({
-  data,
-  defaultValue,
-  linkageFn,
-  delimiters,
-  isBoolean = true,
-}: GetLinkageValueOptions) {
+export function getLinkageValue({ data, value, linkageFn, delimiters }: GetLinkageValueOptions): boolean | undefined {
   // 为空则返回
-  if (isUndefined(defaultValue) && isUndefined(linkageFn)) return undefined;
+  if (isUndefined(value) && isUndefined(linkageFn)) return undefined;
 
   let res;
   // 如果存在默认值，则使用默认值
-  if (!isUndefined(defaultValue)) {
-    res = defaultValue;
+  if (!isUndefined(value)) {
+    res = value;
   } else if (isString(linkageFn)) {
     // 如果是字符串，则编译字符串
     res = compilerStr(linkageFn, { data }, delimiters);
@@ -43,7 +35,7 @@ export function getLinkageValue({
     res = linkageFn(data);
   }
 
-  return isBoolean ? !!res : res;
+  return !!res;
 }
 
 // 获取对立的值
@@ -56,7 +48,7 @@ export function getOppositionValue(val1?: boolean, val2?: boolean) {
 /** 获取 placeholder 当用户没有自定义 placeholder 时，并且存在 label ，则根据 label自动拼接为 placeholder */
 
 interface GetPlaceholderOptions {
-  label: ReactNode;
+  label?: ReactNode;
   autoPlaceholder?: boolean;
   placeholderPrefix?: string;
   messageVariables?: Record<string, any>;
@@ -90,8 +82,8 @@ export function getPlaceholder({
  *   getName('info.age') => ['info', 'age']
  */
 export function getName(name?: NamePath): NamePath | undefined {
-  if (typeof name === 'string') {
-    const nameArr = name.split('.').filter((item) => item.length);
+  if (isString(name)) {
+    const nameArr = name.split('.').filter((item) => item);
     if (nameArr.length > 1) return nameArr;
   }
 
@@ -112,13 +104,19 @@ export function getName(name?: NamePath): NamePath | undefined {
  * @param hideLabel 是否隐藏标签
  * @param formHideLabel 是否全表单隐藏
  */
-export function getLabel(
-  layout?: string,
-  label?: ReactNode,
-  colon?: boolean,
-  hideLabel?: boolean,
-  formHideLabel?: boolean,
-): ReactNode {
+export function getLabel({
+  layout,
+  label,
+  colon,
+  hideLabel,
+  formHideLabel,
+}: {
+  layout?: string;
+  label?: ReactNode;
+  colon?: boolean;
+  hideLabel?: boolean;
+  formHideLabel?: boolean;
+}): ReactNode {
   if (formHideLabel) return undefined;
   return hideLabel || (label === undefined && colon === undefined && layout !== 'vertical') ? ' ' : label;
 }
@@ -128,13 +126,19 @@ export function getLabel(
  *
  * 其作用是搭配上面 getLabel 使用的，当 label 为空字符串时，如果有 : 会显得很难看 所以，当 label 为空字符串时，将其设置为 false。
  */
-export function getColon(
-  layout?: string,
-  label?: ReactNode,
-  colon?: boolean,
-  hideLabel?: boolean,
-  formHideLabel?: boolean,
-): boolean | undefined {
+export function getColon({
+  layout,
+  label,
+  colon,
+  hideLabel,
+  formHideLabel,
+}: {
+  layout?: string;
+  label?: ReactNode;
+  colon?: boolean;
+  hideLabel?: boolean;
+  formHideLabel?: boolean;
+}): boolean | undefined {
   return formHideLabel || hideLabel || (label === undefined && colon === undefined && layout !== 'vertical')
     ? false
     : colon;

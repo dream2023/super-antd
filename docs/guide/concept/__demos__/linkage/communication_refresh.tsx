@@ -20,13 +20,10 @@ const Demo = () => {
         <SuperForm
           name="form2"
           initApi={{
-            url: '/user/1',
-            response: {
-              name: '{{data.first_name}}-{{data.last_name}}',
-            },
+            url: '/random'
           }}
         >
-          <SuperInput name="name" label="姓名"></SuperInput>
+          <SuperInput name="user" label="姓名"></SuperInput>
         </SuperForm>
       </Card>
     </SuperProvider>

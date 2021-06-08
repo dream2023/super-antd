@@ -37,8 +37,6 @@ npm install super-antd --save
 import 'antd/dist/antd.css';
 import '@ant-design/pro-form/dist/form.css';
 
-
-// 或
 import 'antd/dist/antd.less';
 import '@ant-design/pro-form/dist/form.less';
 ```

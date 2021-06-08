@@ -38,8 +38,6 @@ export interface NewWithFormItemProps {
   clearValueAfterDisabled?: boolean;
   /** 当表单项只读以后，是否清除其值。 */
   clearValueAfterReadonly?: boolean;
-  /** Mock 数据 */
-  mock?: any;
   /** 是否隐藏 label。当我们想要保留 label 作为校检的名称，又不想显示 label 时，可以将其设置为 true。 */
   hideLabel?: boolean;
 }
@@ -58,7 +56,7 @@ export type DefaultFormItemProps<T = any> = Omit<ProFormItemProps<T>, keyof Over
   OverwriteWithFormItemProps & { readonly?: boolean };
 
 // 表单项属性等于 = 默认属性 props + 联动 props + 新 props
-export type WithFormItemProps<P> = P & DefaultFormItemProps<P> & InjectedWithFormItemProps & NewWithFormItemProps;
+export type WithFormItemProps<P = any> = P & DefaultFormItemProps<P> & InjectedWithFormItemProps & NewWithFormItemProps;
 
 // 不能直接传递给 Component 的属性
 export type OmitWithFormItemProps = InjectedWithFormItemProps & OverwriteWithFormItemProps & NewWithFormItemProps;
@@ -67,7 +65,6 @@ export type OmitWithFormItemProps = InjectedWithFormItemProps & OverwriteWithFor
 export const omitWithFormItemKeys: Record<keyof OmitWithFormItemProps, any> = {
   data: '',
   form: '',
-  mock: '',
   active: '',
   visible: '',
   activeOn: '',

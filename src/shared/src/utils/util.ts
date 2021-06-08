@@ -44,7 +44,7 @@ export function nextTick(fn: () => void) {
 
 // 空函数
 export type NoopType = () => void;
-export const NOOP: NoopType = () => {};
+export const noop: NoopType = () => {};
 
 export const toPathArr = (path: Key | Key[]) =>
   isArray(path)
@@ -52,6 +52,7 @@ export const toPathArr = (path: Key | Key[]) =>
     : String(path)
         .replace(/\[([^[\]]*)\]/g, '.$1.')
         .split('.')
+        .map((t) => (/^\d+$/.test(t) ? Number(t) : t))
         .filter((t) => t !== '');
 
 // lodash get
