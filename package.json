@@ -51,7 +51,7 @@
     "dist"
   ],
   "gitHooks": {
-    "pre-commit": "npm run tsc && umi-test && lint-staged",
+    "pre-commit": "npm run tsc && yarn umi-test --onlyChanged && lint-staged",
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
@@ -93,7 +93,7 @@
     "ie >= 11"
   ],
   "devDependencies": {
-    "@ant-design/pro-form": "^1.22.1",
+    "@ant-design/pro-form": "^1.28.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/react-hooks": "^5.1.0",
