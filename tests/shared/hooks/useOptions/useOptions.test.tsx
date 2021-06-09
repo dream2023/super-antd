@@ -142,7 +142,7 @@ describe('useOptions', () => {
         return (
           <SuperProvider axios={axios}>
             <Demo api={api} data={data} />
-            <button onClick={() => setData({ a: 'a' })} data-testid="setdata">
+            <button onClick={() => setData({ a: 'a' })} data-testid="setData">
               更改 data
             </button>
           </SuperProvider>
@@ -156,7 +156,7 @@ describe('useOptions', () => {
         expect(screen.getByTestId('loading').textContent).toBe('false');
       });
 
-      fireEvent.click(screen.getByTestId('setdata'));
+      fireEvent.click(screen.getByTestId('setData'));
       await waitFor(() => {
         expect(screen.getByTestId('loading').textContent).toBe('true');
       });

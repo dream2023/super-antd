@@ -163,7 +163,7 @@ import { getUser } from 'path/to/api';
 
 ### url 映射
 
-api 为 string 类型或者对象时的 url 属性支持参数映射，例如：`/city?provice={{data.provice}}` 就会将 `{{data.provice}}` 替换成真正的数据，例如：
+api 为 string 类型或者对象时的 url 属性支持参数映射，例如：`/city?province={{data.province}}` 就会将 `{{data.province}}` 替换成真正的数据，例如：
 
 <code src="./__demos__/api/url_template.tsx" />
 

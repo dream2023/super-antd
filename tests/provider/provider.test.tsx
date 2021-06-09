@@ -7,12 +7,12 @@ import { SuperAntdContext, SuperProvider } from 'super-antd';
 
 describe('SuperProvider', () => {
   test('children 可以正常显示', () => {
-    const warpper = render(
+    const wrapper = render(
       <SuperProvider>
         <div data-testid="content">hello world</div>
       </SuperProvider>,
     );
-    expect(warpper.getByTestId('content')).toBeInTheDocument();
+    expect(wrapper.getByTestId('content')).toBeInTheDocument();
   });
 
   test('过滤器 filters', () => {
@@ -29,11 +29,11 @@ describe('SuperProvider', () => {
       return <div data-testid="axios">{axios ? 'have' : 'empty'}</div>;
     };
 
-    const warpper = render(
+    const wrapper = render(
       <SuperProvider axios={axios}>
         <Demo />
       </SuperProvider>,
     );
-    expect(warpper.getByTestId('axios')).toHaveTextContent('have');
+    expect(wrapper.getByTestId('axios')).toHaveTextContent('have');
   });
 });

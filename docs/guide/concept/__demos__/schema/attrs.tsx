@@ -34,7 +34,7 @@ const App = () => {
 
   // 组件默认属性
   const componentProps = {
-    numer: {
+    number: {
       min: 0,
     },
   };

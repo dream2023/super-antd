@@ -14,10 +14,13 @@
     "build": "father-build && node scripts/replaceDeclaration.js && webpack-cli",
     "release": "npm run build && npm publish",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --fix --format=pretty ./src && npm run lint:prettier",
+    "lint:all": "yarn eslint --ext .js,.jsx,.ts,.tsx  --format=pretty ./src ",
     "lint:prettier": "npm run prettier && git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test --watch",
     "test:coverage": "umi-test --coverage",
+    "spell-check:all": "cspell \"**/*.{txt,ts,tsx,js,json,md}\"",
+    "ci": "yarn tsc && yarn lint:all && yarn spell-check:all && yarn test:coverage",
     "tsc": "tsc --noEmit",
     "update:deps": "yarn upgrade-interactive --latest"
   },
@@ -56,7 +59,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
-      "prettier --write"
+      "prettier --write",
+      "cspell"
     ],
     "*.ts?(x)": [
       "prettier --parser=typescript --write"
@@ -107,6 +111,7 @@
     "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-module-resolver": "^4.1.0",
+    "cspell": "^5.6.0",
     "css-loader": "^5.2.4",
     "dumi": "^1.0.13",
     "father-build": "^1.19.4",

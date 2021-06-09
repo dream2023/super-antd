@@ -59,13 +59,13 @@ nav:
 
 ### JS 全局函数
 
-数据模板可以使用到 JS 的全局函数，例如 `JSON.stringify` 或者 `parsetInt` 等函数，例如：
+数据模板可以使用到 JS 的全局函数，例如 `JSON.stringify` 或者 `parseInt` 等函数，例如：
 
 <code src="./__demos__/template/filters_global.tsx" />
 
 ### 串联使用多个过滤器
 
-<code src="./__demos__/template/filters_muti.tsx" />
+<code src="./__demos__/template/filters_multi.tsx" />
 
 ### 自定义过滤器
 
@@ -73,7 +73,7 @@ nav:
 
 ## 内置过滤器
 
-suepr-antd 为了方便用户内置了一些过滤器，以下是内置过滤器的介绍：
+super-antd 为了方便用户内置了一些过滤器，以下是内置过滤器的介绍：
 
 ### json
 
@@ -307,7 +307,7 @@ export default App;
 import React from 'react';
 import { SuperTpl } from 'super-antd';
 const App = () => {
-  return <SuperTpl value="{{data.nums | sum }}" data={{ nums: [1, 4, 3] }}></SuperTpl>;
+  return <SuperTpl value="{{data.numbers | sum }}" data={{ numbers: [1, 4, 3] }}></SuperTpl>;
 };
 export default App;
 ```

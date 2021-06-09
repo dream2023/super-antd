@@ -23,7 +23,7 @@ const Demo = () => {
         component: 'email',
         name: 'email',
         label: '邮箱',
-        key: 'emial',
+        key: 'email',
       },
       {
         component: 'checkbox',

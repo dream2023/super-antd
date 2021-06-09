@@ -1,0 +1,25 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "words": [
+    "ahooks",
+    "antd",
+    "Btns",
+    "btns",
+    "ahooksjs",
+    "hoverable",
+    "typeof",
+    "classname",
+    "cnpm",
+    "tyarn",
+    "testid",
+    "rerender",
+    "dumi",
+    "umijs",
+    "globby",
+    "gitee",
+    "Codecov",
+    "browserslist"
+  ],
+  "ignorePaths": ["node_modules/**", "**/*.snap", "coverage/**", "src/.umi/**"]
+}

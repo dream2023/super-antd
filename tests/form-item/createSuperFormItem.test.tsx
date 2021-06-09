@@ -4,7 +4,6 @@ import type { FC } from 'react';
 
 import { SuperForm, createSuperFormItem, createSuperFormItemWithOptions } from 'super-antd';
 
-
 describe('createSuperFormItem', () => {
   const BaseDemo: FC<any> = (props) => {
     return <div>{JSON.stringify(props)}</div>;
@@ -22,9 +21,7 @@ describe('createSuperFormItem', () => {
     );
   };
   test('createSuperFormItem', () => {
-    const warpper = render(<App />);
-    expect(warpper.container).toMatchSnapshot();
+    const wrapper = render(<App />);
+    expect(wrapper.container).toMatchSnapshot();
   });
-})
-
-
+});

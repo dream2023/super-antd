@@ -39,7 +39,6 @@ import {
   SuperYear,
 } from 'super-antd';
 
-
 describe('all form-item components', () => {
   const waitTime = (time: number = 100) => {
     return new Promise((resolve) => {
@@ -200,15 +199,15 @@ describe('all form-item components', () => {
     console.error = originError;
   });
   test('show all', () => {
-    const warpper = render(<App />);
-    expect(warpper.container).toMatchSnapshot();
-    userEvent.click(warpper.getByRole('button', { name: /autoPlaceholder/ }));
-    expect(warpper.container).toMatchSnapshot();
-    userEvent.click(warpper.getByRole('button', { name: /hideLabel/ }));
-    expect(warpper.container).toMatchSnapshot();
-    userEvent.click(warpper.getByRole('button', { name: /disabled/ }));
-    expect(warpper.container).toMatchSnapshot();
-    userEvent.click(warpper.getByRole('button', { name: /readonly/ }));
-    expect(warpper.container).toMatchSnapshot();
+    const wrapper = render(<App />);
+    expect(wrapper.container).toMatchSnapshot();
+    userEvent.click(wrapper.getByRole('button', { name: /autoPlaceholder/ }));
+    expect(wrapper.container).toMatchSnapshot();
+    userEvent.click(wrapper.getByRole('button', { name: /hideLabel/ }));
+    expect(wrapper.container).toMatchSnapshot();
+    userEvent.click(wrapper.getByRole('button', { name: /disabled/ }));
+    expect(wrapper.container).toMatchSnapshot();
+    userEvent.click(wrapper.getByRole('button', { name: /readonly/ }));
+    expect(wrapper.container).toMatchSnapshot();
   });
 });
