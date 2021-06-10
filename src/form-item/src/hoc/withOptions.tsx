@@ -3,8 +3,8 @@ import type { FormInstance } from 'antd';
 import set from 'lodash.set';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import type { ComponentType, FC } from 'react';
-import { useLayoutEffect } from 'react';
 import React from 'react';
+import { useDeepCompareEffect } from 'react-use';
 
 import type { OptionsProp, OptionsType } from '@/shared';
 import { useOptions } from '@/shared';
@@ -38,15 +38,21 @@ export function withOptions<P extends object = any>(Component: ComponentType<P>,
   const ComponentWithOptions: FC<WithOptionsProps<P>> = (props) => {
     const { options, hidden, name, form, optionsProp, data, clearValueAfterOptionsChange, ...resetOptions } = props;
     // 获取到 options
-    const { options: computedOptions, loading } = useOptions({ options, hidden, optionsProp, data });
+    const { options: computedOptions, loading, requestCount } = useOptions({
+      name,
+      options,
+      hidden,
+      optionsProp,
+      data,
+    });
 
     // 当 options 改变后是否清空表单项值
-    useLayoutEffect(() => {
-      if (name && form && clearValueAfterOptionsChange) {
+    useDeepCompareEffect(() => {
+      if (name && form && clearValueAfterOptionsChange && requestCount.current > 1) {
         const obj = set({}, name, undefined);
         form.setFieldsValue(obj);
       }
-    }, [form, name, computedOptions, clearValueAfterOptionsChange]);
+    }, [computedOptions]);
 
     // 判断是否有 loading 属性
     const computedLoadingObj = useCreation(() => {
