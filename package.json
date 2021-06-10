@@ -20,7 +20,7 @@
     "test": "umi-test --watch",
     "test:coverage": "umi-test --coverage",
     "spell-check:all": "cspell \"**/*.{txt,ts,tsx,js,json,md}\"",
-    "ci": "yarn tsc && yarn lint:all && yarn spell-check:all && yarn test:coverage",
+    "ci": "yarn tsc && yarn lint:all && yarn spell-check:all && umi-test --all",
     "tsc": "tsc --noEmit",
     "update:deps": "yarn upgrade-interactive --latest"
   },
@@ -88,6 +88,7 @@
     "map-obj": "^4.2.1",
     "react-router-dom": "^5.2.0",
     "react-schema-render": "^0.0.5",
+    "react-use": "^17.2.4",
     "tiny-warning": "^1.0.3"
   },
   "browserslist": [
