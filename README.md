@@ -43,10 +43,10 @@
   - [x] [表单组件](https://dream2023.github.io/super-antd/components/form)
   - [x] [表单项组件](https://dream2023.github.io/super-antd/components/form/form-item)
   - [x] [内置表单组件](https://dream2023.github.io/super-antd/components/form/form-components)
-- [ ] 0.1 正式版
+- [x] 0.1 正式版
   - [x] 测试覆盖率 90% 以上
-  - [ ] 完成 100% 文档
-  - [ ] 0️⃣ issue
+  - [x] 完成 100% 文档
+  - [x] 0️⃣ issue
 - [ ] 1.0 版
   - [ ] 模板组件
   - [ ] 富文本组件
