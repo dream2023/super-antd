@@ -2,13 +2,14 @@ import { ProFormDependency } from '@ant-design/pro-form';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import axios from 'axios';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 import {
   OptionsType,
   SuperForm,
   SuperInput,
   SuperProvider,
+  SuperSelect,
   WithOptionsConfigType,
   WithOptionsProps,
   withOptions,
@@ -98,13 +99,22 @@ describe('withOptions', () => {
   });
 
   test('更改 options 后，删除值', async () => {
-    const res = render(<App name="a" clearValueAfterOptionsChange options={resOptions} />);
-    userEvent.type(screen.getByLabelText('a'), '1');
-    expect(screen.getByLabelText('a')).toHaveValue('1');
-    res.rerender(<App name="a" clearValueAfterOptionsChange options={[]} />);
-
+    const App = () => {
+      const [options, setOptions] = useState<string[]>(['a', 'b']);
+      return (
+        <SuperForm initialValues={{ foo: 'a' }} isResponsive={false}>
+          <SuperSelect name="foo" label="foo" clearValueAfterOptionsChange options={options} />
+          <button onClick={() => setOptions(['c', 'd'])} data-testid="btn">
+            click
+          </button>
+        </SuperForm>
+      );
+    };
+    const res = render(<App />);
+    expect(res.container.querySelector('.ant-select-selection-item')).toHaveTextContent('a');
+    userEvent.click(screen.getByTestId('btn'));
     await waitFor(() => {
-      expect(screen.getByLabelText('a')).toHaveValue('');
+      expect(res.container.querySelector('.ant-select-selection-item')).toBeNull();
     });
   });
 });

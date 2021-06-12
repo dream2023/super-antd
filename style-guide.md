@@ -60,19 +60,19 @@ export function resolve(hostname: string, options: ResolveOptions = {}): IPAddre
 
 ```ts
 // 错误示例：多于3个参数 (#1)，多个可选参数 (#2)。
-export function renameSync(oldname: string, newname: string, replaceExisting?: boolean, followLinks?: boolean) {}
+export function renameSync(oldName: string, newName: string, replaceExisting?: boolean, followLinks?: boolean) {}
 
 // 正确示例
 interface RenameOptions {
   replaceExisting?: boolean;
   followLinks?: boolean;
 }
-export function renameSync(oldname: string, newname: string, options: RenameOptions = {}) {}
+export function renameSync(oldName: string, newName: string, options: RenameOptions = {}) {}
 ```
 
 ```ts
 // 错误示例：参数过多 (#1)
-export function pwrite(fd: number, buffer: TypedArray, offset: number, length: number, position: number) {}
+export function write(fd: number, buffer: TypedArray, offset: number, length: number, position: number) {}
 
 // 正确示例：
 export interface PWrite {
@@ -82,7 +82,7 @@ export interface PWrite {
   length: number;
   position: number;
 }
-export function pwrite(options: PWrite) {}
+export function write(options: PWrite) {}
 ```
 
 ## 不同组件之间使用别名引入

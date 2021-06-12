@@ -8,24 +8,24 @@ describe('schemaApiParser', () => {
   describe('SchemaApiToComponent', () => {
     test('正常请求，应先 loading，后显示组件', async () => {
       const api = () => ({ component: 'div', 'data-testid': 'data', children: 'hello world' });
-      const warpper = render(
+      const wrapper = render(
         <SuperProvider axios={axios}>
           <SchemaApiToComponent api={api} />
         </SuperProvider>,
       );
-      expect(warpper.container.querySelector('.ant-skeleton')).not.toBeNull();
+      expect(wrapper.container.querySelector('.ant-skeleton')).not.toBeNull();
 
       await waitFor(() => {
-        expect(warpper.queryByTestId('data')).toBeInTheDocument();
+        expect(wrapper.queryByTestId('data')).toBeInTheDocument();
       });
     });
     test('无数据时，应返回为空', () => {
-      const warpper = render(
+      const wrapper = render(
         <SuperProvider axios={axios}>
           <SchemaApiToComponent />
         </SuperProvider>,
       );
-      expect(warpper.baseElement.innerHTML).toEqual('<div></div>');
+      expect(wrapper.baseElement.innerHTML).toEqual('<div></div>');
     });
     test('当请求结果类型错误时，应警告', async () => {
       const warn = jest.fn();
@@ -33,14 +33,14 @@ describe('schemaApiParser', () => {
       console.warn = warn;
 
       const api = () => '123';
-      const warpper = render(
+      const wrapper = render(
         <SuperProvider axios={axios}>
           <SchemaApiToComponent api={api} />
         </SuperProvider>,
       );
 
       await waitFor(() => {
-        expect(warpper.container.querySelector('.ant-skeleton')).toBeNull();
+        expect(wrapper.container.querySelector('.ant-skeleton')).toBeNull();
       });
 
       expect(warn).toBeCalled();

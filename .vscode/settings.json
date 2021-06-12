@@ -1,0 +1,4 @@
+{
+  "editor.defaultFormatter": "vscode.typescript-language-features",
+  "prettier.embeddedLanguageFormatting": "off"
+}

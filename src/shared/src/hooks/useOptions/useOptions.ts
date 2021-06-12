@@ -1,5 +1,8 @@
 import { useCreation } from 'ahooks';
-import { useEffect, useRef, useState } from 'react';
+import set from 'lodash.set';
+import { useRef } from 'react';
+import { useDeepCompareEffect } from 'react-use';
+import rfdc from 'rfdc';
 import warning from 'tiny-warning';
 
 import { __DOCS_URL__ } from '../../constants';
@@ -9,24 +12,27 @@ import { useAxios } from '../useAxios';
 import type { IUseOptions, OptionList } from './types';
 import { getOptions } from './util';
 
+const clone = rfdc();
+
 export const useOptions = ({
+  name,
   options,
   optionsProp,
   data,
   hidden,
-}: IUseOptions): { options: OptionList; loading: boolean } => {
-  const [list, setList] = useState<OptionList>([]);
-
+}: IUseOptions): {
+  options: OptionList;
+  loading: boolean;
+  requestCount: React.MutableRefObject<number>;
+} => {
   // api 的情况
   const api: ApiType | undefined = useCreation(() => (isArray(options) ? '' : options), [options]);
-  const { loading, refresh, run } = useAxios({
+  const { loading, data: res, refresh, run } = useAxios({
     api,
     contextData: data,
     manual: true,
-    onSuccess: (res) => {
-      if (isArray(res)) {
-        setList(getOptions(res, optionsProp));
-      } else {
+    onSuccess: (successRes) => {
+      if (!isArray(successRes)) {
         warning(
           false,
           `[super-antd]: ${JSON.stringify(
@@ -39,25 +45,28 @@ export const useOptions = ({
     },
   });
 
-  const hasRequested = useRef(false);
-  useEffect(() => {
+  const otherData = useCreation(() => {
+    if (!name) return data;
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    return set(clone(data as object), name, undefined);
+  }, [data]);
+
+  const requestCount = useRef(0);
+  useDeepCompareEffect(() => {
     if (api && !loading && !hidden) {
-      if (!hasRequested.current) {
+      if (requestCount.current === 0) {
         run();
-        hasRequested.current = true;
       } else {
         refresh();
       }
+      requestCount.current += 1;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [api, data, hidden]);
+  }, [otherData]);
 
-  // 数组的情况
-  useEffect(() => {
-    if (isArray(options)) {
-      // 数组
-      setList(getOptions(options, optionsProp));
-    }
-  }, [options, optionsProp]);
-  return { options: list, loading };
+  if (isArray(options)) {
+    requestCount.current += 1;
+    return { options: getOptions(options, optionsProp), loading: false, requestCount };
+  }
+
+  return { options: getOptions(res, optionsProp), loading, requestCount };
 };

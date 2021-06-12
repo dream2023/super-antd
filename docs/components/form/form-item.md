@@ -2,7 +2,7 @@
 order: 1
 group:
   path: /form
-  title: 表单
+  title: 表单组件
 nav:
   title: 组件
   path: /components

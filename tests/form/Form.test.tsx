@@ -100,7 +100,7 @@ describe('SuperForm 表单', () => {
 
     test('仅显示自定义按钮 btns', async () => {
       const fn = jest.fn();
-      const warpper = render(
+      const wrapper = render(
         <SuperForm
           isResponsive={false}
           initialValues={{ name: 'foo' }}
@@ -115,7 +115,7 @@ describe('SuperForm 表单', () => {
         </SuperForm>,
       );
 
-      expect(warpper.container.querySelectorAll('.ant-btn').length).toBe(1);
+      expect(wrapper.container.querySelectorAll('.ant-btn').length).toBe(1);
       expect(screen.getByText(/custom/i)).not.toBeNull();
       await waitFor(() => {
         expect(fn).toBeCalledWith({ name: 'foo' }, expect.any(Object));

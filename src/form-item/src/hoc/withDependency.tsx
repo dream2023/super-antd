@@ -35,12 +35,12 @@ export function withDependency<P extends InjectedDependencyProps = any>(FormItem
     const { linkageFields } = props;
 
     // 获取联动字段
-    const compuntedLinkageFields = useCreation(() => {
+    const computedLinkageFields = useCreation(() => {
       return castToArray(linkageFields).map((name) => getName(name)!);
     }, [linkageFields]);
 
-    return compuntedLinkageFields.length ? (
-      <ProFormDependency name={compuntedLinkageFields}>
+    return computedLinkageFields.length ? (
+      <ProFormDependency name={computedLinkageFields}>
         {() => (
           // 注入 data 和 form 属性
           <FormItemComponent {...(props as P)} />

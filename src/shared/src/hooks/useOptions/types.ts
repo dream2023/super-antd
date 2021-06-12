@@ -1,4 +1,5 @@
 import type { SelectProps } from 'antd';
+import type { NamePath } from 'rc-field-form/lib/interface';
 import type { Key } from 'react';
 
 import type { ApiType } from '../useAxios';
@@ -20,6 +21,7 @@ export interface WithOptions {
 export interface IUseOptions extends WithOptions {
   data?: Record<Key, any>;
   hidden?: boolean;
+  name?: NamePath;
 }
 
 export type CreateWidthOptionsComponent<T = any> = Omit<T, 'options' | 'optionsProp'> & WithOptions;

@@ -1,0 +1,11 @@
+name: Node CI
+
+on: pull_request
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn
+      - run: yarn ci

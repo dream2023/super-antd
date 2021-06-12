@@ -19,7 +19,6 @@
 .env.local
 
 # ide
-/.vscode
 /.idea
 coverage
 .eslintcache

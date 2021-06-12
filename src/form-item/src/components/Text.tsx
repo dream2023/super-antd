@@ -29,5 +29,5 @@ SuperUrl.defaultProps = {
 };
 
 export { SuperInput, SuperEmail, SuperUrl };
-export type { SuperTextProps as SuperInputProps, SuperTextProps as SuperEmailPorps, SuperTextProps as SuperUrlProps };
+export type { SuperTextProps as SuperInputProps, SuperTextProps as SuperEmailProps, SuperTextProps as SuperUrlProps };
 export default SuperInput;
