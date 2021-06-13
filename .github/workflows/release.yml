@@ -29,7 +29,7 @@ jobs:
         with:
           commit_message: "chore(ci): change package.json version"
       - name: publish
-      - uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
           access: 'public'
