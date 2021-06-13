@@ -1,0 +1,35 @@
+name: release
+
+on:
+  release:
+    types: [published]
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: yarn
+      - name: Build
+        run: yarn docs:build
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs-dist
+      - name: Build
+        run: yarn build
+      - name: Replace Version
+        run: yarn replace-version
+      - name: Commit Version
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore(ci): change package.json version"
+      - name: publish
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: 'public'
