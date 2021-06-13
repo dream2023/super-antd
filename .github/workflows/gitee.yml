@@ -1,6 +1,6 @@
 name: Sync to Gitee
 
-on: [ push, delete, create ]
+on: [ push, delete ]
 
 jobs:
   deploy:
