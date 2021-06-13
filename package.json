@@ -12,7 +12,7 @@
     "start": "dumi dev",
     "docs:build": "dumi build",
     "build": "father-build && node scripts/replaceDeclaration.js && webpack-cli",
-    "release": "npm run build && npm publish",
+    "replace-version": "node scripts/replaceVersion.js",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --fix --format=pretty ./src && npm run lint:prettier",
     "lint:all": "yarn eslint --ext .js,.jsx,.ts,.tsx  --format=pretty ./src ",
     "lint:prettier": "npm run prettier && git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
