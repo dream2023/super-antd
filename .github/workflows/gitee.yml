@@ -1,6 +1,10 @@
 name: Sync to Gitee
 
-on: [ push, delete ]
+on:
+  push:
+    branches:
+      - main
+      - gh-pages
 
 jobs:
   deploy:
