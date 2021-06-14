@@ -239,7 +239,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
       form: formInstance,
       autoPlaceholder,
       remoteErrors,
-      initialValues: initialValuesWithStorage
+      initialValues: initialValuesWithStorage,
     };
   }, [remoteErrors, layout, formInstance, readonly, disabled, hideLabel, autoPlaceholder]);
 
@@ -307,9 +307,14 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
     return doms;
   }, [disabled, readonly, btns]);
 
+  // inline 模式下，align 不起作用
+  const computedAlign = useCreation(() => {
+    return layout === 'inline' ? undefined : align;
+  }, [align, layout]);
+
   return (
     <Spin spinning={loading} delay={500}>
-      <div className={align ? `super-antd-${align}` : undefined} ref={responsiveRef}>
+      <div className={computedAlign ? `super-antd-${computedAlign}` : undefined} ref={responsiveRef}>
         <ProForm<Values>
           name={name}
           form={formInstance}

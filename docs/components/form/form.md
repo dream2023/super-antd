@@ -93,6 +93,12 @@ antd Form 当 `Form.Item` 无 `label` 时，还需要指定其 labelCol 的 `off
 
 <code src="./__demos__/form/align.tsx" />
 
+## 布局
+
+同 antd，这里只是演示一下。
+
+<code src="./__demos__/form/layout.tsx" />
+
 ## debug 功能
 
 SuperForm 增加 `debug` 功能，通过 `debug` 属性即可开启。
