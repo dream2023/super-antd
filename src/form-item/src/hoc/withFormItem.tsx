@@ -101,9 +101,9 @@ export function withFormItem<P extends object = any>(
 
     // 用于显示错误
     const computedMessageVariables = useCreation(() => {
-      if (!isString(label)) return messageVariables
-      return Object.assign({}, { label: compilerStr(label, { data }, delimiters) }, messageVariables)
-    }, [label, messageVariables])
+      if (!isString(label)) return messageVariables;
+      return Object.assign({}, { label: compilerStr(label, { data }, delimiters) }, messageVariables);
+    }, [label, messageVariables]);
 
     // 联动必填
     const linkageRequired = useCreation(() => {

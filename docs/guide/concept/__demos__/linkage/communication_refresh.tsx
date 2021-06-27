@@ -20,7 +20,7 @@ const Demo = () => {
         <SuperForm
           name="form2"
           initApi={{
-            url: '/random'
+            url: '/random',
           }}
         >
           <SuperInput name="user" label="姓名"></SuperInput>

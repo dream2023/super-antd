@@ -646,5 +646,10 @@ describe('SuperForm 表单', () => {
       const wrapper = render(<SuperForm align="center" isResponsive={false}></SuperForm>);
       expect(wrapper.container.querySelector('super-antd-center')).not.toBeInTheDocument();
     });
+    test('当为 inline 时，align 失效', () => {
+      const wrapper = render(<SuperForm align="center" layout="inline" isResponsive={false}></SuperForm>);
+      expect(wrapper.container.querySelector('super-antd-center')).not.toBeInTheDocument();
+      expect(wrapper.container.querySelector('super-antd-left')).not.toBeInTheDocument();
+    });
   });
 });
