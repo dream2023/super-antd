@@ -33,6 +33,10 @@ export default defineConfig({
           title: '@dream2023/data-mapping 数据映射',
           path: 'https://gitee.com/dream2023/data-mapping',
         },
+        {
+          title: 'antd-image-cropper 图片裁剪组件',
+          path: 'https://github.com/dream2023/antd-image-cropper',
+        },
       ],
     },
     null,
