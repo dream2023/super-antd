@@ -20,6 +20,7 @@
     "globby",
     "gitee",
     "Codecov",
+    "anticon",
     "browserslist"
   ],
   "ignorePaths": ["node_modules/**", "**/*.snap", "coverage/**", "src/.umi/**"]

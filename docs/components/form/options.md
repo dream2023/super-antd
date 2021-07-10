@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 group:
   path: /form
   title: 表单组件

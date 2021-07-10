@@ -132,8 +132,6 @@ export interface IImageUploader {
   dataApi?: ApiType;
 }
 
-const ImageUploaderDemo: FC<IImageUploader> = () => <>Demo!</>;
-export const LimitProps: FC<Limit> = () => <>Demo!</>;
-export const PreviewLimitProps: FC<PreviewLimit> = () => <>Demo!</>;
+export const ImageUploaderDemo: FC<IImageUploader> = () => <>Demo!</>;
 
 export default ImageUploaderDemo;

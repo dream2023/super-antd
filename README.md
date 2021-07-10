@@ -49,9 +49,9 @@
   - [x] 完成 100% 文档
   - [x] 0️⃣ issue
 - [ ] 1.0 版
+  - [x] 上传图片组件
   - [ ] 模板组件
   - [ ] 富文本组件
-  - [ ] 上传图片组件
   - [ ] 上传视频组件
   - [ ] 代码编辑器组件
   - [ ] ...
@@ -65,6 +65,7 @@
 | Project | Status | Description |
 | --- | --- | --- |
 | react-schema-render | ![react-schema-render](https://img.shields.io/npm/v/react-schema-render?style=flat-square) | 通用型 schema 转 React 组件的工具组件 |
+| antd-image-cropper | ![antd-image-cropper](https://img.shields.io/npm/v/antd-image-cropper?style=flat-square) | ant design 图片裁剪组件 |
 | @dream2023/data-mapping | ![@dream2023/data-mapping](https://img.shields.io/npm/v/@dream2023/data-mapping?style=flat-square) | 数据模板映射方案 |
 | super-antd | ![super-antd](https://img.shields.io/npm/v/super-antd?style=flat-square) | 简单且数据驱动友好的 React 组件库 |
 

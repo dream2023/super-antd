@@ -12,7 +12,7 @@ interface ImagePreviewerProps {
   // 当隐藏
   onHide?: noop;
   // 文件列表
-  fileList?: UploadProps['fileList'];
+  fileList: UploadProps['fileList'];
 }
 
 const ImagePreviewer: FC<ImagePreviewerProps> = ({ visible, fileList, current = 0, onHide }) => {
@@ -26,7 +26,7 @@ const ImagePreviewer: FC<ImagePreviewerProps> = ({ visible, fileList, current = 
       }}
     >
       {fileList?.map((file) => (
-        <Image src={file.url || file.thumbUrl} key={file.uid} width={0} />
+        <Image src={file.url || file.thumbUrl} key={file.uid} />
       ))}
     </Image.PreviewGroup>
   );

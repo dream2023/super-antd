@@ -270,6 +270,7 @@ export const ImageUploader: FC<ImageUploaderProps> = ({
             icon={icon}
             title={title}
             max={max}
+            multiple={multiple}
             filesCount={arrValue.length}
             mode={proFieldProps?.mode}
             previewStyle={previewStyle}
@@ -279,7 +280,7 @@ export const ImageUploader: FC<ImageUploaderProps> = ({
       {/* 提示 */}
       {autoTip && computedTip && <div className="ant-form-item-extra">{computedTip}</div>}
       {/* 预览 */}
-      <ImagePreviewer {...preview} onHide={() => setPreview({ visible: false, current: 0 })} />
+      <ImagePreviewer {...preview} fileList={fileList} onHide={() => setPreview({ visible: false, current: 0 })} />
     </>
   );
 };

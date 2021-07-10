@@ -58,12 +58,9 @@
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
+    "*.{js,jsx,ts,tsx,less,md,json}": [
       "prettier --write",
       "cspell"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
     ],
     "*.{js,jsx,ts,tsx}": [
       "eslint --cache --fix --format=pretty"
@@ -131,6 +128,7 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.37.0",
     "webpack-cli": "^4.7.0",
+    "xhr-mock": "^2.5.1",
     "yorkie": "^2.0.0"
   }
 }

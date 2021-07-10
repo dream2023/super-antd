@@ -11,7 +11,7 @@ const Demo = () => {
   return (
     <SuperForm debug>
       <SuperInput name="name" label="姓名" />
-      <MyImageUploader name="avatar" label="头像" accept=".jpeg,.png" />
+      <MyImageUploader name="avatar" label="头像" accept=".jpeg,.jpg,.png" />
     </SuperForm>
   );
 };

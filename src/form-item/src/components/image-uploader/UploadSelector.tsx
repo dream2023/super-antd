@@ -13,7 +13,9 @@ export interface UploadSelectorProps {
    */
   title?: React.ReactNode;
   // 上传最大数量
-  max?: number;
+  max: number;
+  // 是否多选
+  multiple?: boolean;
   // 文件
   filesCount: number;
   // 是否为只读模式
@@ -22,10 +24,17 @@ export interface UploadSelectorProps {
   previewStyle?: { width: number; height: number };
 }
 
-const UploadSelector: FC<UploadSelectorProps> = ({ icon, title, max, filesCount, mode, previewStyle = {} }) => {
+const UploadSelector: FC<UploadSelectorProps> = ({
+  icon,
+  title,
+  max,
+  multiple,
+  filesCount,
+  mode,
+  previewStyle = {},
+}) => {
   // 是否显示上传
-  const showUpload = (max === undefined || !filesCount || filesCount < max) && mode !== 'read';
-
+  const showUpload = (multiple || filesCount < max) && mode !== 'read';
   if (!showUpload) return null;
 
   return (

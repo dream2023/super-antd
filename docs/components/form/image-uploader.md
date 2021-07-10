@@ -1,12 +1,12 @@
 ---
-order: 2
+order: 4
 group:
   path: /form
   title: 表单组件
 nav:
   title: 组件
   path: /components
-  order: 6
+  order: 5
 ---
 
 # 图片上传组件
@@ -107,4 +107,24 @@ export const MyImageUploader = withDefaultProps(SuperImageUploader, {
 
 <code src="./__demos__/image-uploader/dataApi.tsx">
 
-<API src="./__demos__/form-item/types.tsx" exports='["default", "LimitProps", "PreviewLimitProps"]'></API>
+<API src="./__demos__/form-item/types.tsx"></API>
+
+### Limit
+
+| Name        | Description                                                      | Type   | Default |
+| ----------- | ---------------------------------------------------------------- | ------ | ------- |
+| aspectRatio | 图片宽高比，例如宽高比为 16:9，那么 aspectRatio 为 16 / 9 即可。 | number | `--`    |
+| width       | 图片宽度                                                         | number | `--`    |
+| height      | 图片高度                                                         | number | `--`    |
+| minWidth    | 图片最小宽度                                                     | number | `--`    |
+| minHeight   | 图片最小高度                                                     | number | `--`    |
+| maxWidth    | 最大宽度                                                         | number | `--`    |
+| maxHeight   | 最大高度                                                         | number | `--`    |
+
+### PreviewLimit
+
+| Name        | Description | Type   | Default |
+| ----------- | ----------- | ------ | ------- |
+| aspectRatio | 宽高比      | number | `--`    |
+| width       | 宽度        | number | `--`    |
+| height      | 高度        | number | `--`    |

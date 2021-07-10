@@ -40,7 +40,7 @@ export const checkImageType = (image: RcFile): string | undefined => {
 // 文件大小检查
 export const checkImageSize = (file: RcFile, maxSize?: number): string | undefined => {
   if (maxSize) {
-    if (file.size > maxSize * 1024) {
+    if (Number(file.size) > maxSize * 1024) {
       return `${file.name} 超出 ${bytes(maxSize * 1024)} 限制`;
     }
   }
@@ -83,30 +83,35 @@ export interface ImageLimit {
 }
 
 // 检查文件宽高等尺寸
-export const checkImageLimit = async (file: RcFile, limit?: ImageLimit): Promise<string | undefined> => {
+export const checkImageLimit = (
+  fileName: string,
+  width: number,
+  height: number,
+  limit?: ImageLimit,
+): string | undefined => {
   if (!limit) return undefined;
-  const { width, height } = await measureImage(file);
+
   if (limit.minWidth && width < limit.minWidth) {
-    return `${file.name} 最小宽度为 ${limit.minWidth} 像素，当前为 ${width} 像素`;
+    return `${fileName} 最小宽度为 ${limit.minWidth} 像素，当前为 ${width} 像素`;
   }
   if (limit.minHeight && height < limit.minHeight) {
-    return `${file.name} 最小高度为 ${limit.minHeight} 像素，当前为 ${height} 像素`;
+    return `${fileName} 最小高度为 ${limit.minHeight} 像素，当前为 ${height} 像素`;
   }
   if (limit.maxWidth && width > limit.maxWidth) {
-    return `${file.name} 最大宽度为 ${limit.maxWidth} 像素，当前为 ${width} 像素`;
+    return `${fileName} 最大宽度为 ${limit.maxWidth} 像素，当前为 ${width} 像素`;
   }
   if (limit.maxHeight && height > limit.maxHeight) {
-    return `${file.name} 最大高度为 ${limit.maxHeight} 像素，当前为 ${height} 像素`;
+    return `${fileName} 最大高度为 ${limit.maxHeight} 像素，当前为 ${height} 像素`;
   }
   if (limit.width && width !== limit.width) {
-    return `${file.name} 宽应为 ${limit.width} 像素，当前为 ${width} 像素`;
+    return `${fileName} 宽度应为 ${limit.width} 像素，当前为 ${width} 像素`;
   }
   if (limit.height && height !== limit.height) {
-    return `${file.name} 高应为 ${limit.height} 像素，当前为 ${height} 像素`;
+    return `${fileName} 高度应为 ${limit.height} 像素，当前为 ${height} 像素`;
   }
   // 比例允许一点点误差，因为截图导致的
-  if (limit.aspectRatio && width / height - limit.aspectRatio > 0.002) {
-    return `${file.name} 图片宽高比应为 ${limit.aspectRatio}，当前宽高比为 ${width / height}`;
+  if (limit.aspectRatio && width / height - limit.aspectRatio > 0.01) {
+    return `${fileName} 图片宽高比应为 ${limit.aspectRatio}，当前宽高比为 ${width / height}`;
   }
 
   return undefined;
@@ -126,7 +131,9 @@ export async function checkFile({
   if (errMsg) return errMsg;
   errMsg = checkImageSize(file, maxSize);
   if (errMsg) return errMsg;
-  errMsg = await checkImageLimit(file, limit);
+
+  const { width, height } = await measureImage(file);
+  errMsg = await checkImageLimit(file.name, width, height, limit);
   if (errMsg) return errMsg;
 
   return undefined;
@@ -144,9 +151,14 @@ export function changeValueToFileList(arrValue: any[], urlKey?: string, uidKey?:
         _isUrl: true,
       };
     }
-    if (typeof file === 'object') {
+
+    if (file && typeof file === 'object') {
       // 对象类型，要获取 url 和 uid
-      const url = urlKey ? file[urlKey] : file.url;
+      let { url } = file;
+      if (!url && urlKey && file[urlKey]) {
+        url = file[urlKey];
+      }
+
       let { uid } = file;
       if (!uid && uidKey && file[uidKey]) {
         uid = file[uidKey];
@@ -188,7 +200,7 @@ export const getPreviewLimit = (
   const { width, height, aspectRatio: previewAspectRatio } = previewLimit;
   const { aspectRatio: limitAspectRatio } = limit;
   const aspectRatio = previewAspectRatio || limitAspectRatio;
-  if (aspectRatio) {
+  if (aspectRatio && !(width && height)) {
     if (width && !height) {
       return { width, height: width / aspectRatio };
     }
@@ -216,7 +228,7 @@ export function getTip({
   max?: number;
   maxSize?: number;
   limit?: ImageLimit;
-}): string {
+}): string | undefined {
   const res = [];
   // 个数
   if (Number(max) > 1) {
@@ -252,5 +264,5 @@ export function getTip({
   if (limit?.maxHeight) {
     res.push(`最大高度为 ${limit.maxHeight} 像素`);
   }
-  return res.length ? `${res.join('，')}。` : '';
+  return res.length ? `${res.join('，')}。` : undefined;
 }
