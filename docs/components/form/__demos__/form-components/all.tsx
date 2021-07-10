@@ -14,6 +14,7 @@ import {
   SuperEmail,
   SuperForm,
   SuperGroup,
+  SuperImageUploader,
   SuperInput,
   SuperMonth,
   SuperNumber,
@@ -189,6 +190,7 @@ const App = () => {
           <SuperUploadDragger label="Dragger" name="dragger" action="upload.do" />
         </SuperGroup>
         <SuperGroup label="其他">
+          <SuperImageUploader name="image-uploader" label="SuperImageUploader" />
           <SuperRate name="rate" label="SuperRate" />
           <SuperColor name="color" label="SuperColor" />
           <SuperSlider name="slider" label="SuperSlider" />

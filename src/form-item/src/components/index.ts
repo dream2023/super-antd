@@ -28,3 +28,4 @@ export * from './UploadButton';
 export * from './DateTimeRange';
 export * from './CheckboxGroup';
 export * from './UploadDragger';
+export * from './image-uploader';
