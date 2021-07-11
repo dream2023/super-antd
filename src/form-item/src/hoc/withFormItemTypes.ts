@@ -40,6 +40,8 @@ export interface NewWithFormItemProps {
   clearValueAfterReadonly?: boolean;
   /** 是否隐藏 label。当我们想要保留 label 作为校检的名称，又不想显示 label 时，可以将其设置为 true。 */
   hideLabel?: boolean;
+  /** 表单项所占栅格数量 */
+  itemSpan?: number;
 }
 
 // 更改原表单项属性
@@ -76,6 +78,7 @@ export const omitWithFormItemKeys: Record<keyof OmitWithFormItemProps, any> = {
   readonlyOn: '',
   wrapperCol: '',
   requiredOn: '',
+  itemSpan: '',
   linkageFields: '',
   clearValueAfterHidden: '',
   clearValueAfterDisabled: '',

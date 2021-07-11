@@ -99,6 +99,12 @@ antd Form 当 `Form.Item` 无 `label` 时，还需要指定其 labelCol 的 `off
 
 <code src="./__demos__/form/layout.tsx" />
 
+## 表单项布局
+
+我们可以通过 `itemCount` 设置一列显示多少表单项，并且表单项可以通过 `itemSpan` 自定义显示的占用的栅格数。
+
+<code src="./__demos__/form/itemCount.tsx" />
+
 ## debug 功能
 
 SuperForm 增加 `debug` 功能，通过 `debug` 属性即可开启。

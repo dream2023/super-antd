@@ -1,5 +1,6 @@
 import { compilerStr } from '@dream2023/data-mapping';
 import { useCreation } from 'ahooks';
+import { Col } from 'antd';
 import set from 'lodash.set';
 import type { ComponentType, FC } from 'react';
 import React, { useContext, useEffect } from 'react';
@@ -51,6 +52,7 @@ export function withFormItem<P extends object = any>(
       disabledOn,
       readonlyOn,
       requiredOn,
+      itemSpan,
       wrapperCol,
       placeholder,
       validateStatus,
@@ -64,7 +66,7 @@ export function withFormItem<P extends object = any>(
     const { delimiters } = useContext(SuperAntdContext);
     // 表单 context
     const formContext = useContext<SuperFormContextProps>(SuperFormContext);
-    const { form, initialValues } = formContext;
+    const { form, initialValues, itemCount: formItemCount } = formContext;
     const data = Object.assign({}, initialValues, form?.getFieldsValue());
     const { layout, autoPlaceholder, hideLabel: formHideLabel, remoteErrors } = formContext;
 
@@ -162,6 +164,13 @@ export function withFormItem<P extends object = any>(
       return needData ? { data, form } : {};
     }, [data]);
 
+    // 合并 formItemCount 和 本身 itemSpan
+    const computedItemLayout = useCreation(() => {
+      if (itemSpan) return itemSpan;
+      if (formItemCount) return 24 / formItemCount;
+      return 24;
+    }, [itemSpan, formItemCount]);
+
     // 动态必填，参考：https://ant.design/components/form-cn/#components-form-demo-dynamic-rule
     useEffect(() => {
       if (computedName) {
@@ -207,7 +216,7 @@ export function withFormItem<P extends object = any>(
       return { help, validateStatus };
     }, [help, validateStatus, remoteErrors, computedName]);
 
-    return (
+    const FormItemContent = (
       <FormItemComponent
         {...(componentProps as P)}
         {...dataProps}
@@ -226,6 +235,8 @@ export function withFormItem<P extends object = any>(
         messageVariables={computedMessageVariables}
       />
     );
+
+    return computedItemLayout !== 24 ? <Col span={computedItemLayout}>{FormItemContent}</Col> : FormItemContent;
   };
 
   return EnhancedFormComponent;

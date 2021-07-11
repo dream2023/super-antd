@@ -10,6 +10,7 @@ export interface SuperFormContextProps<Values extends Record<Key, any> = any> ex
   layout?: 'horizontal' | 'vertical' | 'inline';
   /** 服务端返回的错误 */
   remoteErrors: Record<string, any>;
+  itemCount?: number;
   initialValues?: Record<string, any>;
 }
 

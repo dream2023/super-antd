@@ -37,6 +37,10 @@ const SuperInput = (props) => {
 
 <code src="./__demos__/form-item/col.tsx" />
 
+## itemSpan 占用栅格数
+
+<code src="./__demos__/form-item/itemSpan.tsx" />
+
 ## 隐藏 label
 
 <code src="./__demos__/form-item/hideLabel.tsx" />

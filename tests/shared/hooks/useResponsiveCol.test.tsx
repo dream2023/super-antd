@@ -15,6 +15,12 @@ describe('useResponsiveCol', () => {
       const { result } = setup({ isResponsive: false });
       expect(result.current.shouldResponsive).toBeFalsy();
     });
+
+    test('itemCount > 1，则为 false', () => {
+      const { result } = setup({ itemCount: 2 });
+      expect(result.current.shouldResponsive).toBeFalsy();
+    });
+
     test('labelCol 为存在，则为 false', () => {
       const { result } = setup({ labelCol: 9 });
       expect(result.current.shouldResponsive).toBeFalsy();

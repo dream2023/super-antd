@@ -79,6 +79,8 @@ export interface IFormDemoProps {
   btns?: BtnsProps;
   /** 对齐方式 */
   align?: 'left' | 'right' | 'center';
+  /** 一列展示表单项的个数 */
+  itemCount?: number;
 }
 
 const Demo: FC<IFormDemoProps> = () => <>Demo!</>;

@@ -652,4 +652,48 @@ describe('SuperForm 表单', () => {
       expect(wrapper.container.querySelector('super-antd-left')).not.toBeInTheDocument();
     });
   });
+
+  describe('itemCount 表单项个数', () => {
+    test('当未设置 itemCount 或者 itemCount = 1 时，不起作用', () => {
+      // 第一次渲染
+      const { container, rerender } = render(<SuperForm isResponsive={false}></SuperForm>);
+      const count = container.querySelectorAll('.ant-form > .ant-form-item').length;
+
+      // 第二次渲染，查看子元素数量
+      rerender(
+        <SuperForm isResponsive={false}>
+          <SuperInput name="foo" label="bar" />
+        </SuperForm>,
+      );
+      const count2 = container.querySelectorAll('.ant-form > .ant-form-item').length;
+      expect(count + 1).toBe(count2);
+
+      // 第三次渲染，当设置了 1，查看子元素数量
+      rerender(
+        <SuperForm itemCount={1} isResponsive={false}>
+          <SuperInput name="foo" label="bar" />
+        </SuperForm>,
+      );
+      const count3 = container.querySelectorAll('.ant-form > .ant-form-item').length;
+      expect(count2).toBe(count3);
+    });
+
+    test('当设置 itemCount 为 3 时，表单项栅格数应为 8', () => {
+      const { container } = render(
+        <SuperForm itemCount={3} isResponsive={false}>
+          <SuperInput name="foo" label="bar" />
+        </SuperForm>,
+      );
+      expect(container.querySelector('.ant-row > .ant-col-8')).toBeInTheDocument();
+    });
+
+    test('当表单项设置 itemSpan 为值时，起到覆盖作用', () => {
+      const { container } = render(
+        <SuperForm itemCount={3} isResponsive={false}>
+          <SuperInput name="foo" label="bar" itemSpan={16} />
+        </SuperForm>,
+      );
+      expect(container.querySelector('.ant-row > .ant-col-16')).toBeInTheDocument();
+    });
+  });
 });
