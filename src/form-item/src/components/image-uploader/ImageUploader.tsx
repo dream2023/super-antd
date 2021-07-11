@@ -14,8 +14,8 @@ import React from 'react';
 import { cloneElement, useState } from 'react';
 import rfdc from 'rfdc';
 
-import type { ApiType } from 'super-antd';
-import { useAxios } from 'super-antd';
+import { useAxios } from '@/shared';
+import type { ApiType } from '@/shared/src/hooks/useAxios/types';
 
 import ImagePreviewer from './ImagePreviewer';
 import UploadSelector from './UploadSelector';

@@ -29,6 +29,5 @@
       "@@/*": ["src/.umi/*"]
     }
   },
-  "include": ["src", "tests"],
-  "exclude": ["node_modules", "node_modules/react-use/lib/*", "lib", "es", "dist", "docs-dist"]
+  "exclude": ["node_modules", "lib", "es", "dist", "docs-dist"]
 }
