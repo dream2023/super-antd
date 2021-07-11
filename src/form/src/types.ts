@@ -148,4 +148,8 @@ export interface FormEnhancedProps {
   align?: 'left' | 'right' | 'center';
   /** 是否保留远程获取的非表单项里的数据，例如 {id: 1, name: 'Jerry'} id 未设置表单项，antd 默认会删除，如果开启，则保留 */
   preserveRemoteData?: boolean;
+  /**
+   * 每行所占的表单项个数
+   */
+  itemCount?: number;
 }

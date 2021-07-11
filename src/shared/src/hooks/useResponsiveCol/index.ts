@@ -45,6 +45,8 @@ export interface ResponsiveColOptions {
   layout?: FormLayout;
   // 是否隐藏标签
   hideLabel?: boolean;
+  // 表单项布局
+  itemCount?: number;
   // 是否开启响应式
   isResponsive?: boolean;
   // 对齐方式
@@ -54,6 +56,7 @@ export interface ResponsiveColOptions {
 
 export const useResponsiveCol = ({
   layout = 'horizontal',
+  itemCount = 1,
   isResponsive = true,
   labelCol,
   align = 'left',
@@ -91,9 +94,11 @@ export const useResponsiveCol = ({
 
   // 判断是否已经开启响应式
   const shouldResponsive = useCreation(() => {
-    // isResponsive 为 true 并且没有指定 labelCol 和 wrapperCol
-    return layout === 'horizontal' && align === 'left' && isResponsive && !labelCol && !wrapperCol;
-  }, [layout, isResponsive, labelCol, wrapperCol, align]);
+    // itemCount < 1 且 isResponsive 为 true 并且没有指定 labelCol 和 wrapperCol
+    return (
+      Number(itemCount) <= 1 && layout === 'horizontal' && align === 'left' && isResponsive && !labelCol && !wrapperCol
+    );
+  }, [layout, itemCount, isResponsive, labelCol, wrapperCol, align]);
 
   // 通过 ref 绑定 DOM
   const responsiveRef = useCreation(() => {

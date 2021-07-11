@@ -5556,8 +5556,8 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000971, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001166, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001181, caniuse-lite@^1.0.30001219:
-  version "1.0.30001241"
-  resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001241.tgz"
+  version "1.0.30001243"
+  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001243.tgz"
 
 capture-exit@^2.0.0:
   version "2.0.0"

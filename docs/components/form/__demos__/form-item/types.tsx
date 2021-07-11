@@ -21,6 +21,8 @@ export interface FormItemProps {
    *   | number | string
    */
   wrapperCol?: ColType;
+  /** 表单项占用的栅格数。 */
+  itemSpan?: number;
   /** 只读。 */
   readonly?: boolean;
   /** 禁用。 */

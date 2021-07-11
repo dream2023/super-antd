@@ -3,7 +3,7 @@ import './form.less';
 import ProForm from '@ant-design/pro-form';
 import type { ProFormProps } from '@ant-design/pro-form';
 import { useCreation, useLocalStorageState, usePersistFn, useThrottleFn } from 'ahooks';
-import { Form, Spin } from 'antd';
+import { Form, Row, Spin } from 'antd';
 import type { Key } from 'react';
 import { useContext } from 'react';
 import React, { useState } from 'react';
@@ -60,6 +60,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
 
     // 响应式和标签
     labelCol,
+    itemCount,
     wrapperCol,
     isResponsive,
 
@@ -236,12 +237,13 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
       readonly,
       disabled,
       hideLabel,
+      itemCount,
       form: formInstance,
       autoPlaceholder,
       remoteErrors,
       initialValues: initialValuesWithStorage,
     };
-  }, [remoteErrors, layout, formInstance, readonly, disabled, hideLabel, autoPlaceholder]);
+  }, [remoteErrors, itemCount, layout, formInstance, readonly, disabled, hideLabel, autoPlaceholder]);
 
   // loading 效果（初始化和提交数据时）
   const loading = useCreation(() => {
@@ -251,6 +253,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
   // 响应式
   const { responsiveRef, responsiveLabelCol, responsiveWrapperCol } = useResponsiveCol({
     layout,
+    itemCount,
     align,
     labelCol,
     hideLabel,
@@ -331,7 +334,9 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
           {debug && <SuperFormDebugger />}
 
           {/* children 数据 */}
-          <SuperFormContext.Provider value={formContextValue}>{children}</SuperFormContext.Provider>
+          <SuperFormContext.Provider value={formContextValue}>
+            {Number(itemCount) > 1 ? <Row gutter={16}>{children}</Row> : children}
+          </SuperFormContext.Provider>
           {btnDoms && (
             <Form.Item
               wrapperCol={{
@@ -349,6 +354,7 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
 }
 
 SuperForm.defaultProps = {
+  itemCount: 1,
   autoPlaceholder: true,
   clearPersistDataAfterSubmit: true,
   btns: {
