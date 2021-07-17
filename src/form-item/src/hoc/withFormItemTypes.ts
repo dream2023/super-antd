@@ -42,6 +42,8 @@ export interface NewWithFormItemProps {
   hideLabel?: boolean;
   /** 表单项所占栅格数量 */
   itemSpan?: number;
+  // 计算属性
+  computed?: LinkageFunctionType;
 }
 
 // 更改原表单项属性
@@ -72,13 +74,14 @@ export const omitWithFormItemKeys: Record<keyof OmitWithFormItemProps, any> = {
   activeOn: '',
   hiddenOn: '',
   labelCol: '',
+  computed: '',
+  itemSpan: '',
   visibleOn: '',
   hideLabel: '',
   disabledOn: '',
   readonlyOn: '',
   wrapperCol: '',
   requiredOn: '',
-  itemSpan: '',
   linkageFields: '',
   clearValueAfterHidden: '',
   clearValueAfterDisabled: '',

@@ -275,4 +275,24 @@ describe('withFormItem', () => {
       toBe({ name: 'a', disabled: false, data: {}, form: expect.any(Object) });
     });
   });
+
+  describe('computed 计算属性', () => {
+    test('当设置了 computed 属性，值应该跟着计算属性变化', async () => {
+      const { container } = render(
+        <SuperForm debug>
+          <SuperInput name="a" label="a"></SuperInput>
+          <SuperInput name="b" label="b" linkageFields="a" computed={({ a }) => a + 'b'}></SuperInput>
+        </SuperForm>,
+      );
+
+      // readonly 模式
+      expect(screen.getByText(/\-/i)).toBeInTheDocument();
+
+      userEvent.type(screen.getByLabelText('a'), '1');
+      await waitFor(() => {
+        const text = (container.querySelector('.super-form-debugger') as Element).textContent;
+        expect(JSON.parse(text || '{}')).toEqual({ a: '1', b: '1b' });
+      });
+    });
+  });
 });

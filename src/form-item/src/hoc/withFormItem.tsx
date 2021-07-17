@@ -8,7 +8,7 @@ import React, { useContext, useEffect } from 'react';
 import type { SuperFormContextProps } from '@/form';
 import { SuperFormContext } from '@/form';
 import { SuperAntdContext } from '@/provider';
-import { get, getCol, isString, isUndefined, omit } from '@/shared';
+import { get, getCol, getSchemaData, isString, isUndefined, omit } from '@/shared';
 
 import { getColon, getLabel, getLinkageValue, getName, getOppositionValue, getPlaceholder } from '../utils';
 import type { WithFormItemProps } from './withFormItemTypes';
@@ -53,6 +53,7 @@ export function withFormItem<P extends object = any>(
       readonlyOn,
       requiredOn,
       itemSpan,
+      computed,
       wrapperCol,
       placeholder,
       validateStatus,
@@ -114,10 +115,10 @@ export function withFormItem<P extends object = any>(
 
     // 联动只读
     const linkageReadonly = useCreation(() => {
-      // 本身只读或者全局只读都是返回 true
-      if (formContext.readonly) return true;
+      // 计算属性或者本身只读或者全局只读都是返回 true
+      if (computed || formContext.readonly) return true;
       return getLinkageValue({ data, value: readonly, linkageFn: readonlyOn, delimiters }); // 是否只读
-    }, [data, readonly, readonlyOn, delimiters, formContext.readonly]);
+    }, [computed, data, readonly, readonlyOn, delimiters, formContext.readonly]);
 
     // 联动隐藏
     const linkageHidden = useCreation(() => {
@@ -170,6 +171,14 @@ export function withFormItem<P extends object = any>(
       if (formItemCount) return 24 / formItemCount;
       return 24;
     }, [itemSpan, formItemCount]);
+
+    setTimeout(() => {
+      // 计算属性
+      if (computed && computedName) {
+        const obj = set({}, computedName, getSchemaData({ schema: computed, data, delimiters }));
+        form?.setFieldsValue(obj);
+      }
+    });
 
     // 动态必填，参考：https://ant.design/components/form-cn/#components-form-demo-dynamic-rule
     useEffect(() => {
