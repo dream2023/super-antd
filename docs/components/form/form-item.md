@@ -31,6 +31,10 @@ const SuperInput = (props) => {
 
 <code src="./__demos__/form-item/basic.tsx" />
 
+## 计算属性
+
+<code src="./__demos__/form-item/computed.tsx" />
+
 ## wrapperCol & labelCol 支持数字
 
 `wrapperCol` 和 `labelCol` 属性扩展了支持数字的能力。

@@ -79,6 +79,8 @@ export interface FormItemProps {
   clearValueAfterReadonly?: boolean;
   /** 是否隐藏 label。当我们想要保留 label 作为校检的名称，又不想显示 label 时，可以将其设置为 true。 */
   hideLabel?: boolean;
+  // 计算属性（类似 Vue computed）
+  computed?: LinkageFunctionType;
 }
 
 const FormItem: FC<FormItemProps> = () => <>Demo!</>;
