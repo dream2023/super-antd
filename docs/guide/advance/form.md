@@ -98,7 +98,7 @@ export default createField<ProFormQuillProps>(ProFormQuill);
 最后需要转为 `super-antd` 的空间，做法和 `pro-components` 类似，也是提供了一个高级函数 `createSuperFormItem`，我们只需要将组件传递进去即可：
 
 ```tsx | pure
-import React from 'react';
+// index.ts
 import type { FC } from 'react';
 import { createSuperFormItem } from 'super-antd';
 import type { CreateSuperFormItemProps } from 'super-antd';
@@ -108,8 +108,8 @@ import type { ProFormQuillProps } from './ProFormQuill';
 e
 export type SuperQuillProps = CreateSuperFormItemProps<ProFormQuillProps>;
  组件使用 createSuperFormItem 包裹一下
-c
-const SuperQuill: FC<SuperQuillProps> = createSuperFormItem(ProFormQuill);
+e
+export const SuperQuill: FC<SuperQuillProps> = createSuperFormItem(ProFormQuill);
 export default SuperQuill;
 ```
 

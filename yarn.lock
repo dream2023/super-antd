@@ -1316,6 +1316,14 @@
     core-js-pure "^3.15.0"
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime-corejs3@^7.11.2":
+  version "7.15.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.15.3.tgz#28754263988198f2a928c09733ade2fb4d28089d"
+  integrity sha512-30A3lP+sRL6ml8uhoJSs+8jwpKzbw8CqBvDc1laeptxPm5FahumJxirigcbD2qTs71Sonvj1cyZB0OKGAmxQ+A==
+  dependencies:
+    core-js-pure "^3.16.0"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@7.12.5":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
@@ -4890,6 +4898,11 @@ core-js-pure@^3.15.0, core-js-pure@^3.8.1:
   version "3.15.2"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.15.2.tgz#c8e0874822705f3385d3197af9348f7c9ae2e3ce"
   integrity sha512-D42L7RYh1J2grW8ttxoY1+17Y4wXZeKe7uyplAI3FkNQyI5OgBIAjUfFiTPfL1rs0qLpxaabITNbjKl1Sp82tA==
+
+core-js-pure@^3.16.0:
+  version "3.16.2"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.16.2.tgz#0ef4b79cabafb251ea86eb7d139b42bd98c533e8"
+  integrity sha512-oxKe64UH049mJqrKkynWp6Vu0Rlm/BTXO/bJZuN2mmR3RtOFNepLlSWDd1eo16PzHpQAoNG97rLU1V/YxesJjw==
 
 core-js@3.6.5:
   version "3.6.5"
@@ -15685,6 +15698,23 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
   dependencies:
     makeerror "1.0.x"
+
+wangeditor-for-react@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.nlark.com/wangeditor-for-react/download/wangeditor-for-react-1.5.3.tgz#56010a153645f7b999d1137a00ae4228a93ed415"
+  integrity sha1-VgEKFTZF97mZ0RN6AK5CKKk+1BU=
+  dependencies:
+    react "^17.0.2"
+    wangeditor "^4.7.5"
+
+wangeditor@^4.7.5:
+  version "4.7.6"
+  resolved "https://registry.yarnpkg.com/wangeditor/-/wangeditor-4.7.6.tgz#d2e6ddecf2474ec26c42773be2fac433d1e0baaf"
+  integrity sha512-8mOrYG8hDW0ZUhJqPpPGeav90RwZRHIPQolHVjdyQ6jitSmlCTzc67vLz8X5bXocriGOAaVIPiphAD+5wDNwBg==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    "@babel/runtime-corejs3" "^7.11.2"
+    tslib "^2.1.0"
 
 warning@^4.0.1, warning@^4.0.3:
   version "4.0.3"
