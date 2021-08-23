@@ -29,5 +29,5 @@
       "@@/*": ["src/.umi/*"]
     }
   },
-  "exclude": ["node_modules", "lib", "es", "dist", "docs-dist"]
+  "exclude": ["node_modules", "lib", "es", "dist", "docs-dist", "node_modules/wangeditor/**/*"]
 }
