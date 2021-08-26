@@ -28,5 +28,6 @@ export * from './TimeRange';
 export * from './Tpl';
 export * from './UploadButton';
 export * from './UploadDragger';
+export * from './video-uploader';
 export * from './Week';
 export * from './Year';

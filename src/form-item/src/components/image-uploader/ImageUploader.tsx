@@ -10,8 +10,7 @@ import ImageCropper from 'antd-image-cropper';
 import type { UploadFile } from 'antd/lib/upload/interface';
 import classnames from 'classnames';
 import type { FC } from 'react';
-import React from 'react';
-import { cloneElement, useState } from 'react';
+import React, { cloneElement, useState } from 'react';
 import rfdc from 'rfdc';
 
 import { useAxios } from '@/shared';
@@ -20,8 +19,7 @@ import type { ApiType } from '@/shared/src/hooks/useAxios/types';
 import ImagePreviewer from './ImagePreviewer';
 import UploadSelector from './UploadSelector';
 import type { ImageLimit, PreviewLimit } from './utils';
-import { getTip } from './utils';
-import { changeValueToFileList, checkFile, getPreviewLimit } from './utils';
+import { changeValueToFileList, checkFile, getPreviewLimit, getTip } from './utils';
 
 const cloneDeep = rfdc();
 
@@ -219,6 +217,12 @@ export const ImageUploader: FC<ImageUploaderProps> = ({
           // 图片列表项宽高自定义
           itemRender={(file) => {
             return fieldProps?.itemRender ? fieldProps?.itemRender : cloneElement(file, { style: previewStyle });
+          }}
+          onRemove={(file) => {
+            if (proFieldProps?.mode === 'read') {
+              return false;
+            }
+            return fieldProps?.onRemove ? fieldProps?.onRemove(file) : true;
           }}
           // 预览
           onPreview={(file) => {

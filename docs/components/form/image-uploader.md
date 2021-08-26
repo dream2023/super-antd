@@ -74,6 +74,10 @@ export const MyImageUploader = withDefaultProps(SuperImageUploader, {
 
 <code src="./__demos__/image-uploader/back.tsx">
 
+## 只读
+
+<code src="./__demos__/image-uploader/readonly.tsx">
+
 ## 上传到云服务
 
 为了简化上传到云服务的操作，我们提供了 `dataApi` 属性用于从服务器获取上传所需参数，目前各大云厂商均支持这种形式。
@@ -107,7 +111,7 @@ export const MyImageUploader = withDefaultProps(SuperImageUploader, {
 
 <code src="./__demos__/image-uploader/dataApi.tsx">
 
-<API src="./__demos__/form-item/types.tsx"></API>
+<API src="./__demos__/image-uploader/types.tsx"></API>
 
 ### Limit
 
