@@ -1,8 +1,8 @@
 import type { noop } from 'ahooks/lib/usePersistFn';
 import type { UploadProps } from 'antd';
 import { Image } from 'antd';
-import React from 'react';
 import type { FC } from 'react';
+import React from 'react';
 
 interface ImagePreviewerProps {
   // 是否显示
@@ -26,7 +26,7 @@ const ImagePreviewer: FC<ImagePreviewerProps> = ({ visible, fileList, current = 
       }}
     >
       {fileList?.map((file) => (
-        <Image src={file.url || file.thumbUrl} key={file.uid} />
+        <Image style={{ width: 0 }} src={file.url || file.thumbUrl} key={file.uid} />
       ))}
     </Image.PreviewGroup>
   );

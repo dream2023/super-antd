@@ -1,0 +1,63 @@
+.video-uploader {
+  display: inline-block;
+
+  .ant-upload {
+    width: 350px;
+    padding: 18px 0px;
+    border-radius: 4px;
+  }
+
+  .ant-upload-drag-icon {
+    margin-bottom: 12px;
+  }
+
+  .video-uploader-text {
+    color: #1890ff;
+  }
+
+  .video-uploader-tip {
+    margin-top: 12px;
+  }
+
+  .video-uploader-tip-text {
+    color: #ff4d4f;
+  }
+}
+
+.video-uploader-preview {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  border-radius: 6px;
+
+  .video-uploader-preview-actions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    color: white;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    background: black;
+
+    video {
+      overflow: hidden;
+      border-radius: 6px;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .video-uploader-preview-actions {
+      opacity: 1;
+    }
+  }
+}

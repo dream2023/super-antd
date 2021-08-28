@@ -56,7 +56,7 @@ export interface PreviewLimit {
   aspectRatio?: number;
 }
 
-export interface IImageUploader {
+export interface IImageUploaderProps {
   /**
    * 上传地址
    */
@@ -132,6 +132,6 @@ export interface IImageUploader {
   dataApi?: ApiType;
 }
 
-export const ImageUploaderDemo: FC<IImageUploader> = () => <>Demo!</>;
+export const ImageUploaderDemo: FC<IImageUploaderProps> = () => <div>Demo!</div>;
 
 export default ImageUploaderDemo;
