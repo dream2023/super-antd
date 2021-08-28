@@ -1,5 +1,5 @@
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import { ProFormText } from '@ant-design/pro-form';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
 import type { InputProps } from 'antd';
 
 import type { CreateSuperFormItemProps } from '../createSuperFormItem';

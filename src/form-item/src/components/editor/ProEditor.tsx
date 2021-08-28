@@ -1,6 +1,6 @@
 import ProField from '@ant-design/pro-field';
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import createField from '@ant-design/pro-form/es/BaseForm/createField';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
 import React from 'react';
 import ReactWEditor from 'wangeditor-for-react';
 import type { ReactWEProps } from 'wangeditor-for-react/lib/type';
