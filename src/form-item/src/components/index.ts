@@ -1,4 +1,5 @@
 export * from './Captcha';
+export * from './cascader';
 export * from './Checkbox';
 export * from './CheckboxGroup';
 export * from './Color';
