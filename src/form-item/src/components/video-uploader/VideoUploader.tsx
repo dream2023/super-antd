@@ -1,8 +1,8 @@
 import './video-uploader.less';
 
 import { CloudUploadOutlined, DeleteOutlined, EyeOutlined } from '@ant-design/icons';
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import createField from '@ant-design/pro-form/lib/BaseForm/createField';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
 import { useCreation } from 'ahooks';
 import { Modal, Progress, Space, Upload, message } from 'antd';
 import type { UploadChangeParam, UploadProps } from 'antd/lib/upload';

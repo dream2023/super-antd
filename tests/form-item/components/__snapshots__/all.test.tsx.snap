@@ -10,6 +10,7 @@ exports[`all form-item components show all 1`] = `
     >
       <div>
         <form
+          autocomplete="off"
           class="ant-form ant-form-vertical"
         >
           <input
@@ -904,7 +905,6 @@ exports[`all form-item components show all 1`] = `
                                 <div
                                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
-                                  text=""
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -996,7 +996,6 @@ exports[`all form-item components show all 1`] = `
                                 <div
                                   class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                                   style="min-width: 100px;"
-                                  text=""
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -2161,9 +2160,6 @@ exports[`all form-item components show all 1`] = `
                                         >
                                           支持单次或批量上传
                                         </p>
-                                        <div
-                                          style="padding: 16px;"
-                                        />
                                       </div>
                                     </span>
                                   </div>
@@ -2844,6 +2840,7 @@ exports[`all form-item components show all 2`] = `
     >
       <div>
         <form
+          autocomplete="off"
           class="ant-form ant-form-vertical"
         >
           <input
@@ -3735,7 +3732,6 @@ exports[`all form-item components show all 2`] = `
                                 <div
                                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
-                                  text=""
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -3827,7 +3823,6 @@ exports[`all form-item components show all 2`] = `
                                 <div
                                   class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                                   style="min-width: 100px;"
-                                  text=""
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -4992,9 +4987,6 @@ exports[`all form-item components show all 2`] = `
                                         >
                                           支持单次或批量上传
                                         </p>
-                                        <div
-                                          style="padding: 16px;"
-                                        />
                                       </div>
                                     </span>
                                   </div>
@@ -5676,6 +5668,7 @@ exports[`all form-item components show all 3`] = `
     >
       <div>
         <form
+          autocomplete="off"
           class="ant-form ant-form-vertical"
         >
           <input
@@ -6424,7 +6417,6 @@ exports[`all form-item components show all 3`] = `
                                 <div
                                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
-                                  text=""
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -6505,7 +6497,6 @@ exports[`all form-item components show all 3`] = `
                                 <div
                                   class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                                   style="min-width: 100px;"
-                                  text=""
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -7538,9 +7529,6 @@ exports[`all form-item components show all 3`] = `
                                         >
                                           支持单次或批量上传
                                         </p>
-                                        <div
-                                          style="padding: 16px;"
-                                        />
                                       </div>
                                     </span>
                                   </div>
@@ -8179,6 +8167,7 @@ exports[`all form-item components show all 4`] = `
     >
       <div>
         <form
+          autocomplete="off"
           class="ant-form ant-form-vertical"
         >
           <input
@@ -8942,7 +8931,6 @@ exports[`all form-item components show all 4`] = `
                                 <div
                                   class="ant-select ant-pro-filed-search-select ant-pro-filed-search-select-disabled ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
                                   style="min-width: 100px;"
-                                  text=""
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -9025,7 +9013,6 @@ exports[`all form-item components show all 4`] = `
                                 <div
                                   class="ant-select ant-pro-filed-search-select ant-pro-filed-search-select-disabled ant-select-multiple ant-select-allow-clear ant-select-disabled ant-select-show-search"
                                   style="min-width: 100px;"
-                                  text=""
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -10070,9 +10057,6 @@ exports[`all form-item components show all 4`] = `
                                         >
                                           支持单次或批量上传
                                         </p>
-                                        <div
-                                          style="padding: 16px;"
-                                        />
                                       </div>
                                     </span>
                                   </div>
@@ -10711,6 +10695,7 @@ exports[`all form-item components show all 5`] = `
     >
       <div>
         <form
+          autocomplete="off"
           class="ant-form ant-form-vertical"
         >
           <input
@@ -11553,9 +11538,6 @@ exports[`all form-item components show all 5`] = `
                                         >
                                           支持单次或批量上传
                                         </p>
-                                        <div
-                                          style="padding: 16px;"
-                                        />
                                       </div>
                                     </span>
                                   </div>

@@ -1,4 +1,4 @@
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import type { FormInstance } from 'antd';
 
 import type { Col } from '@/shared';

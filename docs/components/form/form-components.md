@@ -148,6 +148,7 @@ SuperUploadButton 既 [ProUploadButton](https://procomponents.ant.design/compone
 | SuperCheckboxGroup | [Checkbox](https://ant.design/components/checkbox-cn/#components-checkbox-demo-group) | 复选框组 |
 | SuperSwitch | [Switch](https://ant.design/components/switch-cn/) | 开关 |
 | SuperSelect | [Select](https://ant.design/components/select-cn/) | 选择 |
+| SuperCascader | [Cascader](https://ant.design/components/cascader-cn/) | 级联选择 |
 | SuperSearchSelect | [Select](https://ant.design/components/select-cn/) | 远程搜索 |
 | SuperTime | [DatePicker](https://ant.design/components/time-picker-cn/) | 时间 |
 | SuperDate | [DatePicker](https://ant.design/components/time-picker-cn/) | 日期 |

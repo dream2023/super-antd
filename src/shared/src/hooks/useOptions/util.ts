@@ -16,18 +16,28 @@ function strToOption(option: OptionItemType): Record<Key, any> {
 // 转对象的key
 // 例如 option: { name: 'jack', id: 1 }, prop: { labelKey: 'name', valueKey: 'id' }
 // 转换后 -> option: { label: '女', value: 1 }
-function changeProp(option: Record<Key, any>, optionsProp: OptionsProp = {}): OptionObj {
+function changeProp(option: Record<Key, any>, optionsProp: OptionsProp = {}, valueIsString = false): OptionObj {
+  const val = option[optionsProp.valueKey || 'value'];
   return {
     label: option[optionsProp.labelKey || 'label'],
-    value: option[optionsProp.valueKey || 'value'],
+    value: valueIsString ? String(val) : val,
+    children: option[optionsProp.childrenKey || 'children'],
   };
 }
 
 // 获取 options
-export const getOptions = (options: OptionItemType[] = [], optionsProp?: OptionsProp): OptionObj[] => {
+export const getOptions = (
+  options: OptionItemType[] = [],
+  optionsProp?: OptionsProp,
+  valueIsString: boolean = false,
+): OptionObj[] => {
   if (!isArray(options)) return [];
   return options.map((option: OptionItemType) => {
     const objOption = strToOption(option);
-    return changeProp(objOption, optionsProp);
+    const res = changeProp(objOption, optionsProp, valueIsString);
+    if (res.children) {
+      res.children = getOptions(res.children, optionsProp);
+    }
+    return res;
   });
 };

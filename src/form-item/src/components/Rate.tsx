@@ -1,5 +1,5 @@
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import { ProFormRate } from '@ant-design/pro-form';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
 import type { RateProps } from 'antd/lib/rate';
 
 import type { CreateSuperFormItemProps } from '../createSuperFormItem';

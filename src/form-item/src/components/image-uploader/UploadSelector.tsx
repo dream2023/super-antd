@@ -1,5 +1,6 @@
-import React from 'react';
+import type { ProFieldProps } from '@ant-design/pro-utils/lib/typing';
 import type { FC } from 'react';
+import React from 'react';
 
 export interface UploadSelectorProps {
   /**
@@ -19,7 +20,7 @@ export interface UploadSelectorProps {
   // 文件
   filesCount: number;
   // 是否为只读模式
-  mode?: 'read';
+  mode?: ProFieldProps['mode'];
   // 预览图限制
   previewStyle?: { width: number; height: number };
 }

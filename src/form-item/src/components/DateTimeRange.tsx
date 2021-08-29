@@ -1,5 +1,5 @@
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import { ProFormDateRangePicker } from '@ant-design/pro-form';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
 import type { RangePickerProps } from 'antd/lib/date-picker/generatePicker';
 import type { Moment } from 'moment';
 
