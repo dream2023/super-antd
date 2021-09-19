@@ -58,7 +58,7 @@ export default AntdQuill;
 
 import ProField from '@ant-design/pro-field';
 import createField from '@ant-design/pro-form/es/BaseForm/createField';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import React from 'react';
 import xss from 'xss';
 import AntdQuill, { AntdQuillProps } from './AntdQuill';

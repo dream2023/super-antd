@@ -1,5 +1,5 @@
 import { ProFormRadio } from '@ant-design/pro-form';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import type { RadioProps } from 'antd/lib/radio/interface';
 
 import type { CreateSuperFormItemProps } from '../createSuperFormItem';

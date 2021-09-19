@@ -1,5 +1,5 @@
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import { ProFormDatePicker } from '@ant-design/pro-form';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
 import type { WeekPickerProps } from 'antd/lib/date-picker';
 
 import type { CreateSuperFormItemProps } from '../createSuperFormItem';

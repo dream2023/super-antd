@@ -1,8 +1,8 @@
 import './image-uploader.less';
 
 import { UploadOutlined } from '@ant-design/icons';
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import createField from '@ant-design/pro-form/lib/BaseForm/createField';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
 import { useCreation } from 'ahooks';
 import type { UploadProps } from 'antd';
 import { Upload, message } from 'antd';

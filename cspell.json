@@ -22,7 +22,9 @@
     "Codecov",
     "wangeditor",
     "anticon",
+    "Cascader",
+    "cascader",
     "browserslist"
   ],
-  "ignorePaths": ["node_modules/**", "**/*.snap", "coverage/**", "src/.umi/**"]
+  "ignorePaths": ["node_modules/**", ".vscode/**", "**/*.snap", "coverage/**", "src/.umi/**"]
 }

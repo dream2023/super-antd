@@ -1,5 +1,5 @@
+import type { ProFormItemProps } from '@ant-design/pro-form';
 import { ProFormTextArea } from '@ant-design/pro-form';
-import type { ProFormItemProps } from '@ant-design/pro-form/lib/interface';
 import type { TextAreaProps } from 'antd/lib/input/TextArea';
 
 import type { CreateSuperFormItemProps } from '../createSuperFormItem';
