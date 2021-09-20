@@ -57,8 +57,8 @@ export default AntdQuill;
 // ProFormQuill.tsx
 
 import ProField from '@ant-design/pro-field';
-import createField from '@ant-design/pro-form/es/BaseForm/createField';
 import type { ProFormItemProps } from '@ant-design/pro-form';
+import createField from '@ant-design/pro-form/es/BaseForm/createField';
 import React from 'react';
 import xss from 'xss';
 import AntdQuill, { AntdQuillProps } from './AntdQuill';
@@ -104,10 +104,10 @@ import { createSuperFormItem } from 'super-antd';
 import type { CreateSuperFormItemProps } from 'super-antd';
 import ProFormQuill from './ProFormQuill';
 import type { ProFormQuillProps } from './ProFormQuill';
- 类型定义
+  类型定义
 e
 export type SuperQuillProps = CreateSuperFormItemProps<ProFormQuillProps>;
- 组件使用 createSuperFormItem 包裹一下
+  组件使用 createSuperFormItem 包裹一下
 e
 export const SuperQuill: FC<SuperQuillProps> = createSuperFormItem(ProFormQuill);
 export default SuperQuill;

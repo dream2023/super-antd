@@ -24,6 +24,9 @@
     "anticon",
     "Cascader",
     "cascader",
+    "geoc",
+    "BMAP",
+    "akay",
     "browserslist"
   ],
   "ignorePaths": ["node_modules/**", ".vscode/**", "**/*.snap", "coverage/**", "src/.umi/**"]

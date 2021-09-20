@@ -38,7 +38,11 @@ export function withOptions<P extends object = any>(Component: ComponentType<P>,
   const ComponentWithOptions: FC<WithOptionsProps<P>> = (props) => {
     const { options, hidden, name, form, optionsProp, data, clearValueAfterOptionsChange, ...resetOptions } = props;
     // 获取到 options
-    const { options: computedOptions, loading, requestCount } = useOptions({
+    const {
+      options: computedOptions,
+      loading,
+      requestCount,
+    } = useOptions({
       name,
       options,
       hidden,

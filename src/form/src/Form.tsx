@@ -139,7 +139,11 @@ export function SuperForm<Values extends Record<Key, any> = any>(props: SuperFor
   });
 
   // 获取表单初始值
-  const { loading: initLoading, data: remoteInitData, refresh } = useAxios({
+  const {
+    loading: initLoading,
+    data: remoteInitData,
+    refresh,
+  } = useAxios({
     api: initApi,
     currentData: initialValuesWithStorage,
     onSuccess: (data: unknown) => {

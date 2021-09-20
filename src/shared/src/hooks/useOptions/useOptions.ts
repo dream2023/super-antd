@@ -27,7 +27,12 @@ export const useOptions = ({
 } => {
   // api 的情况
   const api: ApiType | undefined = useCreation(() => (isArray(options) ? '' : options), [options]);
-  const { loading, data: res, refresh, run } = useAxios({
+  const {
+    loading,
+    data: res,
+    refresh,
+    run,
+  } = useAxios({
     api,
     contextData: data,
     manual: true,

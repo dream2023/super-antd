@@ -1,8 +1,12 @@
 import { message } from 'antd';
 import axios from 'axios';
 import React, { useState } from 'react';
+
 import {
-  SuperCaptcha, SuperCascader, SuperCheckbox,
+  SuperBaiduMap,
+  SuperCaptcha,
+  SuperCascader,
+  SuperCheckbox,
   SuperCheckboxGroup,
   SuperColor,
   SuperDate,
@@ -12,7 +16,8 @@ import {
   SuperEmail,
   SuperForm,
   SuperGroup,
-  SuperImageUploader, SuperInput,
+  SuperImageUploader,
+  SuperInput,
   SuperMonth,
   SuperNumber,
   SuperPassword,
@@ -29,8 +34,11 @@ import {
   SuperTime,
   SuperTimeRange,
   SuperUploadButton,
-  SuperUploadDragger, SuperUrl, SuperVideoUploader, SuperWeek,
-  SuperYear
+  SuperUploadDragger,
+  SuperUrl,
+  SuperVideoUploader,
+  SuperWeek,
+  SuperYear,
 } from 'super-antd';
 
 export const waitTime = (time: number = 100) => {
@@ -165,22 +173,30 @@ const App = () => {
               return { data: list };
             }}
           />
-          <SuperCascader name="cascader" label="SuperCascader" options={[{
-            value: '广东',
-            label: '1',
-            children: [
+          <SuperCascader
+            name="cascader"
+            label="SuperCascader"
+            options={[
               {
-                value: '1-1',
-                label: '深圳',
+                value: '广东',
+                label: '1',
                 children: [
                   {
-                    value: '1-1-1',
-                    label: '南山',
+                    value: '1-1',
+                    label: '深圳',
+                    children: [
+                      {
+                        value: '1-1-1',
+                        label: '南山',
+                      },
+                    ],
                   },
                 ],
               },
-            ],
-          }]} />
+            ]}
+          />
+
+          <SuperBaiduMap name="baidu-map" label="百度地图位置选择" />
         </SuperGroup>
         <SuperGroup label="时间选择类">
           <SuperTime name="time" label="SuperTime" />
@@ -199,12 +215,18 @@ const App = () => {
         <SuperGroup label="上传">
           <SuperUploadButton label="upload" name="upload" action="upload.do" />
           <SuperUploadDragger label="Dragger" name="dragger" action="upload.do" />
-          <SuperImageUploader name="image-uploader" label="SuperImageUploader" action="https://www.fastmock.site/mock/32d872e565fbab87ba76057c18f7f8e0/api/upload"
+          <SuperImageUploader
+            name="image-uploader"
+            label="SuperImageUploader"
+            action="https://www.fastmock.site/mock/32d872e565fbab87ba76057c18f7f8e0/api/upload"
             formatter={(response) => {
               return response.url;
             }}
           />
-          <SuperVideoUploader name="video-uploader" label="SuperVideoUploader" action="https://www.fastmock.site/mock/3bff4788a9dad8a803681a2bca5f9cae/api/upload/video"
+          <SuperVideoUploader
+            name="video-uploader"
+            label="SuperVideoUploader"
+            action="https://www.fastmock.site/mock/3bff4788a9dad8a803681a2bca5f9cae/api/upload/video"
             formatter={(response) => {
               return response.data.url;
             }}

@@ -4,30 +4,28 @@ import createField from '@ant-design/pro-form/es/BaseForm/createField';
 import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
 import React from 'react';
+
 import { findLabelByValue } from './util';
 
-
 export type ProFormCascaderProps = ProFormItemProps<CascaderProps> & {
-  options?: CascaderProps['options']
-}
+  options?: CascaderProps['options'];
+};
 
 export const ProFormCascader = ({ fieldProps, proFieldProps, options }: ProFormCascaderProps) => (
   <ProField
     mode="edit"
-    valueType='select'
+    valueType="select"
     fieldProps={fieldProps}
     render={(val) => {
-      let res = val
+      let res = val;
       if (Array.isArray(res)) {
-        res = findLabelByValue(options || [], res).join('，')
+        res = findLabelByValue(options || [], res).join('，');
       }
-      return <div>{String(res)}</div>
+      return <div>{String(res)}</div>;
     }}
     renderFormItem={(text, props) => {
       const { placeholder, ...otherProps } = props;
-      return (
-        <Cascader placeholder={String(placeholder)} {...otherProps} options={options} />
-      );
+      return <Cascader placeholder={String(placeholder)} {...otherProps} options={options} />;
     }}
     {...proFieldProps}
   />

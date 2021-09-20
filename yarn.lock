@@ -1342,6 +1342,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@7.15.4":
+  version "7.15.4"
+  resolved "https://registry.nlark.com/@babel/runtime/download/@babel/runtime-7.15.4.tgz?cache=0&sync_timestamp=1630618785994&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  integrity sha1-/RfRa/34eObdAtGXU6OfqKjZyEo=
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.14.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.6.tgz#535203bc0892efc7dec60bdc27b2ecf6e409062d"
@@ -2484,6 +2491,13 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.30.tgz#44cb52f32a809734ca562e685c6473b5754a7818"
   integrity sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==
 
+"@types/lodash.debounce@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.nlark.com/@types/lodash.debounce/download/@types/lodash.debounce-4.0.6.tgz#c5a2326cd3efc46566c47e4c0aa248dc0ee57d60"
+  integrity sha1-xaIybNPvxGVmxH5MCqJI3A7lfWA=
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash.set@^4.3.6":
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/@types/lodash.set/-/lodash.set-4.3.6.tgz#33e635c2323f855359225df6a5c8c6f1f1908264"
@@ -2833,6 +2847,276 @@
   dependencies:
     "@typescript-eslint/types" "4.28.2"
     eslint-visitor-keys "^2.0.0"
+
+"@uiw/react-baidu-map-api-loader@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-api-loader/download/@uiw/react-baidu-map-api-loader-2.0.4.tgz#7b12d3996858fb976688748398d523fec2de4e52"
+  integrity sha1-exLTmWhY+5dmiHSDmNUj/sLeTlI=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-canvas-layer@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-canvas-layer/download/@uiw/react-baidu-map-canvas-layer-2.0.4.tgz#19c0a4ff6c5bb7802a14b53b827195e2773ed9c7"
+  integrity sha1-GcCk/2xbt4AqFLU7gnGV4nc+2cc=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-circle@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-circle/download/@uiw/react-baidu-map-circle-2.0.4.tgz#046095794a5782dc4dbd5740192a8914b0a1a55e"
+  integrity sha1-BGCVeUpXgtxNvVdAGSqJFLChpV4=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-control@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-control/download/@uiw/react-baidu-map-control-2.0.4.tgz#f21c6e3863e779ad1094d85a2e4d697d2307d829"
+  integrity sha1-8hxuOGPnea0QlNhaLk1pfSMH2Ck=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-copyright-control@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-copyright-control/download/@uiw/react-baidu-map-copyright-control-2.0.4.tgz#5d931a218f4e7313f269a854a3a7660039f87095"
+  integrity sha1-XZMaIY9OcxPyaahUo6dmADn4cJU=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-curve-line@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-curve-line/download/@uiw/react-baidu-map-curve-line-2.0.4.tgz#e7dcfc9a0b41921e9408208478207f081ce04c10"
+  integrity sha1-59z8mgtBkh6UCCCEeCB/CBzgTBA=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-custom-overlay@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-custom-overlay/download/@uiw/react-baidu-map-custom-overlay-2.0.4.tgz#91ef60c0c2cee0f66a6933120d0129e8ee017c25"
+  integrity sha1-ke9gwMLO4PZqaTMSDQEp6O4BfCU=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-drawing-manager@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-drawing-manager/download/@uiw/react-baidu-map-drawing-manager-2.0.4.tgz#b400693c2429e3606108cb0a6ed2056fa5fe7350"
+  integrity sha1-tABpPCQp42BhCMsKbtIFb6X+c1A=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-geolocation-control@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-geolocation-control/download/@uiw/react-baidu-map-geolocation-control-2.0.4.tgz#c1310fb67c56c29099b65fd2dba08892b0436909"
+  integrity sha1-wTEPtnxWwpCZtl/S26CIkrBDaQk=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-ground-overlay@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-ground-overlay/download/@uiw/react-baidu-map-ground-overlay-2.0.4.tgz#431c4064a5c6c82ec5bb83746e321c4ebe937629"
+  integrity sha1-QxxAZKXGyC7Fu4N0bjIcTr6Tdik=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-info-window@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-info-window/download/@uiw/react-baidu-map-info-window-2.0.4.tgz#0c2514dead195db1cdc8f1be8ed0f43cd3338691"
+  integrity sha1-DCUU3q0ZXbHNyPG+jtD0PNMzhpE=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-label@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-label/download/@uiw/react-baidu-map-label-2.0.4.tgz#db778b2e798a3a698fcd984a1801076366a29c23"
+  integrity sha1-23eLLnmKOmmPzZhKGAEHY2ainCM=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-map@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-map/download/@uiw/react-baidu-map-map-2.0.4.tgz#aad51dcef9681330d6ad80513baa6a6d31f97351"
+  integrity sha1-qtUdzvloEzDWrYBRO6pqbTH5c1E=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-types" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-marker@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-marker/download/@uiw/react-baidu-map-marker-2.0.4.tgz#1988addc50f644a23bb2a000cfc0678a16454476"
+  integrity sha1-GYit3FD2RKI7sqAAz8BnihZFRHY=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-navigation-control@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-navigation-control/download/@uiw/react-baidu-map-navigation-control-2.0.4.tgz#e877ad890d774ef340a670274bc604e5628ed4ea"
+  integrity sha1-6HetiQ13TvNApnAnS8YE5WKO1Oo=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-overview-map-control@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-overview-map-control/download/@uiw/react-baidu-map-overview-map-control-2.0.4.tgz#1c8124e4bb6faa258dbc9534bcc5a4adfaf02667"
+  integrity sha1-HIEk5LtvqiWNvJU0vMWkrfrwJmc=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-panorama-control@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-panorama-control/download/@uiw/react-baidu-map-panorama-control-2.0.4.tgz#c90cf058f38cc173cd926acca549a42a0918343a"
+  integrity sha1-yQzwWPOMwXPNkmrMpUmkKgkYNDo=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-point-collection@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-point-collection/download/@uiw/react-baidu-map-point-collection-2.0.4.tgz#c0fd2d22c5c793e3a28a3eb966d704f9b92c7ed6"
+  integrity sha1-wP0tIsXHk+Oiij65ZtcE+bksftY=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-polygon@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-polygon/download/@uiw/react-baidu-map-polygon-2.0.4.tgz#1d1a8f19e6fdbfc330fb3a72231da3fb376843a0"
+  integrity sha1-HRqPGeb9v8Mw+zpyIx2j+zdoQ6A=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-polyline@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-polyline/download/@uiw/react-baidu-map-polyline-2.0.4.tgz#69e691c7d49e5f88d1f9f58ba4bbbeb57f6b5d6f"
+  integrity sha1-aeaRx9SeX4jR+fWLpLu+tX9rXW8=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-require-script@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-require-script/download/@uiw/react-baidu-map-require-script-2.0.4.tgz#b3667fed86a2f024153fa6f6396e4774fe92638e"
+  integrity sha1-s2Z/7Yai8CQVP6b2OW5HdP6SY44=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-scale-control@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-scale-control/download/@uiw/react-baidu-map-scale-control-2.0.4.tgz#e471c2c2db5bd8803b684c99409cb7d013bd98ba"
+  integrity sha1-5HHCwttb2IA7aEyZQJy30BO9mLo=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-tile-layer@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-tile-layer/download/@uiw/react-baidu-map-tile-layer-2.0.4.tgz#849278371fbc4da4b9225ed5293d99c00b8332e4"
+  integrity sha1-hJJ4Nx+8TaS5Il7VKT2ZwAuDMuQ=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-type-control@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-type-control/download/@uiw/react-baidu-map-type-control-2.0.4.tgz#959a95e325d046ade8aa746d223b754a1ecfda6a"
+  integrity sha1-lZqV4yXQRq3oqnRtIjt1Sh7P2mo=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+
+"@uiw/react-baidu-map-types@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-types/download/@uiw/react-baidu-map-types-2.0.4.tgz#3dfdd70681242a0558d0a063c5926b57f5bce4d5"
+  integrity sha1-Pf3XBoEkKgVY0KBjxZJrV/W85NU=
+
+"@uiw/react-baidu-map-utils@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-utils/download/@uiw/react-baidu-map-utils-2.0.4.tgz#4dea8796b9bc68a26f4eea8dda985ad193d62bac"
+  integrity sha1-TeqHlrm8aKJvTuqN2pha0ZPWK6w=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-types" "^2.0.0"
+
+"@uiw/react-baidu-map-with-map@^2.0.0":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map-with-map/download/@uiw/react-baidu-map-with-map-2.0.4.tgz#771678246a2438ca088b6f575acdf892fcb5f7c4"
+  integrity sha1-dxZ4JGokOMoIi29XWs34kvy198Q=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+
+"@uiw/react-baidu-map@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.nlark.com/@uiw/react-baidu-map/download/@uiw/react-baidu-map-2.0.4.tgz#f75bc288198296d0435c01fd1b741844b022a990"
+  integrity sha1-91vCiBmCltBDXAH9G3QYRLAiqZA=
+  dependencies:
+    "@babel/runtime" "7.15.4"
+    "@uiw/react-baidu-map-api-loader" "^2.0.0"
+    "@uiw/react-baidu-map-canvas-layer" "^2.0.0"
+    "@uiw/react-baidu-map-circle" "^2.0.0"
+    "@uiw/react-baidu-map-control" "^2.0.0"
+    "@uiw/react-baidu-map-copyright-control" "^2.0.0"
+    "@uiw/react-baidu-map-curve-line" "^2.0.0"
+    "@uiw/react-baidu-map-custom-overlay" "^2.0.0"
+    "@uiw/react-baidu-map-drawing-manager" "^2.0.0"
+    "@uiw/react-baidu-map-geolocation-control" "^2.0.0"
+    "@uiw/react-baidu-map-ground-overlay" "^2.0.0"
+    "@uiw/react-baidu-map-info-window" "^2.0.0"
+    "@uiw/react-baidu-map-label" "^2.0.0"
+    "@uiw/react-baidu-map-map" "^2.0.0"
+    "@uiw/react-baidu-map-marker" "^2.0.0"
+    "@uiw/react-baidu-map-navigation-control" "^2.0.0"
+    "@uiw/react-baidu-map-overview-map-control" "^2.0.0"
+    "@uiw/react-baidu-map-panorama-control" "^2.0.0"
+    "@uiw/react-baidu-map-point-collection" "^2.0.0"
+    "@uiw/react-baidu-map-polygon" "^2.0.0"
+    "@uiw/react-baidu-map-polyline" "^2.0.0"
+    "@uiw/react-baidu-map-require-script" "^2.0.0"
+    "@uiw/react-baidu-map-scale-control" "^2.0.0"
+    "@uiw/react-baidu-map-tile-layer" "^2.0.0"
+    "@uiw/react-baidu-map-type-control" "^2.0.0"
+    "@uiw/react-baidu-map-types" "^2.0.0"
+    "@uiw/react-baidu-map-utils" "^2.0.0"
+    "@uiw/react-baidu-map-with-map" "^2.0.0"
 
 "@umijs/ast@3.5.8":
   version "3.5.8"
@@ -9687,7 +9971,7 @@ lodash.clonedeep@^4.5.0:
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
-  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  resolved "https://registry.nlark.com/lodash.debounce/download/lodash.debounce-4.0.8.tgz?cache=0&sync_timestamp=1618847031591&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flodash.debounce%2Fdownload%2Flodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
 lodash.defaults@^4.0.1:
