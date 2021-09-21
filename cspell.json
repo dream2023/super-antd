@@ -27,7 +27,11 @@
     "geoc",
     "BMAP",
     "akay",
-    "browserslist"
+    "browserslist",
+    "Amap",
+    "amap",
+    "lnglat",
+    "regeocode"
   ],
   "ignorePaths": ["node_modules/**", ".vscode/**", "**/*.snap", "coverage/**", "src/.umi/**"]
 }

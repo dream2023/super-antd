@@ -2848,6 +2848,250 @@
     "@typescript-eslint/types" "4.28.2"
     eslint-visitor-keys "^2.0.0"
 
+"@uiw/react-amap-api-loader@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-api-loader/download/@uiw/react-amap-api-loader-2.2.6.tgz#411a28f84daa575fc9d9ea23bf119647ccaebab8"
+  integrity sha1-QRoo+E2qV1/J2eojvxGWR8yuurg=
+  dependencies:
+    "@uiw/react-amap-require-script" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+
+"@uiw/react-amap-auto-complete@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-auto-complete/download/@uiw/react-amap-auto-complete-2.2.6.tgz#6af65c97d8f526f42271a44e71915829e1e0c348"
+  integrity sha1-avZcl9j1JvQicaROcZFYKeHgw0g=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-require-script" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-bezier-curve@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-bezier-curve/download/@uiw/react-amap-bezier-curve-2.2.6.tgz#a1e95de7b40cf11d37118afcef03dfdeb72bc55d"
+  integrity sha1-oeld57QM8R03EYr87wPf3rcrxV0=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-circle-marker@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-circle-marker/download/@uiw/react-amap-circle-marker-2.2.6.tgz#a0fe48177ff59d9c85fb3e971eab302082b60b1a"
+  integrity sha1-oP5IF3/1nZyF+z6XHqswIIK2Cxo=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-circle@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-circle/download/@uiw/react-amap-circle-2.2.6.tgz#d51b4dcb9f1d8ef67beb18839ae81203b08e8a43"
+  integrity sha1-1RtNy58djvZ76xiDmugSA7COikM=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-context-menu@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-context-menu/download/@uiw/react-amap-context-menu-2.2.6.tgz#2e31d5d93e4a785b3c2aefe274b10abc969d3204"
+  integrity sha1-LjHV2T5KeFs8Ku/idLEKvJadMgQ=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-control-bar-control@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-control-bar-control/download/@uiw/react-amap-control-bar-control-2.2.6.tgz#2ab2c5c38de42ac07092e6b70725734cf55c900f"
+  integrity sha1-KrLFw43kKsBwkua3ByVzTPVckA8=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-ellipse@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-ellipse/download/@uiw/react-amap-ellipse-2.2.6.tgz#ab9f7874f32aee8854d1edcdda05a7c9fd2c4a5a"
+  integrity sha1-q594dPMq7ohU0e3N2gWnyf0sSlo=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-geolocation@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-geolocation/download/@uiw/react-amap-geolocation-2.2.6.tgz#fd1855f414b379338e48269413ae2b391cbeed65"
+  integrity sha1-/RhV9BSzeTOOSCaUE64rORy+7WU=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+
+"@uiw/react-amap-hawk-eye-control@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-hawk-eye-control/download/@uiw/react-amap-hawk-eye-control-2.2.6.tgz#f67b1e80800a0f8284e8e5e00ef3631174d04a2e"
+  integrity sha1-9nsegIAKD4KE6OXgDvNjEXTQSi4=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-info-window@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-info-window/download/@uiw/react-amap-info-window-2.2.6.tgz#ed6954c65973e826f1a07fbd22b0482c7f00320c"
+  integrity sha1-7WlUxllz6CbxoH+9IrBILH8AMgw=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-map-type-control@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-map-type-control/download/@uiw/react-amap-map-type-control-2.2.6.tgz#01865774b8dc851766e99e76bd4f41c64aed64f0"
+  integrity sha1-AYZXdLjchRdm6Z52vU9BxkrtZPA=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-map@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-map/download/@uiw/react-amap-map-2.2.6.tgz#5e0cf867531fc93693f6fa38fd9906b2135a326e"
+  integrity sha1-Xgz4Z1MfyTaT9vo4/ZkGshNaMm4=
+  dependencies:
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-marker@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-marker/download/@uiw/react-amap-marker-2.2.6.tgz#035c93edcc2879235b31075fab0b0bd6b5985208"
+  integrity sha1-A1yT7cwoeSNbMQdfqwsL1rWYUgg=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-mass-marks@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-mass-marks/download/@uiw/react-amap-mass-marks-2.2.6.tgz#7fa2b1839e3b89d688bf59529049521d4e36ce03"
+  integrity sha1-f6Kxg547idaIv1lSkElSHU42zgM=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-polygon-editor@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-polygon-editor/download/@uiw/react-amap-polygon-editor-2.2.6.tgz#5067068618127b7cb8222de95fa90fc11c4221d5"
+  integrity sha1-UGcGhhgSe3y4Ii3pX6kPwRxCIdU=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-polygon" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-polygon@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-polygon/download/@uiw/react-amap-polygon-2.2.6.tgz#8dc351af404d21854f4b0fa3bd1036b8559f8181"
+  integrity sha1-jcNRr0BNIYVPSw+jvRA2uFWfgYE=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-polyline@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-polyline/download/@uiw/react-amap-polyline-2.2.6.tgz#f98f38e090157d0db046ab0c6b90caf8976f7968"
+  integrity sha1-+Y844JAVfQ2wRqsMa5DK+JdveWg=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-rectangle@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-rectangle/download/@uiw/react-amap-rectangle-2.2.6.tgz#5bba9534fcacfe08e2e55c5d10debe9429ca12e7"
+  integrity sha1-W7qVNPys/gji5VxdEN6+lCnKEuc=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-require-script@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-require-script/download/@uiw/react-amap-require-script-2.2.6.tgz#e9484326304b37db91e5372e1fea51e226c152f3"
+  integrity sha1-6UhDJjBLN9uR5TcuH+pR4ibBUvM=
+  dependencies:
+    "@uiw/react-amap-types" "2.2.6"
+
+"@uiw/react-amap-scale-control@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-scale-control/download/@uiw/react-amap-scale-control-2.2.6.tgz#694435132d4c5363d04079c5f238d51aac106e37"
+  integrity sha1-aUQ1Ey1MU2PQQHnF8jjVGqwQbjc=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-text@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-text/download/@uiw/react-amap-text-2.2.6.tgz#3001b139d652a2804a82bd50fe59f2748891be22"
+  integrity sha1-MAGxOdZSooBKgr1Q/lnydIiRviI=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-tool-bar-control@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-tool-bar-control/download/@uiw/react-amap-tool-bar-control-2.2.6.tgz#d855bc663be5e6f3eb4fcbf3d200efcfff83298e"
+  integrity sha1-2FW8Zjvl5vPrT8vz0gDvz/+DKY4=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap-types@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-types/download/@uiw/react-amap-types-2.2.6.tgz#7e70ab7a224381a70b50425fbe89c12e72125a39"
+  integrity sha1-fnCreiJDgacLUEJfvonBLnISWjk=
+
+"@uiw/react-amap-utils@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-utils/download/@uiw/react-amap-utils-2.2.6.tgz#978375b90f12f0ffd8ed079d63c1cfb58ae9fa2e"
+  integrity sha1-l4N1uQ8S8P/Y7QedY8HPtYrp+i4=
+  dependencies:
+    "@uiw/react-amap-types" "2.2.6"
+
+"@uiw/react-amap-weather@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap-weather/download/@uiw/react-amap-weather-2.2.6.tgz#9a93b5c9e480bd332c8505cddc3681174b06aeb6"
+  integrity sha1-mpO1yeSAvTMshQXN3DaBF0sGrrY=
+  dependencies:
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+
+"@uiw/react-amap@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@uiw/react-amap/download/@uiw/react-amap-2.2.6.tgz#e22e0add6c38a55c8701c62d50faf1548dd92561"
+  integrity sha1-4i4K3Ww4pVyHAcYtUPrxVI3ZJWE=
+  dependencies:
+    "@uiw/react-amap-api-loader" "2.2.6"
+    "@uiw/react-amap-auto-complete" "2.2.6"
+    "@uiw/react-amap-bezier-curve" "2.2.6"
+    "@uiw/react-amap-circle" "2.2.6"
+    "@uiw/react-amap-circle-marker" "2.2.6"
+    "@uiw/react-amap-context-menu" "2.2.6"
+    "@uiw/react-amap-control-bar-control" "2.2.6"
+    "@uiw/react-amap-ellipse" "2.2.6"
+    "@uiw/react-amap-geolocation" "2.2.6"
+    "@uiw/react-amap-hawk-eye-control" "2.2.6"
+    "@uiw/react-amap-info-window" "2.2.6"
+    "@uiw/react-amap-map" "2.2.6"
+    "@uiw/react-amap-map-type-control" "2.2.6"
+    "@uiw/react-amap-marker" "2.2.6"
+    "@uiw/react-amap-mass-marks" "2.2.6"
+    "@uiw/react-amap-polygon" "2.2.6"
+    "@uiw/react-amap-polygon-editor" "2.2.6"
+    "@uiw/react-amap-polyline" "2.2.6"
+    "@uiw/react-amap-rectangle" "2.2.6"
+    "@uiw/react-amap-require-script" "2.2.6"
+    "@uiw/react-amap-scale-control" "2.2.6"
+    "@uiw/react-amap-text" "2.2.6"
+    "@uiw/react-amap-tool-bar-control" "2.2.6"
+    "@uiw/react-amap-types" "2.2.6"
+    "@uiw/react-amap-utils" "2.2.6"
+    "@uiw/react-amap-weather" "2.2.6"
+
 "@uiw/react-baidu-map-api-loader@^2.0.0":
   version "2.0.4"
   resolved "https://registry.nlark.com/@uiw/react-baidu-map-api-loader/download/@uiw/react-baidu-map-api-loader-2.0.4.tgz#7b12d3996858fb976688748398d523fec2de4e52"

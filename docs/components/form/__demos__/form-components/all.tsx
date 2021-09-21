@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 import {
+  SuperAmap,
   SuperBaiduMap,
   SuperCaptcha,
   SuperCascader,
@@ -197,6 +198,7 @@ const App = () => {
           />
 
           <SuperBaiduMap name="baidu-map" label="百度地图位置选择" />
+          <SuperAmap name="amap" label="高德地图位置选择" />
         </SuperGroup>
         <SuperGroup label="时间选择类">
           <SuperTime name="time" label="SuperTime" />

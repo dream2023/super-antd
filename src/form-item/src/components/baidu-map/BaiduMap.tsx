@@ -1,10 +1,10 @@
 import { APILoader, GeolocationControl, Label, Map, Marker, NavigationControl } from '@uiw/react-baidu-map';
 import { Input, Modal } from 'antd';
 import type { OptionType } from 'antd/lib/select';
-import type { FC} from 'react';
+import type { FC } from 'react';
 import React, { useMemo, useRef, useState } from 'react';
-import { DebounceSelect } from './DebounceSelect';
 
+import { DebounceSelect } from '../DebounceSelect';
 
 const labelFontSize = 12;
 
@@ -125,7 +125,7 @@ const BaiduMapContent: FC<Omit<BaiduMapProps, 'ak' | 'placeholder'>> = ({
     }
 
     if (onChange) {
-      onChange(res)
+      onChange(res);
     }
   };
 
