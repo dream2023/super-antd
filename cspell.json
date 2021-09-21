@@ -24,7 +24,14 @@
     "anticon",
     "Cascader",
     "cascader",
-    "browserslist"
+    "geoc",
+    "BMAP",
+    "akay",
+    "browserslist",
+    "Amap",
+    "amap",
+    "lnglat",
+    "regeocode"
   ],
   "ignorePaths": ["node_modules/**", ".vscode/**", "**/*.snap", "coverage/**", "src/.umi/**"]
 }

@@ -1,0 +1,11 @@
+.super-amap .amap-marker-label {
+  border: none;
+  color: white;
+  padding: 4px 12px;
+  box-shadow: rgb(10 10 10 / 20%) 1px 1px 1px;
+  white-space: nowrap;
+  background-color: rgb(58, 146, 247);
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 1em;
+}

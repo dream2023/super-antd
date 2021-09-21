@@ -1,3 +1,5 @@
+export * from './amap';
+export * from './baidu-map';
 export * from './Captcha';
 export * from './cascader';
 export * from './chain-select';
