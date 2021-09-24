@@ -80,6 +80,7 @@
     "@types/lodash.set": "^4.3.6",
     "@uiw/react-amap": "^2.2.6",
     "@uiw/react-baidu-map": "^2.0.4",
+    "@uiw/react-textarea-code-editor": "^1.4.13",
     "ahooks": "^2.10.9",
     "antd-image-cropper": "^0.4.0",
     "bytes": "^3.1.0",

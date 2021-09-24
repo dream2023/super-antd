@@ -9,11 +9,13 @@ import {
   SuperCascader,
   SuperCheckbox,
   SuperCheckboxGroup,
+  SuperCodeEditor,
   SuperColor,
   SuperDate,
   SuperDateRange,
   SuperDateTime,
   SuperDateTimeRange,
+  SuperEditor,
   SuperEmail,
   SuperForm,
   SuperGroup,
@@ -107,6 +109,8 @@ const App = () => {
             name="captcha"
             label="SuperCaptcha"
           />
+          <SuperEditor name="editor" label="富文本编辑器" />
+          <SuperCodeEditor name="code-editor" label="代码编辑器" />
         </SuperGroup>
         <SuperGroup label="选择类">
           <SuperRadioGroup

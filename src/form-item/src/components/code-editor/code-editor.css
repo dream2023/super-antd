@@ -1,0 +1,7 @@
+.super-code-editor {
+  line-height: 1.5715;
+  background-color: #f5f5f5;
+  vertical-align: bottom;
+  transition: all .3s,height 0s;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}
