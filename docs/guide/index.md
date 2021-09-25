@@ -17,9 +17,23 @@ nav:
 
 它基于 [ant design](https://ant.design/) 和 [pro-components](https://procomponents.ant.design/) 。
 
-## 如何做到简单、易用且强大？
+## ✨ Feature
 
-`super-antd` 能做到简单、易用且强大，其核心思想是通过**封装**组件的复杂操作，以**属性**的方式控制其**行为**。
+- 🚀 开发提效：通过对大量业务场景进行封装，使得提效明显；
+- 👬 数据驱动友好：在组件层级解决了动态渲染、通信、联动等难题；
+- 💪 稳定：Typescript 编写 + 90% 以上的测试覆盖率；
+- 👍 侵入性低：它只是一个组件库，你可以全部使用，也可以部分使用，可以用 schema 的形式，也可以用正常组件的形式。
+
+## 🤔 Why？
+
+让我开发此组件库的核心原因有两点：
+
+- 市面上没有让我觉得满意的真正足够简单、组件足够多的组件库
+- 低代码的解决方案，人们往往在上层进行各种骚操作，导致大部分低代码平台都面临者扩展性差、灵活度低的问题
+
+## 如何解决上述问题？
+
+`super-antd` 解决上述问题核心思想是通过**封装**组件的复杂操作，以**属性**的方式控制其**行为**。
 
 例如，一个表单的操作就可以分为：
 
@@ -68,16 +82,19 @@ nav:
   - [x] [表单组件](https://dream2023.github.io/super-antd/components/form)
   - [x] [表单项组件](https://dream2023.github.io/super-antd/components/form/form-item)
   - [x] [内置表单组件](https://dream2023.github.io/super-antd/components/form/form-components)
-- [ ] 0.1 正式版
-  - [ ] 测试覆盖率 80% 以上
-  - [ ] 完成 100% 文档
-  - [ ] 0️⃣ issue
+- [x] 0.1 正式版
+  - [x] 测试覆盖率 90% 以上
+  - [x] 完成 100% 文档
+  - [x] 0️⃣ issue
 - [ ] 1.0 版
-  - [ ] 模板组件
-  - [ ] 富文本组件
-  - [ ] 上传图片组件
-  - [ ] 上传视频组件
+  - [x] 上传图片组件
+  - [x] 富文本组件
+  - [x] 上传视频组件
+  - [x] 无限级联组件
+  - [x] 百度地图组件
+  - [x] 高德地图组件
   - [ ] 代码编辑器组件
+  - [ ] 模板组件
   - [ ] ...
 
 更详细规划请见 [https://github.com/dream2023/super-antd/projects](https://github.com/dream2023/super-antd/projects)。

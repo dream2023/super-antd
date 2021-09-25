@@ -6,7 +6,9 @@ import type { ProFormBaiduMapProps } from './ProFormBaiduMap';
 import ProFormBaiduMap from './ProFormBaiduMap';
 
 export type SuperBaiduMapProps = CreateSuperFormItemProps<ProFormBaiduMapProps>;
-export const SuperBaiduMap: FC<SuperBaiduMapProps> = createSuperFormItem(ProFormBaiduMap);
+export const SuperBaiduMap: FC<SuperBaiduMapProps> = createSuperFormItem(ProFormBaiduMap, {
+  placeholderPrefix: '请选择',
+});
 SuperBaiduMap.displayName = 'SuperBaiduMap';
 
 export default SuperBaiduMap;
