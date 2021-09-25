@@ -6,3 +6,5 @@ import VideoUploader from './VideoUploader';
 export type SuperVideoUploaderProps = CreateSuperFormItemProps<VideoUploaderProps>;
 export const SuperVideoUploader = createSuperFormItem<VideoUploaderProps>(VideoUploader);
 SuperVideoUploader.displayName = 'SuperVideoUploader';
+
+export default SuperVideoUploader;

@@ -1,7 +1,8 @@
 import type { ColProps } from 'antd';
 import React, { FC } from 'react';
 
-import type { ApiType, BtnsProps } from 'super-antd';
+import type { BtnsProps } from '@/form/src/types';
+import type { ApiType } from '@/shared';
 
 export interface ServiceMessageType {
   /** 初始化数据成功的提示。 */

@@ -1,4 +1,4 @@
-import { getOptions } from 'super-antd';
+import { getOptions } from '@/shared';
 
 describe('useOptions utils', () => {
   test('options 默认值', () => {

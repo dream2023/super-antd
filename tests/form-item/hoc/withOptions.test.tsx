@@ -4,16 +4,9 @@ import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import React, { FC, useState } from 'react';
 
-import {
-  OptionsType,
-  SuperForm,
-  SuperInput,
-  SuperProvider,
-  SuperSelect,
-  WithOptionsConfigType,
-  WithOptionsProps,
-  withOptions,
-} from 'super-antd';
+import { WithOptionsConfigType, WithOptionsProps, withOptions } from '@/form-item/src/hoc';
+import type { OptionsType } from '@/shared';
+import { SuperForm, SuperInput, SuperProvider, SuperSelect } from 'super-antd';
 
 describe('withOptions', () => {
   const Demo: FC<{ options?: OptionsType; loading?: boolean; optionsProp?: object; data?: any }> = (props) => {

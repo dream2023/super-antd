@@ -11,7 +11,7 @@ import {
   isPlainObject,
   isString,
   isUndefined,
-} from 'super-antd';
+} from '@/shared';
 
 describe('is', () => {
   test('isObject', () => {

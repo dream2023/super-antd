@@ -2,14 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { FC, useContext } from 'react';
 
-import {
-  InjectedDependencyProps,
-  SuperForm,
-  SuperFormContext,
-  SuperInput,
-  WithDependencyProps,
-  withDependency,
-} from 'super-antd';
+import { InjectedDependencyProps, WithDependencyProps, withDependency } from '@/form-item/src/hoc';
+import { SuperForm, SuperFormContext, SuperInput } from 'super-antd';
 
 describe('withDependency', () => {
   const Demo: FC<InjectedDependencyProps> = () => {

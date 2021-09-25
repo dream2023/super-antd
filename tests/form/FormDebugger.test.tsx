@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { Form, Input } from 'antd';
 import React from 'react';
 
-import { SuperFormDebugger } from 'super-antd';
+import SuperFormDebugger from '@/form/src/FormDebugger';
 
 test('FormDebugger', async () => {
   const wrapper = render(

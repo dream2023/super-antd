@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { ResponsiveColOptions, useResponsiveCol } from 'super-antd';
+import { ResponsiveColOptions, useResponsiveCol } from '@/shared';
 
 const setup = (options: ResponsiveColOptions) => renderHook(() => useResponsiveCol(options));
 

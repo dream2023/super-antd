@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SchemaRender, SuperCheckbox, SuperEmail, SuperForm, SuperInput, SuperProvider } from 'super-antd';
+import { SuperCheckbox, SuperEmail, SuperForm, SuperInput, SuperProvider, SuperRender } from 'super-antd';
 
 const components = {
   form: SuperForm,
@@ -35,7 +35,7 @@ const Demo = () => {
   };
   return (
     <SuperProvider components={components}>
-      <SchemaRender schema={schema}></SchemaRender>
+      <SuperRender schema={schema}></SuperRender>
     </SuperProvider>
   );
 };

@@ -2,7 +2,7 @@ import './amap.css';
 
 import { APILoader, Geolocation, Map, Marker, ToolBarControl } from '@uiw/react-amap';
 import { Input, Modal } from 'antd';
-import type { FC} from 'react';
+import type { FC } from 'react';
 import React, { useMemo, useRef, useState } from 'react';
 
 import { DebounceSelect } from '../DebounceSelect';
@@ -76,7 +76,7 @@ const AmapContent: FC<Omit<AmapProps, 'ak' | 'placeholder'>> = ({
     }
 
     // 获取地址
-    (geoc as any).getAddress(lnglat, function (status: any, result: any) {
+    (geoc as any).getAddress(lnglat, (status: any, result: any) => {
       if (status === 'complete' && result.regeocode) {
         const address = result.regeocode.formattedAddress;
         onChange({ ...position, address });
@@ -92,7 +92,7 @@ const AmapContent: FC<Omit<AmapProps, 'ak' | 'placeholder'>> = ({
         return;
       }
 
-      autoComplete.search(keyword, function (status, result) {
+      autoComplete.search(keyword, (status, result) => {
         // 搜索成功时，result即是对应的匹配数据
         if (status === 'complete' && result?.tips) {
           const list = result.tips as unknown as { address: string; location: AMap.LngLat }[];

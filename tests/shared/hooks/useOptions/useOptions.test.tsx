@@ -3,7 +3,8 @@ import { renderHook } from '@testing-library/react-hooks';
 import axios from 'axios';
 import React, { FC, useState } from 'react';
 
-import { ApiType, IUseOptions, SuperProvider, useOptions } from 'super-antd';
+import { ApiType, IUseOptions, useOptions } from '@/shared';
+import { SuperProvider } from 'super-antd';
 
 describe('useOptions', () => {
   describe('options 为数组', () => {

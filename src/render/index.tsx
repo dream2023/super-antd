@@ -11,6 +11,5 @@ export type SuperRenderProps = SchemaRenderProps;
 export const SuperRender = SchemaRender;
 SuperRender.displayName = 'SuperRender';
 
-export * from 'react-schema-render';
-export * from './src/schemaApiParser';
 export * from './src/componentPropsParser';
+export * from './src/schemaApiParser';

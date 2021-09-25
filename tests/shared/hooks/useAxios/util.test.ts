@@ -7,7 +7,7 @@ import {
   processFormatResult,
   processSuccess,
   serviceFn,
-} from 'super-antd';
+} from '@/shared';
 
 describe('useAxios util', () => {
   test('castToObj', () => {

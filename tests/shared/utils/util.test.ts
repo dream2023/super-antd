@@ -1,4 +1,4 @@
-import { castToArray, get, getCol, nextTick, omit, toPathArr } from 'super-antd';
+import { castToArray, get, getCol, nextTick, omit, toPathArr } from '@/shared';
 
 test('castToArray', () => {
   expect(castToArray([])).toEqual([]);

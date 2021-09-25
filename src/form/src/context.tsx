@@ -2,7 +2,7 @@ import type { FormInstance } from 'antd';
 import type { Key } from 'react';
 import { createContext } from 'react';
 
-import type { FormItemNeedsProps } from 'super-antd';
+import type { FormItemNeedsProps } from './types';
 
 export interface SuperFormContextProps<Values extends Record<Key, any> = any> extends FormItemNeedsProps {
   form?: FormInstance<Values>;

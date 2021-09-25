@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { useEventEmitter } from 'ahooks';
 import React, { useState } from 'react';
 
-import { CommunicationEventEmitterOptions, CommunicationProps, useCommunication } from 'super-antd';
+import { CommunicationEventEmitterOptions, CommunicationProps, useCommunication } from '@/shared';
 
 describe('useCommunication', () => {
   const Demo = ({ myName, targetName, component$ }: { myName?: string; targetName?: string } & CommunicationProps) => {

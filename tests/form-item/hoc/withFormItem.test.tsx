@@ -3,7 +3,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { FC } from 'react';
 
-import { SuperForm, SuperInput, WithFormItemConfigType, WithFormItemProps, withFormItem } from 'super-antd';
+import { WithFormItemConfigType, WithFormItemProps, withFormItem } from '@/form-item/src/hoc';
+import { SuperForm, SuperInput } from 'super-antd';
 
 describe('withFormItem', () => {
   const Demo: FC<any> = (props) => {

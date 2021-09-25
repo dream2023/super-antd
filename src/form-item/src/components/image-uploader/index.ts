@@ -6,3 +6,5 @@ import ImageUploader from './ImageUploader';
 export type SuperImageUploaderProps = CreateSuperFormItemProps<ImageUploaderProps>;
 export const SuperImageUploader = createSuperFormItem<ImageUploaderProps>(ImageUploader);
 SuperImageUploader.displayName = 'SuperImageUploader';
+
+export default SuperImageUploader;

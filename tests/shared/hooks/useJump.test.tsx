@@ -3,7 +3,7 @@ import { act, renderHook } from '@testing-library/react-hooks';
 import React, { useState } from 'react';
 import { BrowserRouter, HashRouter, Route, Switch, useHistory, useLocation } from 'react-router-dom';
 
-import { useJump } from 'super-antd';
+import { useJump } from '@/shared';
 
 describe('useJump', () => {
   describe('use jump by window.open', () => {

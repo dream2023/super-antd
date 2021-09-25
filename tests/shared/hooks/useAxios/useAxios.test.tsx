@@ -3,7 +3,8 @@ import { renderHook } from '@testing-library/react-hooks';
 import axios from 'axios';
 import React, { FC } from 'react';
 
-import { AxiosHooksOptions, SuperProvider, useAxios } from 'super-antd';
+import { AxiosHooksOptions, useAxios } from '@/shared';
+import { SuperProvider } from 'super-antd';
 
 describe('useAxios', () => {
   const Demo: FC<AxiosHooksOptions> = (props) => {

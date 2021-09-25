@@ -1,4 +1,11 @@
-import { getColon, getLabel, getLinkageValue, getName, getOppositionValue, getPlaceholder } from 'super-antd';
+import {
+  getColon,
+  getLabel,
+  getLinkageValue,
+  getName,
+  getOppositionValue,
+  getPlaceholder,
+} from '@/form-item/src/utils';
 
 describe('form-item utils', () => {
   describe('getLinkageValue', () => {
@@ -15,7 +22,7 @@ describe('form-item utils', () => {
     });
 
     test('当值不存在，其 linkageFn 为函数时，返回执行后的值', () => {
-      expect(getLinkageValue({ linkageFn: (data) => data.name, data: { name: 'foo' } })).toBe(true);
+      expect(getLinkageValue({ linkageFn: (data: any) => data.name, data: { name: 'foo' } })).toBe(true);
     });
   });
 

@@ -19,7 +19,7 @@ import {
   toUpperCase,
   trim,
   truncate,
-} from 'super-antd';
+} from '@/shared';
 
 const o = { a: 'a' };
 describe('filters', () => {

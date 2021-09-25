@@ -1,4 +1,4 @@
-import { getBtn, getBtnText, getBtns } from 'super-antd';
+import { getBtn, getBtnText, getBtns } from '@/form/src/utils';
 
 describe('SuperForm utils', () => {
   describe('getBtnText', () => {

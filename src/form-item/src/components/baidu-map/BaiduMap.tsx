@@ -71,7 +71,7 @@ const BaiduMapContent: FC<Omit<BaiduMapProps, 'ak' | 'placeholder'>> = ({
     if (!position || !onChange) return;
 
     // 根据经纬度获取地址
-    geoc.getLocation(position, function (rs) {
+    geoc.getLocation(position, (rs) => {
       onChange({ ...position, address: rs.address });
     });
   };

@@ -1,4 +1,4 @@
-import { getTag, getTypeString } from 'super-antd';
+import { getTag, getTypeString } from '@/shared';
 
 test('getTypeString', () => {
   expect(getTypeString(undefined)).toBe('[object Undefined]');
