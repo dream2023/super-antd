@@ -1,8 +1,8 @@
+import type { ApiType } from '@/shared/src/hooks/useAxios/types';
 import type { UploadProps } from 'antd';
 import type { UploadFile } from 'antd/lib/upload/interface';
 import React, { FC } from 'react';
 
-import type { ApiType } from '@/shared/src/hooks/useAxios/types';
 
 /**
  * 图片限制
@@ -132,6 +132,6 @@ export interface IImageUploaderProps {
   dataApi?: ApiType;
 }
 
-export const ImageUploaderDemo: FC<IImageUploaderProps> = () => <div>Demo!</div>;
+export const IUploaderDemo: FC<IImageUploaderProps> = () => <div>Demo!</div>;
 
-export default ImageUploaderDemo;
+export default IUploaderDemo;
